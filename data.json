@@ -135,17 +135,50 @@
     "linkAnuncio": "https://imoveis.novovista.com.br/?v2=a2V5PWM1NjcwMzJkNThlYWMyMjM2NjcwMzExMTMwMTc5MTg2JmNvZD03NDE0ODI1MiZkPTIzMTU4JmNzPTIzNiZtYXBhPU5hbyZiYWlycm9fY29tZXJjaWFsPVNpbSZsb2dpbj1uYW8mc3RhdHVzPUElMkJWRU5EQSZwdXJwb3NlPSU1QiUyMnZlbmRhJTIyJTVEJmNvZF9lbT04NDE",
     "status": "novo",
     "avaliacoes": {
-      "estadoGeral": { "nota": 0, "comentario": "" },
-      "banheiroP": { "nota": 0, "comentario": "" },
-      "outrosBanheiros": { "nota": 0, "comentario": "" },
-      "cozinha": { "nota": 0, "comentario": "" },
-      "areaServico": { "nota": 0, "comentario": "" },
-      "quartosArmarios": { "nota": 0, "comentario": "" },
-      "pisoAcabamento": { "nota": 0, "comentario": "" },
-      "sacada": { "nota": 0, "comentario": "" },
-      "localizacao": { "nota": 0, "comentario": "" },
-      "elevador": { "nota": 0, "comentario": "" },
-      "custoBeneficio": { "nota": 0, "comentario": "" }
+      "estadoGeral": {
+        "nota": 0,
+        "comentario": ""
+      },
+      "banheiroP": {
+        "nota": 0,
+        "comentario": ""
+      },
+      "outrosBanheiros": {
+        "nota": 0,
+        "comentario": ""
+      },
+      "cozinha": {
+        "nota": 0,
+        "comentario": ""
+      },
+      "areaServico": {
+        "nota": 0,
+        "comentario": ""
+      },
+      "quartosArmarios": {
+        "nota": 0,
+        "comentario": ""
+      },
+      "pisoAcabamento": {
+        "nota": 0,
+        "comentario": ""
+      },
+      "sacada": {
+        "nota": 0,
+        "comentario": ""
+      },
+      "localizacao": {
+        "nota": 0,
+        "comentario": ""
+      },
+      "elevador": {
+        "nota": 0,
+        "comentario": ""
+      },
+      "custoBeneficio": {
+        "nota": 0,
+        "comentario": ""
+      }
     },
     "visita": null,
     "createdAt": "2026-04-13T12:00:00.000Z"
@@ -173,17 +206,50 @@
     "linkAnuncio": "https://www.chavesnamao.com.br/imovel/apartamento-a-venda-3-quartos-com-garagem-sc-florianopolis-itacorubi-97m2-RS875000/id-41170813/",
     "status": "novo",
     "avaliacoes": {
-      "estadoGeral": { "nota": 0, "comentario": "" },
-      "banheiroP": { "nota": 0, "comentario": "" },
-      "outrosBanheiros": { "nota": 0, "comentario": "" },
-      "cozinha": { "nota": 0, "comentario": "" },
-      "areaServico": { "nota": 0, "comentario": "" },
-      "quartosArmarios": { "nota": 0, "comentario": "" },
-      "pisoAcabamento": { "nota": 0, "comentario": "" },
-      "sacada": { "nota": 0, "comentario": "" },
-      "localizacao": { "nota": 0, "comentario": "" },
-      "elevador": { "nota": 0, "comentario": "" },
-      "custoBeneficio": { "nota": 0, "comentario": "" }
+      "estadoGeral": {
+        "nota": 0,
+        "comentario": ""
+      },
+      "banheiroP": {
+        "nota": 0,
+        "comentario": ""
+      },
+      "outrosBanheiros": {
+        "nota": 0,
+        "comentario": ""
+      },
+      "cozinha": {
+        "nota": 0,
+        "comentario": ""
+      },
+      "areaServico": {
+        "nota": 0,
+        "comentario": ""
+      },
+      "quartosArmarios": {
+        "nota": 0,
+        "comentario": ""
+      },
+      "pisoAcabamento": {
+        "nota": 0,
+        "comentario": ""
+      },
+      "sacada": {
+        "nota": 0,
+        "comentario": ""
+      },
+      "localizacao": {
+        "nota": 0,
+        "comentario": ""
+      },
+      "elevador": {
+        "nota": 0,
+        "comentario": ""
+      },
+      "custoBeneficio": {
+        "nota": 0,
+        "comentario": ""
+      }
     },
     "visita": null,
     "createdAt": "2026-04-13T13:00:00.000Z"
@@ -211,17 +277,50 @@
     "linkAnuncio": "https://www.chavesnamao.com.br/imovel/apartamento-a-venda-3-quartos-com-garagem-sc-florianopolis-corrego-grande-117m2-RS795000/id-40309464/",
     "status": "novo",
     "avaliacoes": {
-      "estadoGeral": { "nota": 0, "comentario": "" },
-      "banheiroP": { "nota": 0, "comentario": "" },
-      "outrosBanheiros": { "nota": 0, "comentario": "" },
-      "cozinha": { "nota": 0, "comentario": "" },
-      "areaServico": { "nota": 0, "comentario": "" },
-      "quartosArmarios": { "nota": 0, "comentario": "" },
-      "pisoAcabamento": { "nota": 0, "comentario": "" },
-      "sacada": { "nota": 0, "comentario": "" },
-      "localizacao": { "nota": 0, "comentario": "" },
-      "elevador": { "nota": 0, "comentario": "" },
-      "custoBeneficio": { "nota": 0, "comentario": "" }
+      "estadoGeral": {
+        "nota": 0,
+        "comentario": ""
+      },
+      "banheiroP": {
+        "nota": 0,
+        "comentario": ""
+      },
+      "outrosBanheiros": {
+        "nota": 0,
+        "comentario": ""
+      },
+      "cozinha": {
+        "nota": 0,
+        "comentario": ""
+      },
+      "areaServico": {
+        "nota": 0,
+        "comentario": ""
+      },
+      "quartosArmarios": {
+        "nota": 0,
+        "comentario": ""
+      },
+      "pisoAcabamento": {
+        "nota": 0,
+        "comentario": ""
+      },
+      "sacada": {
+        "nota": 0,
+        "comentario": ""
+      },
+      "localizacao": {
+        "nota": 0,
+        "comentario": ""
+      },
+      "elevador": {
+        "nota": 0,
+        "comentario": ""
+      },
+      "custoBeneficio": {
+        "nota": 0,
+        "comentario": ""
+      }
     },
     "visita": null,
     "createdAt": "2026-04-13T13:01:00.000Z"
@@ -249,56 +348,53 @@
     "linkAnuncio": "https://www.chavesnamao.com.br/imovel/apartamento-a-venda-2-quartos-com-garagem-sc-florianopolis-itacorubi-12987m2-RS870000/id-41034994/",
     "status": "novo",
     "avaliacoes": {
-      "estadoGeral": { "nota": 0, "comentario": "" },
-      "banheiroP": { "nota": 0, "comentario": "" },
-      "outrosBanheiros": { "nota": 0, "comentario": "" },
-      "cozinha": { "nota": 0, "comentario": "" },
-      "areaServico": { "nota": 0, "comentario": "" },
-      "quartosArmarios": { "nota": 0, "comentario": "" },
-      "pisoAcabamento": { "nota": 0, "comentario": "" },
-      "sacada": { "nota": 0, "comentario": "" },
-      "localizacao": { "nota": 0, "comentario": "" },
-      "elevador": { "nota": 0, "comentario": "" },
-      "custoBeneficio": { "nota": 0, "comentario": "" }
+      "estadoGeral": {
+        "nota": 0,
+        "comentario": ""
+      },
+      "banheiroP": {
+        "nota": 0,
+        "comentario": ""
+      },
+      "outrosBanheiros": {
+        "nota": 0,
+        "comentario": ""
+      },
+      "cozinha": {
+        "nota": 0,
+        "comentario": ""
+      },
+      "areaServico": {
+        "nota": 0,
+        "comentario": ""
+      },
+      "quartosArmarios": {
+        "nota": 0,
+        "comentario": ""
+      },
+      "pisoAcabamento": {
+        "nota": 0,
+        "comentario": ""
+      },
+      "sacada": {
+        "nota": 0,
+        "comentario": ""
+      },
+      "localizacao": {
+        "nota": 0,
+        "comentario": ""
+      },
+      "elevador": {
+        "nota": 0,
+        "comentario": ""
+      },
+      "custoBeneficio": {
+        "nota": 0,
+        "comentario": ""
+      }
     },
     "visita": null,
     "createdAt": "2026-04-13T13:02:00.000Z"
-  },
-  {
-    "id": "apt_corrego_grande_2875870782",
-    "fotos": [],
-    "endereco": "Córrego Grande, Florianópolis",
-    "preco": "830000",
-    "condominio": "",
-    "iptu": "",
-    "quartos": "4",
-    "banheiros": "",
-    "vagas": "1",
-    "area": "118",
-    "andar": "",
-    "sacada": false,
-    "elevador": false,
-    "churrasqueiraApt": false,
-    "condPiscina": false,
-    "condSalaoFestas": false,
-    "condChurrasqueira": false,
-    "linkAnuncio": "https://www.vivareal.com.br/imovel/apartamento-4-quartos-corrego-grande-bairros-florianopolis-com-garagem-118m2-venda-RS830000-id-2875870782/",
-    "status": "novo",
-    "avaliacoes": {
-      "estadoGeral": { "nota": 0, "comentario": "" },
-      "banheiroP": { "nota": 0, "comentario": "" },
-      "outrosBanheiros": { "nota": 0, "comentario": "" },
-      "cozinha": { "nota": 0, "comentario": "" },
-      "areaServico": { "nota": 0, "comentario": "" },
-      "quartosArmarios": { "nota": 0, "comentario": "" },
-      "pisoAcabamento": { "nota": 0, "comentario": "" },
-      "sacada": { "nota": 0, "comentario": "" },
-      "localizacao": { "nota": 0, "comentario": "" },
-      "elevador": { "nota": 0, "comentario": "" },
-      "custoBeneficio": { "nota": 0, "comentario": "" }
-    },
-    "visita": null,
-    "createdAt": "2026-04-13T13:03:00.000Z"
   },
   {
     "id": "apt_campeche_34431787",
@@ -323,17 +419,50 @@
     "linkAnuncio": "https://www.chavesnamao.com.br/imovel/cobertura-a-venda-3-quartos-com-garagem-sc-florianopolis-campeche-250m2-RS879999/id-34431787/",
     "status": "novo",
     "avaliacoes": {
-      "estadoGeral": { "nota": 0, "comentario": "" },
-      "banheiroP": { "nota": 0, "comentario": "" },
-      "outrosBanheiros": { "nota": 0, "comentario": "" },
-      "cozinha": { "nota": 0, "comentario": "" },
-      "areaServico": { "nota": 0, "comentario": "" },
-      "quartosArmarios": { "nota": 0, "comentario": "" },
-      "pisoAcabamento": { "nota": 0, "comentario": "" },
-      "sacada": { "nota": 0, "comentario": "" },
-      "localizacao": { "nota": 0, "comentario": "" },
-      "elevador": { "nota": 0, "comentario": "" },
-      "custoBeneficio": { "nota": 0, "comentario": "" }
+      "estadoGeral": {
+        "nota": 0,
+        "comentario": ""
+      },
+      "banheiroP": {
+        "nota": 0,
+        "comentario": ""
+      },
+      "outrosBanheiros": {
+        "nota": 0,
+        "comentario": ""
+      },
+      "cozinha": {
+        "nota": 0,
+        "comentario": ""
+      },
+      "areaServico": {
+        "nota": 0,
+        "comentario": ""
+      },
+      "quartosArmarios": {
+        "nota": 0,
+        "comentario": ""
+      },
+      "pisoAcabamento": {
+        "nota": 0,
+        "comentario": ""
+      },
+      "sacada": {
+        "nota": 0,
+        "comentario": ""
+      },
+      "localizacao": {
+        "nota": 0,
+        "comentario": ""
+      },
+      "elevador": {
+        "nota": 0,
+        "comentario": ""
+      },
+      "custoBeneficio": {
+        "nota": 0,
+        "comentario": ""
+      }
     },
     "visita": null,
     "createdAt": "2026-04-13T13:04:00.000Z"
@@ -361,17 +490,50 @@
     "linkAnuncio": "https://www.chavesnamao.com.br/imovel/apartamento-a-venda-3-quartos-com-garagem-sc-florianopolis-trindade-142m2-RS893000/id-37395863/",
     "status": "novo",
     "avaliacoes": {
-      "estadoGeral": { "nota": 0, "comentario": "" },
-      "banheiroP": { "nota": 0, "comentario": "" },
-      "outrosBanheiros": { "nota": 0, "comentario": "" },
-      "cozinha": { "nota": 0, "comentario": "" },
-      "areaServico": { "nota": 0, "comentario": "" },
-      "quartosArmarios": { "nota": 0, "comentario": "" },
-      "pisoAcabamento": { "nota": 0, "comentario": "" },
-      "sacada": { "nota": 0, "comentario": "" },
-      "localizacao": { "nota": 0, "comentario": "" },
-      "elevador": { "nota": 0, "comentario": "" },
-      "custoBeneficio": { "nota": 0, "comentario": "" }
+      "estadoGeral": {
+        "nota": 0,
+        "comentario": ""
+      },
+      "banheiroP": {
+        "nota": 0,
+        "comentario": ""
+      },
+      "outrosBanheiros": {
+        "nota": 0,
+        "comentario": ""
+      },
+      "cozinha": {
+        "nota": 0,
+        "comentario": ""
+      },
+      "areaServico": {
+        "nota": 0,
+        "comentario": ""
+      },
+      "quartosArmarios": {
+        "nota": 0,
+        "comentario": ""
+      },
+      "pisoAcabamento": {
+        "nota": 0,
+        "comentario": ""
+      },
+      "sacada": {
+        "nota": 0,
+        "comentario": ""
+      },
+      "localizacao": {
+        "nota": 0,
+        "comentario": ""
+      },
+      "elevador": {
+        "nota": 0,
+        "comentario": ""
+      },
+      "custoBeneficio": {
+        "nota": 0,
+        "comentario": ""
+      }
     },
     "visita": null,
     "createdAt": "2026-04-13T13:05:00.000Z"
