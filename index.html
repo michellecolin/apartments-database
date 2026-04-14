@@ -164,6 +164,7 @@ const defaultApt = () => ({
     acc[c.key] = { nota: 0, comentario: '' };
     return acc;
   }, {}),
+  visita: null,
   createdAt: new Date().toISOString(),
 });
 
@@ -465,106 +466,284 @@ function ApartmentForm({ apt, onSave, onClose }) {
 // ============================================================
 // ApartmentDetail
 // ============================================================
-function ApartmentDetail({ apt, onClose, onEdit, onStatusChange, onDelete }) {
+function ApartmentDetail({ apt, onClose, onEdit, onStatusChange, onDelete, onRateChange, onCommentChange, onSaveComments, onVisitChange }) {
   const media = calcMedia(apt.avaliacoes);
+  const [photoIdx, setPhotoIdx] = useState(0);
+  const [editingVisit, setEditingVisit] = useState(false);
+  const [expandedEval, setExpandedEval] = useState(null);
+  const [visitDate, setVisitDate] = useState(apt.visita?.data || '');
+  const [visitTime, setVisitTime] = useState(apt.visita?.hora || '');
+  const custoMensal = (parseFloat(apt.condominio) || 0) + (parseFloat(apt.iptu) || 0);
+
+  const saveVisit = () => {
+    if (visitDate) {
+      onVisitChange(apt.id, { data: visitDate, hora: visitTime });
+    } else {
+      onVisitChange(apt.id, null);
+    }
+    setEditingVisit(false);
+  };
+
+  const clearVisit = () => {
+    onVisitChange(apt.id, null);
+    setVisitDate('');
+    setVisitTime('');
+    setEditingVisit(false);
+  };
+
+  const fmtVisitDate = (dateStr) => {
+    const d = new Date(dateStr + 'T12:00:00');
+    return d.toLocaleDateString('pt-BR', { weekday: 'long', day: 'numeric', month: 'long' });
+  };
+
+  const prevPhoto = () => setPhotoIdx(i => i > 0 ? i - 1 : apt.fotos.length - 1);
+  const nextPhoto = () => setPhotoIdx(i => i < apt.fotos.length - 1 ? i + 1 : 0);
+
+  const features = [
+    ['Sacada', apt.sacada],
+    ['Elevador', apt.elevador],
+    ['Churrasqueira', apt.churrasqueiraApt],
+    ['Salão de festas', apt.condSalaoFestas],
+    ['Churrasq. cond.', apt.condChurrasqueira],
+    ['Piscina', apt.condPiscina],
+  ];
+
   return (
-    <div className="fade-in" style={{ maxWidth: 900, margin: '0 auto', padding: '24px 16px' }}>
-      <div style={{ marginBottom: 24, display: 'flex', justifyContent: 'space-between', alignItems: 'center' }}>
-        <button className="btn" onClick={onClose}>← Voltar</button>
+    <div className="fade-in" style={{ maxWidth: 860, margin: '0 auto', padding: '24px 16px' }}>
+      {/* Top bar */}
+      <div style={{ display: 'flex', justifyContent: 'space-between', alignItems: 'center', marginBottom: 20 }}>
+        <button onClick={onClose} style={{ fontSize: 14, fontWeight: 500, color: 'var(--text-secondary)', cursor: 'pointer', background: 'none', border: 'none', display: 'flex', alignItems: 'center', gap: 6 }}>← Voltar</button>
         <div style={{ display: 'flex', gap: 8 }}>
-          <button className="btn" onClick={() => onEdit(apt)}>✏️ Editar</button>
-          <button className="btn btn-danger" onClick={() => onDelete(apt.id)}>🗑 Excluir</button>
+          <button className="btn btn-sm" onClick={() => onEdit(apt)}>Editar</button>
+          <button className="btn btn-sm btn-danger" onClick={() => onDelete(apt.id)}>Excluir</button>
         </div>
       </div>
 
-      <div style={{ display: 'flex', alignItems: 'center', gap: 12, marginBottom: 20 }}>
-        <h1 style={{ fontFamily: 'var(--font-display)', fontSize: 28, fontWeight: 700 }}>{apt.endereco || 'Sem endereço'}</h1>
+      {/* Title + badge */}
+      <div style={{ display: 'flex', alignItems: 'center', gap: 10, marginBottom: 16, flexWrap: 'wrap' }}>
+        <h2 style={{ fontFamily: 'var(--font-display)', fontSize: 22, fontWeight: 500, color: 'var(--text)' }}>{apt.endereco || 'Sem endereço'}</h2>
         <StatusBadge status={apt.status} />
       </div>
 
+      {/* Status pills */}
+      <div style={{ display: 'flex', gap: 6, marginBottom: 20, flexWrap: 'wrap' }}>
+        {STATUSES.map(s => (
+          <button key={s.value} onClick={() => onStatusChange(apt.id, s.value)} style={{
+            padding: '5px 12px', borderRadius: 20, fontSize: 12, fontWeight: 500, cursor: 'pointer',
+            border: '1px solid var(--border)', transition: 'all 0.15s',
+            background: apt.status === s.value ? 'var(--accent)' : 'var(--bg-card)',
+            color: apt.status === s.value ? 'white' : 'var(--text-secondary)',
+            borderColor: apt.status === s.value ? 'var(--accent)' : 'var(--border)',
+          }}>{s.emoji} {s.label}</button>
+        ))}
+      </div>
+
+      {/* Photo gallery */}
       {apt.fotos.length > 0 && (
-        <div style={{ marginBottom: 28 }}>
-          {apt.fotos[0] && (
-            <img src={apt.fotos[0]} alt="" referrerPolicy="no-referrer" style={{ width: '100%', height: 400, objectFit: 'cover', borderRadius: 'var(--radius)', marginBottom: 12 }}
+        <div style={{ marginBottom: 20 }}>
+          <div style={{ position: 'relative', borderRadius: 'var(--radius)', overflow: 'hidden', background: 'var(--bg-hover)' }}>
+            <img src={apt.fotos[photoIdx]} alt="" referrerPolicy="no-referrer"
+              style={{ width: '100%', height: 320, objectFit: 'cover', display: 'block' }}
               onError={e => { e.target.style.display = 'none'; }} />
-          )}
+            {apt.fotos.length > 1 && (
+              <>
+                <button onClick={prevPhoto} style={{
+                  position: 'absolute', top: '50%', left: 12, transform: 'translateY(-50%)',
+                  width: 36, height: 36, borderRadius: '50%', background: 'rgba(255,255,255,0.9)',
+                  border: 'none', cursor: 'pointer', fontSize: 16, color: 'var(--text)', zIndex: 2,
+                  display: 'flex', alignItems: 'center', justifyContent: 'center',
+                }}>‹</button>
+                <button onClick={nextPhoto} style={{
+                  position: 'absolute', top: '50%', right: 12, transform: 'translateY(-50%)',
+                  width: 36, height: 36, borderRadius: '50%', background: 'rgba(255,255,255,0.9)',
+                  border: 'none', cursor: 'pointer', fontSize: 16, color: 'var(--text)', zIndex: 2,
+                  display: 'flex', alignItems: 'center', justifyContent: 'center',
+                }}>›</button>
+              </>
+            )}
+            <div style={{ position: 'absolute', bottom: 12, right: 12, background: 'rgba(0,0,0,0.6)', color: 'white', padding: '3px 10px', borderRadius: 12, fontSize: 12, fontWeight: 500 }}>
+              {photoIdx + 1} / {apt.fotos.length}
+            </div>
+          </div>
           {apt.fotos.length > 1 && (
-            <div style={{ display: 'grid', gridTemplateColumns: 'repeat(auto-fill, minmax(160px, 1fr))', gap: 8 }}>
-              {apt.fotos.slice(1).map((f, i) => (
-                <img key={i} src={f} alt="" referrerPolicy="no-referrer" style={{ width: '100%', height: 120, objectFit: 'cover', borderRadius: 'var(--radius-sm)' }}
-                  onError={e => { e.target.style.display = 'none'; }} />
+            <div style={{ display: 'flex', gap: 6, marginTop: 8, overflowX: 'auto', paddingBottom: 4 }}>
+              {apt.fotos.slice(0, 8).map((f, i) => (
+                <div key={i} onClick={() => setPhotoIdx(i)} style={{
+                  width: 64, height: 48, borderRadius: 6, overflow: 'hidden', cursor: 'pointer', flexShrink: 0,
+                  border: photoIdx === i ? '2px solid var(--accent)' : '2px solid transparent',
+                }}>
+                  <img src={f} alt="" referrerPolicy="no-referrer" style={{ width: '100%', height: '100%', objectFit: 'cover' }}
+                    onError={e => { e.target.style.background = 'var(--bg-hover)'; e.target.style.display = 'none'; }} />
+                </div>
               ))}
             </div>
           )}
         </div>
       )}
 
-      <div style={{ display: 'grid', gridTemplateColumns: 'repeat(auto-fit, minmax(160px, 1fr))', gap: 16, marginBottom: 28 }}>
-        {[
-          ['Preço', fmt(apt.preco)],
-          ['Condomínio', fmt(apt.condominio)],
-          ['IPTU', fmt(apt.iptu)],
-          ['Quartos', apt.quartos || '—'],
-          ['Banheiros', apt.banheiros || '—'],
-          ['Vagas', apt.vagas || '—'],
-          ['Área', apt.area ? `${fmtNum(apt.area)} m²` : '—'],
-          ['Andar', apt.andar || '—'],
-          ['Sacada', apt.sacada ? 'Sim ✓' : 'Não'],
-          ['Elevador', apt.elevador ? 'Sim ✓' : 'Não'],
-          ['Churrasqueira (apt)', apt.churrasqueiraApt ? 'Sim ✓' : 'Não'],
-          ['Piscina (cond)', apt.condPiscina ? 'Sim ✓' : 'Não'],
-          ['Salão de Festas (cond)', apt.condSalaoFestas ? 'Sim ✓' : 'Não'],
-          ['Churrasqueira (cond)', apt.condChurrasqueira ? 'Sim ✓' : 'Não'],
-        ].map(([label, val]) => (
-          <div key={label} style={{ padding: 14, background: 'var(--bg-card)', borderRadius: 'var(--radius-sm)', border: '1px solid var(--border)' }}>
-            <div style={{ fontSize: 12, color: 'var(--text-muted)', marginBottom: 4 }}>{label}</div>
-            <div style={{ fontSize: 15, fontWeight: 600 }}>{val}</div>
-          </div>
-        ))}
-      </div>
-
+      {/* Link bar */}
       {apt.linkAnuncio && (
-        <a href={apt.linkAnuncio} target="_blank" rel="noopener noreferrer"
-          style={{ display: 'inline-flex', alignItems: 'center', gap: 6, color: 'var(--accent)', fontSize: 14, fontWeight: 500, marginBottom: 24, textDecoration: 'none' }}>
-          🔗 Ver anúncio original
+        <a href={apt.linkAnuncio} target="_blank" rel="noopener noreferrer" style={{
+          display: 'flex', alignItems: 'center', gap: 8, padding: '10px 14px',
+          background: 'var(--accent-light)', borderRadius: 'var(--radius-sm)', marginBottom: 20,
+          fontSize: 13, textDecoration: 'none', cursor: 'pointer',
+        }}>
+          <span style={{ color: 'var(--accent-dark)', fontWeight: 500 }}>Ver anúncio</span>
+          <span style={{ color: 'var(--text-secondary)', flex: 1, overflow: 'hidden', textOverflow: 'ellipsis', whiteSpace: 'nowrap' }}>{apt.linkAnuncio.replace(/^https?:\/\//, '').substring(0, 60)}...</span>
+          <span style={{ fontSize: 14 }}>↗</span>
         </a>
       )}
 
-      <h3 style={{ fontFamily: 'var(--font-display)', fontSize: 20, fontWeight: 600, marginBottom: 16 }}>Avaliações</h3>
-      <div style={{ display: 'flex', flexDirection: 'column', gap: 12, marginBottom: 16 }}>
-        {EVALUATION_CATEGORIES.map(cat => {
-          const av = apt.avaliacoes[cat.key];
-          if (!av) return null;
-          return (
-            <div key={cat.key} style={{ padding: 14, background: 'var(--bg-card)', borderRadius: 'var(--radius-sm)', border: '1px solid var(--border)' }}>
-              <div style={{ display: 'flex', justifyContent: 'space-between', alignItems: 'center' }}>
-                <span style={{ fontSize: 14, fontWeight: 500 }}>{cat.label}</span>
-                <StarRating value={av.nota} readonly />
-              </div>
-              {av.comentario && (
-                <p style={{ fontSize: 13, color: 'var(--text-secondary)', marginTop: 6, fontStyle: 'italic' }}>
-                  "{av.comentario}"
-                </p>
-              )}
+      {/* Visit banner */}
+      {editingVisit ? (
+        <div style={{ padding: '14px 16px', background: 'var(--green-light)', borderRadius: 10, marginBottom: 20, display: 'flex', alignItems: 'flex-end', gap: 12, flexWrap: 'wrap' }}>
+          <div style={{ flex: '1 1 140px' }}>
+            <label style={{ fontSize: 12, fontWeight: 500, color: 'var(--green)', display: 'block', marginBottom: 4 }}>Data</label>
+            <input className="input" type="date" value={visitDate} onChange={e => setVisitDate(e.target.value)}
+              style={{ background: 'white', borderColor: 'var(--green)' }} />
+          </div>
+          <div style={{ flex: '0 1 100px' }}>
+            <label style={{ fontSize: 12, fontWeight: 500, color: 'var(--green)', display: 'block', marginBottom: 4 }}>Hora</label>
+            <input className="input" type="time" value={visitTime} onChange={e => setVisitTime(e.target.value)}
+              style={{ background: 'white', borderColor: 'var(--green)' }} />
+          </div>
+          <div style={{ display: 'flex', gap: 6 }}>
+            <button className="btn btn-sm" onClick={saveVisit} style={{ background: 'var(--green)', color: 'white', borderColor: 'var(--green)' }}>Salvar</button>
+            {apt.visita && <button className="btn btn-sm btn-danger" onClick={clearVisit}>Remover</button>}
+            <button className="btn btn-sm" onClick={() => setEditingVisit(false)}>Cancelar</button>
+          </div>
+        </div>
+      ) : apt.visita ? (
+        <div style={{ padding: '14px 16px', background: 'var(--green-light)', borderRadius: 10, marginBottom: 20, display: 'flex', alignItems: 'center', justifyContent: 'space-between' }}>
+          <div>
+            <div style={{ fontSize: 12, color: 'var(--green)', fontWeight: 500 }}>Visita agendada</div>
+            <div style={{ fontSize: 15, color: '#173404', fontWeight: 500 }}>
+              {fmtVisitDate(apt.visita.data)}{apt.visita.hora ? ` · ${apt.visita.hora}` : ''}
             </div>
-          );
-        })}
+          </div>
+          <button onClick={() => setEditingVisit(true)} style={{
+            padding: '6px 14px', borderRadius: 8, fontSize: 12, fontWeight: 500, cursor: 'pointer',
+            border: '1px solid var(--green)', background: 'white', color: 'var(--green)',
+          }}>Reagendar</button>
+        </div>
+      ) : (
+        <div style={{ padding: '14px 16px', background: 'var(--bg-card)', border: '1px dashed var(--border)', borderRadius: 10, marginBottom: 20, display: 'flex', alignItems: 'center', justifyContent: 'space-between' }}>
+          <span style={{ fontSize: 13, color: 'var(--text-muted)' }}>Nenhuma visita agendada</span>
+          <button onClick={() => setEditingVisit(true)} style={{
+            padding: '6px 14px', borderRadius: 8, fontSize: 12, fontWeight: 500, cursor: 'pointer',
+            border: '1px solid var(--border)', background: 'var(--bg-card)', color: 'var(--text-secondary)',
+          }}>Agendar visita</button>
+        </div>
+      )}
+
+      {/* Two columns: Valores + Características */}
+      <div style={{ display: 'grid', gridTemplateColumns: '1fr 1fr', gap: 20, marginBottom: 24 }}>
+        {/* Valores */}
+        <div style={{ background: 'var(--bg-card)', border: '1px solid var(--border)', borderRadius: 10, padding: 16 }}>
+          <div style={{ fontSize: 13, fontWeight: 500, color: 'var(--text-secondary)', marginBottom: 12, textTransform: 'uppercase', letterSpacing: 0.5 }}>Valores</div>
+          <div style={{ fontFamily: 'var(--font-display)', fontSize: 26, fontWeight: 500, color: 'var(--accent)', marginBottom: 4 }}>{fmt(apt.preco)}</div>
+          <div style={{ fontSize: 13, color: 'var(--text-secondary)', marginBottom: 12 }}>Preço do imóvel</div>
+          {[
+            ['Condomínio', apt.condominio ? `${fmt(apt.condominio)}/mês` : '—'],
+            ['IPTU', apt.iptu ? `${fmt(apt.iptu)}/mês` : '—'],
+          ].map(([label, val]) => (
+            <div key={label} style={{ display: 'flex', justifyContent: 'space-between', padding: '6px 0', fontSize: 13, borderBottom: '1px solid var(--border)' }}>
+              <span style={{ color: 'var(--text-secondary)' }}>{label}</span>
+              <span style={{ fontWeight: 500, color: 'var(--text)' }}>{val}</span>
+            </div>
+          ))}
+          {custoMensal > 0 && (
+            <div style={{ display: 'flex', justifyContent: 'space-between', paddingTop: 8, fontSize: 13, marginTop: 2 }}>
+              <span style={{ fontWeight: 500, color: 'var(--text-secondary)' }}>Custo mensal</span>
+              <span style={{ fontWeight: 500, color: 'var(--accent)' }}>{fmt(custoMensal)}/mês</span>
+            </div>
+          )}
+        </div>
+
+        {/* Características */}
+        <div style={{ background: 'var(--bg-card)', border: '1px solid var(--border)', borderRadius: 10, padding: 16 }}>
+          <div style={{ fontSize: 13, fontWeight: 500, color: 'var(--text-secondary)', marginBottom: 12, textTransform: 'uppercase', letterSpacing: 0.5 }}>Características</div>
+          <div style={{ display: 'grid', gridTemplateColumns: '1fr 1fr', gap: 8 }}>
+            {[
+              [apt.quartos || '—', 'quartos'],
+              [apt.banheiros || '—', 'banheiros'],
+              [apt.vagas || '—', apt.vagas === '1' ? 'vaga' : 'vagas'],
+              [apt.area ? `${fmtNum(apt.area)} m²` : '—', 'área'],
+              [apt.andar ? `${apt.andar}º` : '—', 'andar'],
+              [apt.elevador ? 'Sim' : 'Não', 'elevador'],
+            ].map(([val, label]) => (
+              <div key={label} style={{ padding: '8px 10px', background: 'var(--bg)', borderRadius: 6 }}>
+                <div style={{ fontSize: 16, fontWeight: 500, color: 'var(--text)' }}>{val}</div>
+                <div style={{ fontSize: 11, color: 'var(--text-secondary)', marginTop: 1 }}>{label}</div>
+              </div>
+            ))}
+          </div>
+          <div style={{ display: 'flex', flexWrap: 'wrap', gap: 6, marginTop: 12 }}>
+            {features.map(([label, active]) => (
+              <span key={label} style={{
+                padding: '4px 10px', borderRadius: 14, fontSize: 12, fontWeight: 500,
+                background: active ? 'var(--green-light)' : 'var(--bg)',
+                color: active ? 'var(--green)' : 'var(--text-muted)',
+              }}>{label}</span>
+            ))}
+          </div>
+        </div>
       </div>
 
-      <div style={{ padding: 16, background: 'var(--accent-light)', borderRadius: 'var(--radius-sm)', display: 'flex', justifyContent: 'space-between', alignItems: 'center', marginBottom: 28 }}>
-        <span style={{ fontSize: 15, fontWeight: 700, color: 'var(--accent-dark)' }}>Nota Geral</span>
-        <span style={{ fontSize: 28, fontWeight: 700, color: 'var(--accent)', fontFamily: 'var(--font-display)' }}>
-          {media.toFixed(1)} <span style={{ fontSize: 14, color: 'var(--text-muted)' }}>/ 5.0</span>
-        </span>
-      </div>
-
-      <div style={{ display: 'flex', gap: 8, flexWrap: 'wrap' }}>
-        {STATUSES.map(s => (
-          <button key={s.value} className={`btn ${apt.status === s.value ? 'btn-primary' : ''}`}
-            onClick={() => onStatusChange(apt.id, s.value)}>
-            {s.emoji} {s.label}
-          </button>
-        ))}
+      {/* Avaliações */}
+      <div style={{ marginBottom: 20 }}>
+        <div style={{ display: 'flex', justifyContent: 'space-between', alignItems: 'center', marginBottom: 12 }}>
+          <div style={{ fontSize: 13, fontWeight: 500, color: 'var(--text-secondary)', textTransform: 'uppercase', letterSpacing: 0.5 }}>Avaliações</div>
+          <div style={{ textAlign: 'right' }}>
+            <div style={{ fontFamily: 'var(--font-display)', fontSize: 28, fontWeight: 500, color: 'var(--accent)' }}>
+              {media.toFixed(1)} <span style={{ fontSize: 13, color: 'var(--text-secondary)', fontFamily: 'var(--font-body)', fontWeight: 400 }}>/ 5</span>
+            </div>
+            <div style={{ fontSize: 11, color: 'var(--text-muted)' }}>nota geral</div>
+          </div>
+        </div>
+        <div style={{ display: 'flex', flexDirection: 'column', gap: 6 }}>
+          {EVALUATION_CATEGORIES.map(cat => {
+            const av = apt.avaliacoes[cat.key];
+            if (!av) return null;
+            const isExpanded = expandedEval === cat.key;
+            return (
+              <div key={cat.key} style={{
+                background: 'var(--bg-card)', border: '1px solid var(--border)', borderRadius: 'var(--radius-sm)',
+                overflow: 'hidden',
+              }}>
+                <div style={{ display: 'flex', alignItems: 'center', padding: '10px 14px' }}>
+                  <span style={{ flex: 1, fontSize: 13, color: 'var(--text)' }}>{cat.label}</span>
+                  <div style={{ display: 'flex', gap: 2 }}>
+                    {[1,2,3,4,5].map(i => (
+                      <span key={i} className="star" onClick={() => {
+                        const newNota = av.nota === i ? 0 : i;
+                        onRateChange(apt.id, cat.key, newNota);
+                        if (newNota > 0 && !isExpanded) setExpandedEval(cat.key);
+                      }}
+                        style={{ fontSize: 14, color: i <= av.nota ? '#C49A3E' : 'var(--border)', cursor: 'pointer' }}>★</span>
+                    ))}
+                  </div>
+                  <span onClick={() => setExpandedEval(isExpanded ? null : cat.key)} style={{
+                    width: 18, height: 18, borderRadius: '50%',
+                    background: av.comentario ? 'var(--yellow-light)' : 'var(--bg)',
+                    display: 'inline-flex', alignItems: 'center', justifyContent: 'center',
+                    fontSize: 10, color: av.comentario ? 'var(--yellow)' : 'var(--text-muted)',
+                    marginLeft: 8, cursor: 'pointer',
+                  }}>💬</span>
+                </div>
+                {isExpanded && (
+                  <div style={{ padding: '0 14px 10px' }}>
+                    <textarea className="input" placeholder="Adicionar comentário..."
+                      value={av.comentario || ''}
+                      onChange={e => onCommentChange(apt.id, cat.key, e.target.value)}
+                      onBlur={onSaveComments}
+                      style={{ minHeight: 40, fontSize: 13 }} />
+                  </div>
+                )}
+              </div>
+            );
+          })}
+        </div>
       </div>
     </div>
   );
@@ -723,8 +902,14 @@ function App() {
   // Filters
   const [search, setSearch] = useState('');
   const [filterStatus, setFilterStatus] = useState('todos');
-  const [filterQuartos, setFilterQuartos] = useState('');
-  const [filterVagas, setFilterVagas] = useState('');
+  const [filterVisita, setFilterVisita] = useState('todos');
+  const [filterPrecoMax, setFilterPrecoMax] = useState('');
+  const [filterCondMax, setFilterCondMax] = useState('');
+  const [filterElevador, setFilterElevador] = useState(false);
+  const [filterSacada, setFilterSacada] = useState(false);
+  const [filterPiscina, setFilterPiscina] = useState(false);
+  const [filterEvals, setFilterEvals] = useState({});
+  const [showMoreFilters, setShowMoreFilters] = useState(false);
   const [sortBy, setSortBy] = useState('createdAt');
   const [sortDir, setSortDir] = useState('desc');
 
@@ -777,12 +962,47 @@ function App() {
     setDetailApt(prev => prev && prev.id === id ? { ...prev, status } : prev);
   };
 
+  const handleRateChange = (id, catKey, nota) => {
+    const next = apartments.map(a => {
+      if (a.id !== id) return a;
+      return { ...a, avaliacoes: { ...a.avaliacoes, [catKey]: { ...a.avaliacoes[catKey], nota } } };
+    });
+    persist(next);
+  };
+
+  const handleCommentChange = (id, catKey, comentario) => {
+    const next = apartments.map(a => {
+      if (a.id !== id) return a;
+      return { ...a, avaliacoes: { ...a.avaliacoes, [catKey]: { ...a.avaliacoes[catKey], comentario } } };
+    });
+    setApartments(next);
+  };
+
+  const saveComments = () => persist(apartments);
+
+  const handleVisitChange = (id, visita) => {
+    const next = apartments.map(a => a.id === id ? { ...a, visita } : a);
+    persist(next);
+  };
+
   const toggleCompare = (id) => {
     setCompareIds(prev => {
       if (prev.includes(id)) return prev.filter(x => x !== id);
       if (prev.length >= 3) { showToast('Máximo 3 para comparar', 'info'); return prev; }
       return [...prev, id];
     });
+  };
+
+  const activeFilterCount = [
+    filterStatus !== 'todos', filterVisita !== 'todos', filterPrecoMax, filterCondMax,
+    filterElevador, filterSacada, filterPiscina, ...Object.values(filterEvals).map(v => v > 0),
+  ].filter(Boolean).length;
+
+  const clearFilters = () => {
+    setSearch(''); setFilterStatus('todos'); setFilterVisita('todos');
+    setFilterPrecoMax(''); setFilterCondMax('');
+    setFilterElevador(false); setFilterSacada(false); setFilterPiscina(false);
+    setFilterEvals({});
   };
 
   const filteredApts = useMemo(() => {
@@ -792,8 +1012,16 @@ function App() {
       result = result.filter(a => a.endereco.toLowerCase().includes(s));
     }
     if (filterStatus !== 'todos') result = result.filter(a => a.status === filterStatus);
-    if (filterQuartos) result = result.filter(a => String(a.quartos) === filterQuartos);
-    if (filterVagas) result = result.filter(a => String(a.vagas) === filterVagas);
+    if (filterVisita === 'agendado') result = result.filter(a => a.visita);
+    if (filterVisita === 'sem') result = result.filter(a => !a.visita);
+    if (filterPrecoMax) result = result.filter(a => (parseFloat(a.preco) || 0) <= parseFloat(filterPrecoMax));
+    if (filterCondMax) result = result.filter(a => (parseFloat(a.condominio) || 0) <= parseFloat(filterCondMax));
+    if (filterElevador) result = result.filter(a => a.elevador);
+    if (filterSacada) result = result.filter(a => a.sacada);
+    if (filterPiscina) result = result.filter(a => a.condPiscina);
+    Object.entries(filterEvals).forEach(([key, minNota]) => {
+      if (minNota > 0) result = result.filter(a => (a.avaliacoes[key]?.nota || 0) >= minNota);
+    });
 
     result.sort((a, b) => {
       let va, vb;
@@ -808,7 +1036,7 @@ function App() {
       return va < vb ? 1 : -1;
     });
     return result;
-  }, [apartments, search, filterStatus, filterQuartos, filterVagas, sortBy, sortDir]);
+  }, [apartments, search, filterStatus, filterVisita, filterPrecoMax, filterCondMax, filterElevador, filterSacada, filterPiscina, filterEvals, sortBy, sortDir]);
 
   if (loading) {
     return (
@@ -853,47 +1081,99 @@ function App() {
           <div style={{
             background: 'var(--bg-card)', borderRadius: 'var(--radius)', padding: 16,
             marginBottom: 24, boxShadow: 'var(--shadow-sm)', border: '1px solid var(--border)',
-            display: 'flex', gap: 12, flexWrap: 'wrap', alignItems: 'flex-end',
           }}>
-            <div style={{ flex: '1 1 200px' }}>
-              <label className="label">Buscar</label>
-              <input className="input" placeholder="Endereço..." value={search} onChange={e => setSearch(e.target.value)} />
+            {/* Row 1: search + status + visita + sort */}
+            <div style={{ display: 'flex', gap: 12, flexWrap: 'wrap', alignItems: 'flex-end' }}>
+              <div style={{ flex: '1 1 200px' }}>
+                <label className="label">Bairro / Endereço</label>
+                <input className="input" placeholder="Córrego Grande..." value={search} onChange={e => setSearch(e.target.value)} />
+              </div>
+              <div style={{ flex: '0 1 130px' }}>
+                <label className="label">Status</label>
+                <select className="input" value={filterStatus} onChange={e => setFilterStatus(e.target.value)}>
+                  <option value="todos">Todos</option>
+                  {STATUSES.map(s => <option key={s.value} value={s.value}>{s.label}</option>)}
+                </select>
+              </div>
+              <div style={{ flex: '0 1 130px' }}>
+                <label className="label">Visita</label>
+                <select className="input" value={filterVisita} onChange={e => setFilterVisita(e.target.value)}>
+                  <option value="todos">Todas</option>
+                  <option value="agendado">Agendadas</option>
+                  <option value="sem">Sem agendamento</option>
+                </select>
+              </div>
+              <div style={{ flex: '0 1 130px' }}>
+                <label className="label">Ordenar por</label>
+                <select className="input" value={sortBy} onChange={e => setSortBy(e.target.value)}>
+                  <option value="createdAt">Data</option>
+                  <option value="preco">Preço</option>
+                  <option value="area">Área</option>
+                  <option value="nota">Nota</option>
+                  <option value="condominio">Condomínio</option>
+                </select>
+              </div>
+              <button className="btn btn-sm" onClick={() => setSortDir(d => d === 'asc' ? 'desc' : 'asc')}
+                style={{ marginBottom: 1 }}>
+                {sortDir === 'asc' ? '↑' : '↓'}
+              </button>
+              <button className="btn btn-sm" onClick={() => setShowMoreFilters(v => !v)}
+                style={{ marginBottom: 1, position: 'relative' }}>
+                {showMoreFilters ? '✕ Menos filtros' : '+ Mais filtros'}
+                {activeFilterCount > 0 && !showMoreFilters && (
+                  <span style={{ position: 'absolute', top: -6, right: -6, background: 'var(--accent)', color: 'white', borderRadius: '50%', width: 18, height: 18, fontSize: 11, fontWeight: 700, display: 'flex', alignItems: 'center', justifyContent: 'center' }}>{activeFilterCount}</span>
+                )}
+              </button>
             </div>
-            <div style={{ flex: '0 1 140px' }}>
-              <label className="label">Status</label>
-              <select className="input" value={filterStatus} onChange={e => setFilterStatus(e.target.value)}>
-                <option value="todos">Todos</option>
-                {STATUSES.map(s => <option key={s.value} value={s.value}>{s.label}</option>)}
-              </select>
-            </div>
-            <div style={{ flex: '0 1 100px' }}>
-              <label className="label">Quartos</label>
-              <select className="input" value={filterQuartos} onChange={e => setFilterQuartos(e.target.value)}>
-                <option value="">Todos</option>
-                {[1,2,3,4,5].map(n => <option key={n} value={n}>{n}</option>)}
-              </select>
-            </div>
-            <div style={{ flex: '0 1 100px' }}>
-              <label className="label">Vagas</label>
-              <select className="input" value={filterVagas} onChange={e => setFilterVagas(e.target.value)}>
-                <option value="">Todas</option>
-                {[0,1,2,3].map(n => <option key={n} value={n}>{n}</option>)}
-              </select>
-            </div>
-            <div style={{ flex: '0 1 140px' }}>
-              <label className="label">Ordenar por</label>
-              <select className="input" value={sortBy} onChange={e => setSortBy(e.target.value)}>
-                <option value="createdAt">Data</option>
-                <option value="preco">Preço</option>
-                <option value="area">Área</option>
-                <option value="nota">Nota</option>
-                <option value="condominio">Condomínio</option>
-              </select>
-            </div>
-            <button className="btn btn-sm" onClick={() => setSortDir(d => d === 'asc' ? 'desc' : 'asc')}
-              style={{ marginBottom: 1 }}>
-              {sortDir === 'asc' ? '↑ Crescente' : '↓ Decrescente'}
-            </button>
+
+            {/* Row 2: expanded filters */}
+            {showMoreFilters && (
+              <div style={{ marginTop: 16, paddingTop: 16, borderTop: '1px solid var(--border)', display: 'flex', flexDirection: 'column', gap: 14 }}>
+                {/* Price + condo */}
+                <div style={{ display: 'flex', gap: 12, flexWrap: 'wrap', alignItems: 'flex-end' }}>
+                  <div style={{ flex: '0 1 160px' }}>
+                    <label className="label">Preço máx (R$)</label>
+                    <input className="input" type="number" placeholder="1000000" value={filterPrecoMax} onChange={e => setFilterPrecoMax(e.target.value)} />
+                  </div>
+                  <div style={{ flex: '0 1 160px' }}>
+                    <label className="label">Condomínio máx (R$)</label>
+                    <input className="input" type="number" placeholder="1000" value={filterCondMax} onChange={e => setFilterCondMax(e.target.value)} />
+                  </div>
+                  <div style={{ display: 'flex', gap: 16, alignItems: 'center', flex: '1 1 auto', flexWrap: 'wrap', paddingBottom: 2 }}>
+                    {[['Elevador', filterElevador, setFilterElevador], ['Sacada', filterSacada, setFilterSacada], ['Piscina', filterPiscina, setFilterPiscina]].map(([label, val, setter]) => (
+                      <label key={label} className="checkbox-wrapper">
+                        <input type="checkbox" checked={val} onChange={e => setter(e.target.checked)} />
+                        <span style={{ fontSize: 13 }}>{label}</span>
+                      </label>
+                    ))}
+                  </div>
+                </div>
+
+                {/* Evaluation filters */}
+                <div>
+                  <label className="label" style={{ marginBottom: 8 }}>Nota mínima por avaliação</label>
+                  <div style={{ display: 'grid', gridTemplateColumns: 'repeat(auto-fill, minmax(220px, 1fr))', gap: 6 }}>
+                    {EVALUATION_CATEGORIES.map(cat => (
+                      <div key={cat.key} style={{ display: 'flex', alignItems: 'center', gap: 8, padding: '6px 10px', background: 'var(--bg)', borderRadius: 6 }}>
+                        <span style={{ flex: 1, fontSize: 12, color: 'var(--text-secondary)' }}>{cat.label}</span>
+                        <div style={{ display: 'flex', gap: 1 }}>
+                          {[1,2,3,4,5].map(i => (
+                            <span key={i} className="star" onClick={() => setFilterEvals(prev => ({ ...prev, [cat.key]: prev[cat.key] === i ? 0 : i }))}
+                              style={{ fontSize: 13, color: i <= (filterEvals[cat.key] || 0) ? '#C49A3E' : 'var(--border)', cursor: 'pointer' }}>★</span>
+                          ))}
+                        </div>
+                      </div>
+                    ))}
+                  </div>
+                </div>
+
+                {activeFilterCount > 0 && (
+                  <button className="btn btn-sm" onClick={clearFilters} style={{ alignSelf: 'flex-start', color: 'var(--red)' }}>
+                    Limpar todos os filtros
+                  </button>
+                )}
+              </div>
+            )}
           </div>
 
           {/* Grid */}
@@ -937,6 +1217,10 @@ function App() {
           onEdit={(apt) => { setEditingApt(apt); setView('form'); }}
           onStatusChange={handleStatusChange}
           onDelete={handleDelete}
+          onRateChange={handleRateChange}
+          onCommentChange={handleCommentChange}
+          onSaveComments={saveComments}
+          onVisitChange={handleVisitChange}
         />
       )}
 

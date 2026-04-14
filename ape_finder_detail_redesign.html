@@ -1,0 +1,210 @@
+
+<h2 class="sr-only">Mockup redesenhado da página de detalhes do apartamento</h2>
+
+<style>
+  .mock { font-family: 'DM Sans', var(--font-sans); max-width: 860px; margin: 0 auto; padding: 1rem 0; }
+  .mock * { box-sizing: border-box; margin: 0; padding: 0; }
+  
+  .top-bar { display: flex; justify-content: space-between; align-items: center; margin-bottom: 20px; }
+  .back-btn { font-size: 14px; font-weight: 500; color: var(--color-text-secondary); cursor: pointer; background: none; border: none; display: flex; align-items: center; gap: 6px; }
+  .action-btns { display: flex; gap: 8px; }
+  .action-btns button { font-size: 13px; padding: 6px 14px; border-radius: 8px; cursor: pointer; border: 0.5px solid var(--color-border-tertiary); background: var(--color-background-primary); color: var(--color-text-primary); font-weight: 500; }
+  
+  .status-row { display: flex; align-items: center; gap: 10px; margin-bottom: 16px; flex-wrap: wrap; }
+  .title { font-family: 'Fraunces', var(--font-serif); font-size: 22px; font-weight: 500; color: var(--color-text-primary); }
+  .badge { padding: 3px 10px; border-radius: 20px; font-size: 11px; font-weight: 500; }
+  .badge-blue { background: #E6F1FB; color: #0C447C; }
+  .badge-green { background: #EAF3DE; color: #27500A; }
+  .badge-amber { background: #FAEEDA; color: #633806; }
+  
+  .status-pills { display: flex; gap: 6px; margin-bottom: 20px; }
+  .pill { padding: 5px 12px; border-radius: 20px; font-size: 12px; font-weight: 500; cursor: pointer; border: 0.5px solid var(--color-border-tertiary); background: var(--color-background-primary); color: var(--color-text-secondary); transition: all 0.15s; }
+  .pill.active { background: #C45D3E; color: white; border-color: #C45D3E; }
+  
+  .gallery { position: relative; margin-bottom: 20px; border-radius: 12px; overflow: hidden; background: var(--color-background-secondary); }
+  .gallery-main { width: 100%; height: 320px; background: linear-gradient(135deg, #d4c5b0 0%, #bfa98a 100%); display: flex; align-items: center; justify-content: center; position: relative; }
+  .gallery-main .placeholder-img { width: 100%; height: 100%; object-fit: cover; background: #c8bfb0; }
+  .gallery-arrow { position: absolute; top: 50%; transform: translateY(-50%); width: 36px; height: 36px; border-radius: 50%; background: rgba(255,255,255,0.9); border: none; cursor: pointer; display: flex; align-items: center; justify-content: center; font-size: 16px; color: #2C2926; z-index: 2; }
+  .gallery-arrow.left { left: 12px; }
+  .gallery-arrow.right { right: 12px; }
+  .gallery-counter { position: absolute; bottom: 12px; right: 12px; background: rgba(0,0,0,0.6); color: white; padding: 3px 10px; border-radius: 12px; font-size: 12px; font-weight: 500; }
+  .thumbs { display: flex; gap: 6px; margin-top: 8px; }
+  .thumb { width: 64px; height: 48px; border-radius: 6px; background: var(--color-background-secondary); border: 2px solid transparent; cursor: pointer; overflow: hidden; flex-shrink: 0; }
+  .thumb.active { border-color: #C45D3E; }
+  .thumb-inner { width: 100%; height: 100%; background: #c8bfb0; }
+  
+  .link-bar { display: flex; align-items: center; gap: 8px; padding: 10px 14px; background: #F4E8E3; border-radius: 8px; margin-bottom: 20px; font-size: 13px; cursor: pointer; }
+  .link-bar span { color: #A14A30; font-weight: 500; }
+  .link-bar .url { color: #6B6560; flex: 1; overflow: hidden; text-overflow: ellipsis; white-space: nowrap; }
+  
+  .visit-card { padding: 14px 16px; background: #EAF3DE; border-radius: 10px; margin-bottom: 20px; display: flex; align-items: center; justify-content: space-between; }
+  .visit-info { display: flex; flex-direction: column; gap: 2px; }
+  .visit-label { font-size: 12px; color: #27500A; font-weight: 500; }
+  .visit-date { font-size: 15px; color: #173404; font-weight: 500; }
+  .visit-btn { padding: 6px 14px; border-radius: 8px; font-size: 12px; font-weight: 500; cursor: pointer; border: 0.5px solid #97C459; background: white; color: #3B6D11; }
+  
+  .two-col { display: grid; grid-template-columns: 1fr 1fr; gap: 20px; margin-bottom: 24px; }
+  
+  .info-section { background: var(--color-background-primary); border: 0.5px solid var(--color-border-tertiary); border-radius: 10px; padding: 16px; }
+  .section-title { font-size: 13px; font-weight: 500; color: var(--color-text-secondary); margin-bottom: 12px; text-transform: uppercase; letter-spacing: 0.5px; }
+  
+  .price-hero { font-family: 'Fraunces', var(--font-serif); font-size: 26px; font-weight: 500; color: #C45D3E; margin-bottom: 4px; }
+  .price-sub { font-size: 13px; color: var(--color-text-secondary); }
+  .price-row { display: flex; justify-content: space-between; padding: 6px 0; font-size: 13px; border-bottom: 0.5px solid var(--color-border-tertiary); }
+  .price-row:last-child { border-bottom: none; }
+  .price-row .label { color: var(--color-text-secondary); }
+  .price-row .val { font-weight: 500; color: var(--color-text-primary); }
+  
+  .specs-grid { display: grid; grid-template-columns: 1fr 1fr; gap: 8px; }
+  .spec { padding: 8px 10px; background: var(--color-background-secondary); border-radius: 6px; }
+  .spec .spec-val { font-size: 16px; font-weight: 500; color: var(--color-text-primary); }
+  .spec .spec-label { font-size: 11px; color: var(--color-text-secondary); margin-top: 1px; }
+  
+  .features { display: flex; flex-wrap: wrap; gap: 6px; margin-top: 12px; }
+  .feat { padding: 4px 10px; border-radius: 14px; font-size: 12px; font-weight: 500; background: var(--color-background-secondary); color: var(--color-text-secondary); }
+  .feat.yes { background: #EAF3DE; color: #27500A; }
+  
+  .eval-section { margin-bottom: 20px; }
+  .eval-header { display: flex; justify-content: space-between; align-items: center; margin-bottom: 12px; }
+  .eval-score { font-family: 'Fraunces', var(--font-serif); font-size: 28px; font-weight: 500; color: #C45D3E; }
+  .eval-score-sub { font-size: 13px; color: var(--color-text-secondary); font-family: var(--font-sans); font-weight: 400; }
+  
+  .eval-items { display: flex; flex-direction: column; gap: 6px; }
+  .eval-item { display: flex; align-items: center; padding: 10px 14px; background: var(--color-background-primary); border: 0.5px solid var(--color-border-tertiary); border-radius: 8px; }
+  .eval-item .eval-name { flex: 1; font-size: 13px; color: var(--color-text-primary); }
+  .eval-item .stars { display: flex; gap: 2px; font-size: 14px; color: #C49A3E; }
+  .eval-item .stars .empty { color: var(--color-border-tertiary); }
+  .eval-item .comment-indicator { width: 18px; height: 18px; border-radius: 50%; background: var(--color-background-secondary); display: flex; align-items: center; justify-content: center; font-size: 10px; color: var(--color-text-secondary); margin-left: 8px; cursor: pointer; }
+</style>
+
+<div class="mock">
+  <div class="top-bar">
+    <button class="back-btn">&#8592; Voltar</button>
+    <div class="action-btns">
+      <button>Editar</button>
+      <button style="color: #C45D5D; border-color: #C45D5D;">Excluir</button>
+    </div>
+  </div>
+
+  <div class="status-row">
+    <div class="title">Córrego Grande, Florianópolis</div>
+    <span class="badge badge-blue">Novo</span>
+  </div>
+
+  <div class="status-pills">
+    <span class="pill active">Novo</span>
+    <span class="pill">Agendado</span>
+    <span class="pill">Visitado</span>
+    <span class="pill">Favorito</span>
+    <span class="pill">Rejeitado</span>
+  </div>
+
+  <div class="gallery">
+    <div class="gallery-main">
+      <div class="placeholder-img" style="background: linear-gradient(135deg, #b8a894 0%, #9e8e7a 50%, #c4b5a0 100%);"></div>
+      <button class="gallery-arrow left">&#8249;</button>
+      <button class="gallery-arrow right">&#8250;</button>
+      <div class="gallery-counter">1 / 27</div>
+    </div>
+    <div class="thumbs">
+      <div class="thumb active"><div class="thumb-inner"></div></div>
+      <div class="thumb"><div class="thumb-inner" style="background:#b0a595;"></div></div>
+      <div class="thumb"><div class="thumb-inner" style="background:#a89b8a;"></div></div>
+      <div class="thumb"><div class="thumb-inner" style="background:#c2b4a2;"></div></div>
+      <div class="thumb"><div class="thumb-inner" style="background:#bab0a0;"></div></div>
+      <div class="thumb"><div class="thumb-inner" style="background:#a09585;"></div></div>
+      <div class="thumb"><div class="thumb-inner" style="background:#c8bfb0;"></div></div>
+      <div class="thumb"><div class="thumb-inner" style="background:#9e9080;"></div></div>
+    </div>
+  </div>
+
+  <div class="link-bar">
+    <span>Ver anúncio</span>
+    <span class="url">zapimoveis.com.br/imovel/venda-apartamento-3-quartos-corrego...</span>
+    <span style="font-size: 14px;">&#8599;</span>
+  </div>
+
+  <div class="visit-card">
+    <div class="visit-info">
+      <span class="visit-label">Visita agendada</span>
+      <span class="visit-date">Sábado, 19 de abril · 10:00</span>
+    </div>
+    <button class="visit-btn">Reagendar</button>
+  </div>
+
+  <div class="two-col">
+    <div class="info-section">
+      <div class="section-title">Valores</div>
+      <div class="price-hero">R$ 820.000</div>
+      <div class="price-sub" style="margin-bottom: 12px;">Preço do imóvel</div>
+      <div class="price-row"><span class="label">Condomínio</span><span class="val">R$ 670/mês</span></div>
+      <div class="price-row"><span class="label">IPTU</span><span class="val">R$ 1.430/mês</span></div>
+      <div class="price-row" style="border-bottom: none; padding-top: 8px; border-top: 0.5px solid var(--color-border-secondary);"><span class="label" style="font-weight: 500;">Custo mensal</span><span class="val" style="color: #C45D3E;">R$ 2.100/mês</span></div>
+    </div>
+
+    <div class="info-section">
+      <div class="section-title">Características</div>
+      <div class="specs-grid">
+        <div class="spec"><div class="spec-val">3</div><div class="spec-label">quartos</div></div>
+        <div class="spec"><div class="spec-val">2</div><div class="spec-label">banheiros</div></div>
+        <div class="spec"><div class="spec-val">1</div><div class="spec-label">vaga</div></div>
+        <div class="spec"><div class="spec-val">106,5 m²</div><div class="spec-label">área</div></div>
+        <div class="spec"><div class="spec-val">—</div><div class="spec-label">andar</div></div>
+        <div class="spec"><div class="spec-val" style="font-size: 14px;">Sim</div><div class="spec-label">elevador</div></div>
+      </div>
+      <div class="features">
+        <span class="feat yes">Sacada</span>
+        <span class="feat yes">Elevador</span>
+        <span class="feat">Churrasqueira</span>
+        <span class="feat yes">Salão de festas</span>
+        <span class="feat yes">Churrasq. cond.</span>
+        <span class="feat">Piscina</span>
+      </div>
+    </div>
+  </div>
+
+  <div class="eval-section">
+    <div class="eval-header">
+      <div>
+        <div class="section-title" style="margin-bottom: 0;">Avaliações</div>
+      </div>
+      <div style="text-align: right;">
+        <div class="eval-score">4.2 <span class="eval-score-sub">/ 5</span></div>
+        <div style="font-size: 11px; color: var(--color-text-secondary);">nota geral</div>
+      </div>
+    </div>
+    <div class="eval-items">
+      <div class="eval-item">
+        <span class="eval-name">Estado geral</span>
+        <span class="stars">&#9733;&#9733;&#9733;&#9733;<span class="empty">&#9733;</span></span>
+        <span class="comment-indicator" title="Tem comentário">&#128172;</span>
+      </div>
+      <div class="eval-item">
+        <span class="eval-name">Banheiro principal</span>
+        <span class="stars">&#9733;&#9733;&#9733;&#9733;&#9733;</span>
+      </div>
+      <div class="eval-item">
+        <span class="eval-name">Outros banheiros</span>
+        <span class="stars">&#9733;&#9733;&#9733;<span class="empty">&#9733;&#9733;</span></span>
+        <span class="comment-indicator" title="Tem comentário">&#128172;</span>
+      </div>
+      <div class="eval-item">
+        <span class="eval-name">Cozinha</span>
+        <span class="stars">&#9733;&#9733;&#9733;&#9733;<span class="empty">&#9733;</span></span>
+      </div>
+      <div class="eval-item">
+        <span class="eval-name">Área de serviço</span>
+        <span class="stars">&#9733;&#9733;&#9733;&#9733;<span class="empty">&#9733;</span></span>
+      </div>
+      <div class="eval-item">
+        <span class="eval-name">Quartos / armários</span>
+        <span class="stars">&#9733;&#9733;&#9733;&#9733;&#9733;</span>
+      </div>
+      <div class="eval-item">
+        <span class="eval-name">Piso / acabamento</span>
+        <span class="stars">&#9733;&#9733;&#9733;&#9733;<span class="empty">&#9733;</span></span>
+        <span class="comment-indicator" title="Tem comentário">&#128172;</span>
+      </div>
+    </div>
+  </div>
+</div>
