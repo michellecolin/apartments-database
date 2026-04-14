@@ -928,10 +928,11 @@ function CompareView({ allApts, selectedIds, onToggle, onClose, onOpenApt }) {
       ) : (
         <div style={{ overflowX: 'auto' }}>
           {/* Header with photos */}
-          <table style={{ width: '100%', borderCollapse: 'collapse' }}>
+          <table style={{ width: '100%', borderCollapse: 'collapse', tableLayout: 'fixed' }}>
+            <colgroup><col style={{ width: 140 }} />{apts.map(a => <col key={a.id} />)}</colgroup>
             <thead>
               <tr>
-                <th style={{ width: 160, padding: 8 }}></th>
+                <th style={{ padding: 8 }}></th>
                 {apts.map(a => {
                   const idx = getIdx(a.id);
                   const hasPhotos = a.fotos.length > 0;
@@ -982,13 +983,14 @@ function CompareView({ allApts, selectedIds, onToggle, onClose, onOpenApt }) {
           {sections.map(section => (
             <div key={section.title} style={{ marginBottom: 16 }}>
               <div style={{ fontSize: 13, fontWeight: 500, color: 'var(--text-secondary)', textTransform: 'uppercase', letterSpacing: 0.5, padding: '12px 8px 6px', borderBottom: '1px solid var(--border)' }}>{section.title}</div>
-              <table style={{ width: '100%', borderCollapse: 'collapse' }}>
+              <table style={{ width: '100%', borderCollapse: 'collapse', tableLayout: 'fixed' }}>
+                <colgroup><col style={{ width: 140 }} />{apts.map(a => <col key={a.id} />)}</colgroup>
                 <tbody>
                   {section.rows.map(row => (
                     <tr key={row.label}>
-                      <th style={{ width: 160, padding: '8px', fontSize: 13, fontWeight: 500, color: 'var(--text-secondary)', textAlign: 'left', verticalAlign: 'top', borderBottom: '1px solid var(--border)' }}>{row.label}</th>
+                      <th style={{ padding: '8px', fontSize: 13, fontWeight: 500, color: 'var(--text-secondary)', textAlign: 'left', verticalAlign: 'top', borderBottom: '1px solid var(--border)' }}>{row.label}</th>
                       {apts.map(a => (
-                        <td key={a.id} style={{ padding: '8px', fontSize: 14, minWidth: 200, verticalAlign: 'top', borderBottom: '1px solid var(--border)' }}>{row.render(a)}</td>
+                        <td key={a.id} style={{ padding: '8px', fontSize: 14, verticalAlign: 'top', borderBottom: '1px solid var(--border)' }}>{row.render(a)}</td>
                       ))}
                     </tr>
                   ))}
