@@ -139,7 +139,8 @@ const EVALUATION_CATEGORIES = [
   { key: 'quartosArmarios', label: 'Quartos / Armários' },
   { key: 'pisoAcabamento', label: 'Piso / Acabamento' },
   { key: 'sacada', label: 'Sacada' },
-  { key: 'elevador', label: 'Elevador' },
+  { key: 'localizacao', label: 'Localização' },
+  { key: 'elevador', label: 'Elevador', binary: true },
   { key: 'custoBeneficio', label: 'Custo-Benefício' },
 ];
 
@@ -759,16 +760,26 @@ function ApartmentDetail({ apt, onClose, onEdit, onStatusChange, onDelete, onRat
               }}>
                 <div style={{ display: 'flex', alignItems: 'center', padding: '10px 14px' }}>
                   <span style={{ flex: 1, fontSize: 13, color: 'var(--text)' }}>{cat.label}</span>
-                  <div style={{ display: 'flex', gap: 2 }}>
-                    {[1,2,3,4,5].map(i => (
-                      <span key={i} className="star" onClick={() => {
-                        const newNota = av.nota === i ? 0 : i;
-                        onRateChange(apt.id, cat.key, newNota);
-                        if (newNota > 0 && !isExpanded) setExpandedEval(cat.key);
-                      }}
-                        style={{ fontSize: 14, color: i <= av.nota ? '#C49A3E' : 'var(--border)', cursor: 'pointer' }}>★</span>
-                    ))}
-                  </div>
+                  {cat.binary ? (
+                    <button onClick={() => onRateChange(apt.id, cat.key, av.nota > 0 ? 0 : 5)} style={{
+                      padding: '3px 12px', borderRadius: 14, fontSize: 12, fontWeight: 500, cursor: 'pointer',
+                      border: '1px solid', transition: 'all 0.15s',
+                      background: av.nota > 0 ? 'var(--green-light)' : 'var(--bg)',
+                      color: av.nota > 0 ? 'var(--green)' : 'var(--text-muted)',
+                      borderColor: av.nota > 0 ? 'var(--green)' : 'var(--border)',
+                    }}>{av.nota > 0 ? 'Sim ✓' : 'Não'}</button>
+                  ) : (
+                    <div style={{ display: 'flex', gap: 2 }}>
+                      {[1,2,3,4,5].map(i => (
+                        <span key={i} className="star" onClick={() => {
+                          const newNota = av.nota === i ? 0 : i;
+                          onRateChange(apt.id, cat.key, newNota);
+                          if (newNota > 0 && !isExpanded) setExpandedEval(cat.key);
+                        }}
+                          style={{ fontSize: 14, color: i <= av.nota ? '#C49A3E' : 'var(--border)', cursor: 'pointer' }}>★</span>
+                      ))}
+                    </div>
+                  )}
                   <span onClick={() => setExpandedEval(isExpanded ? null : cat.key)} style={{
                     width: 18, height: 18, borderRadius: '50%',
                     background: av.comentario ? 'var(--yellow-light)' : 'var(--bg)',
@@ -1199,7 +1210,7 @@ function App() {
                 <div>
                   <label className="label" style={{ marginBottom: 8 }}>Nota mínima por avaliação</label>
                   <div style={{ display: 'grid', gridTemplateColumns: 'repeat(auto-fill, minmax(220px, 1fr))', gap: 6 }}>
-                    {EVALUATION_CATEGORIES.map(cat => (
+                    {EVALUATION_CATEGORIES.filter(cat => !cat.binary).map(cat => (
                       <div key={cat.key} style={{ display: 'flex', alignItems: 'center', gap: 8, padding: '6px 10px', background: 'var(--bg)', borderRadius: 6 }}>
                         <span style={{ flex: 1, fontSize: 12, color: 'var(--text-secondary)' }}>{cat.label}</span>
                         <div style={{ display: 'flex', gap: 1 }}>
