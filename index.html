@@ -822,8 +822,11 @@ function ApartmentDetail({ apt, onClose, onEdit, onStatusChange, onDelete, onRat
 // ============================================================
 // CompareView
 // ============================================================
-function CompareView({ allApts, selectedIds, onToggle, onClose }) {
+function CompareView({ allApts, selectedIds, onToggle, onClose, onOpenApt }) {
   const apts = allApts.filter(a => selectedIds.includes(a.id));
+  const [photoIdxs, setPhotoIdxs] = useState({});
+  const getIdx = (id) => photoIdxs[id] || 0;
+  const setIdx = (id, i) => setPhotoIdxs(prev => ({ ...prev, [id]: i }));
 
   const boolRow = (label, getter) => ({label, render: a => {
     const v = getter(a);
@@ -846,6 +849,12 @@ function CompareView({ allApts, selectedIds, onToggle, onClose }) {
   }});
 
   const sections = [
+    { title: 'Resumo', rows: [
+      {label: 'Nota Geral', render: a => {
+        const m = calcMedia(a.avaliacoes);
+        return <span style={{ fontFamily: 'var(--font-display)', fontSize: 20, fontWeight: 600, color: m > 0 ? 'var(--accent)' : 'var(--text-muted)' }}>{m > 0 ? `${m.toFixed(1)} / 5` : '—'}</span>;
+      }},
+    ]},
     { title: 'Valores', rows: [
       {label: 'Preço', render: a => <span style={{ fontWeight: 600, color: 'var(--accent)' }}>{fmt(a.preco)}</span>},
       {label: 'Condomínio', render: a => <span>{a.condominio ? `${fmt(a.condominio)}/mês` : '—'}</span>},
@@ -870,10 +879,6 @@ function CompareView({ allApts, selectedIds, onToggle, onClose }) {
     ]},
     { title: 'Avaliações', rows: [
       ...EVALUATION_CATEGORIES.map(evalRow),
-      {label: 'Nota Geral', render: a => {
-        const m = calcMedia(a.avaliacoes);
-        return <span style={{ fontFamily: 'var(--font-display)', fontSize: 18, fontWeight: 600, color: m > 0 ? 'var(--accent)' : 'var(--text-muted)' }}>{m > 0 ? m.toFixed(1) : '—'}</span>;
-      }},
     ]},
   ];
 
@@ -901,7 +906,7 @@ function CompareView({ allApts, selectedIds, onToggle, onClose }) {
                 borderColor: selected ? 'var(--accent)' : 'var(--border)',
                 opacity: disabled ? 0.5 : 1,
               }}>
-                {a.endereco.split(',')[0]} · {fmt(a.preco)}
+                {a.status === 'favorito' && '⭐ '}{a.endereco.split(',')[0]} · {fmt(a.preco)}{calcMedia(a.avaliacoes) > 0 ? ` · ${calcMedia(a.avaliacoes).toFixed(1)}★` : ''}
               </button>
             );
           })}
@@ -920,17 +925,48 @@ function CompareView({ allApts, selectedIds, onToggle, onClose }) {
             <thead>
               <tr>
                 <th style={{ width: 160, padding: 8 }}></th>
-                {apts.map(a => (
+                {apts.map(a => {
+                  const idx = getIdx(a.id);
+                  const hasPhotos = a.fotos.length > 0;
+                  return (
                   <td key={a.id} style={{ padding: 8, verticalAlign: 'top', minWidth: 200 }}>
                     <div style={{ background: 'var(--bg-card)', border: '1px solid var(--border)', borderRadius: 'var(--radius-sm)', overflow: 'hidden' }}>
-                      {a.fotos[0] && <img src={a.fotos[0]} alt="" referrerPolicy="no-referrer" style={{ width: '100%', height: 120, objectFit: 'cover' }} />}
+                      {hasPhotos && (
+                        <div style={{ position: 'relative', height: 140, background: 'var(--bg-hover)' }}>
+                          <img src={a.fotos[idx]} alt="" referrerPolicy="no-referrer" style={{ width: '100%', height: '100%', objectFit: 'cover' }} />
+                          {a.fotos.length > 1 && (
+                            <>
+                              <button onClick={() => setIdx(a.id, idx > 0 ? idx - 1 : a.fotos.length - 1)} style={{
+                                position: 'absolute', left: 4, top: '50%', transform: 'translateY(-50%)',
+                                width: 24, height: 24, borderRadius: '50%', background: 'rgba(255,255,255,0.85)',
+                                border: 'none', cursor: 'pointer', fontSize: 12, display: 'flex', alignItems: 'center', justifyContent: 'center',
+                              }}>‹</button>
+                              <button onClick={() => setIdx(a.id, idx < a.fotos.length - 1 ? idx + 1 : 0)} style={{
+                                position: 'absolute', right: 4, top: '50%', transform: 'translateY(-50%)',
+                                width: 24, height: 24, borderRadius: '50%', background: 'rgba(255,255,255,0.85)',
+                                border: 'none', cursor: 'pointer', fontSize: 12, display: 'flex', alignItems: 'center', justifyContent: 'center',
+                              }}>›</button>
+                              <div style={{ position: 'absolute', bottom: 4, right: 6, background: 'rgba(0,0,0,0.5)', color: 'white', padding: '1px 6px', borderRadius: 8, fontSize: 10 }}>
+                                {idx + 1}/{a.fotos.length}
+                              </div>
+                            </>
+                          )}
+                        </div>
+                      )}
                       <div style={{ padding: 10 }}>
                         <div style={{ fontSize: 13, fontWeight: 600, marginBottom: 4, lineHeight: 1.3 }}>{a.endereco.split(',').slice(0,2).join(',')}</div>
                         <div style={{ fontSize: 16, fontWeight: 700, color: 'var(--accent)', fontFamily: 'var(--font-display)' }}>{fmt(a.preco)}</div>
-                        <div style={{ marginTop: 4 }}><StatusBadge status={a.status} /></div>
+                        <div style={{ display: 'flex', justifyContent: 'space-between', alignItems: 'center', marginTop: 4 }}>
+                          <StatusBadge status={a.status} />
+                          <button onClick={() => onOpenApt(a)} style={{
+                            fontSize: 11, color: 'var(--accent)', background: 'none', border: 'none', cursor: 'pointer', fontWeight: 500,
+                          }}>Ver detalhes →</button>
+                        </div>
                       </div>
                     </div>
                   </td>
+                  );
+                }
                 ))}
               </tr>
             </thead>
@@ -1389,6 +1425,7 @@ function App() {
           selectedIds={compareIds}
           onToggle={toggleCompare}
           onClose={() => setView('list')}
+          onOpenApt={openApt}
         />
       )}
 
