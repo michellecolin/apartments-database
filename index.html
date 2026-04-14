@@ -51,6 +51,13 @@
   ::-webkit-scrollbar-thumb { background: var(--border); border-radius: 3px; }
   ::-webkit-scrollbar-thumb:hover { background: var(--text-muted); }
 
+  .page-container { max-width: 1100px; width: 80%; margin: 0 auto; padding: 24px 16px; }
+  @media (max-width: 768px) {
+    .page-container { width: 95%; }
+    .two-col-row { grid-template-columns: 1fr !important; }
+    .eval-grid { grid-template-columns: 1fr !important; }
+  }
+
   .modal-overlay {
     position: fixed; inset: 0; background: rgba(44,41,38,0.4); backdrop-filter: blur(4px);
     display: flex; align-items: flex-start; justify-content: center;
@@ -331,7 +338,7 @@ function ApartmentForm({ apt, onSave, onClose }) {
   );
 
   return (
-    <div className="fade-in" style={{ maxWidth: 720, margin: '0 auto', padding: '24px 16px' }}>
+    <div className="fade-in page-container" style={{ maxWidth: 720 }}>
       <div style={{ marginBottom: 24, display: 'flex', justifyContent: 'space-between', alignItems: 'center' }}>
         <button className="btn" onClick={onClose}>← Voltar</button>
         <h2 style={{ fontFamily: 'var(--font-display)', fontSize: 26, fontWeight: 700 }}>
@@ -523,7 +530,7 @@ function ApartmentDetail({ apt, onClose, onEdit, onStatusChange, onDelete, onRat
   ];
 
   return (
-    <div className="fade-in" style={{ maxWidth: 860, margin: '0 auto', padding: '24px 16px' }}>
+    <div className="fade-in page-container">
       {/* Top bar */}
       <div style={{ display: 'flex', justifyContent: 'space-between', alignItems: 'center', marginBottom: 20 }}>
         <button onClick={onClose} style={{ fontSize: 14, fontWeight: 500, color: 'var(--text-secondary)', cursor: 'pointer', background: 'none', border: 'none', display: 'flex', alignItems: 'center', gap: 6 }}>← Voltar</button>
@@ -697,8 +704,8 @@ function ApartmentDetail({ apt, onClose, onEdit, onStatusChange, onDelete, onRat
         </div>
       )}
 
-      {/* Content sections */}
-      <div style={{ display: 'flex', flexDirection: 'column', gap: 20, marginBottom: 24 }}>
+      {/* Valores + Características side by side */}
+      <div className="two-col-row" style={{ display: 'grid', gridTemplateColumns: '1fr 1fr', gap: 20, marginBottom: 20 }}>
           {/* Valores */}
           <div style={{ background: 'var(--bg-card)', border: '1px solid var(--border)', borderRadius: 10, padding: 16 }}>
             <div style={{ fontSize: 13, fontWeight: 500, color: 'var(--text-secondary)', marginBottom: 12, textTransform: 'uppercase', letterSpacing: 0.5 }}>Valores</div>
@@ -749,9 +756,10 @@ function ApartmentDetail({ apt, onClose, onEdit, onStatusChange, onDelete, onRat
               ))}
             </div>
           </div>
+      </div>
 
-          {/* Avaliações */}
-          <div style={{ background: 'var(--bg-card)', border: '1px solid var(--border)', borderRadius: 10, padding: 16 }}>
+      {/* Avaliações full width */}
+      <div style={{ background: 'var(--bg-card)', border: '1px solid var(--border)', borderRadius: 10, padding: 16, marginBottom: 24 }}>
           <div style={{ display: 'flex', justifyContent: 'space-between', alignItems: 'center', marginBottom: 12 }}>
             <div style={{ fontSize: 13, fontWeight: 500, color: 'var(--text-secondary)', textTransform: 'uppercase', letterSpacing: 0.5 }}>Avaliações</div>
             <div style={{ textAlign: 'right' }}>
@@ -761,7 +769,7 @@ function ApartmentDetail({ apt, onClose, onEdit, onStatusChange, onDelete, onRat
               <div style={{ fontSize: 11, color: 'var(--text-muted)' }}>nota geral</div>
             </div>
           </div>
-        <div style={{ display: 'grid', gridTemplateColumns: '1fr 1fr', gap: 6 }}>
+        <div className="eval-grid" style={{ display: 'grid', gridTemplateColumns: '1fr 1fr', gap: 6 }}>
           {EVALUATION_CATEGORIES.map(cat => {
             const av = apt.avaliacoes[cat.key] || { nota: 0, comentario: '' };
             const isEditing = editingEval === cat.key;
@@ -812,7 +820,6 @@ function ApartmentDetail({ apt, onClose, onEdit, onStatusChange, onDelete, onRat
               </div>
             );
           })}
-        </div>
         </div>
       </div>
     </div>
@@ -883,7 +890,7 @@ function CompareView({ allApts, selectedIds, onToggle, onClose, onOpenApt }) {
   ];
 
   return (
-    <div className="fade-in" style={{ maxWidth: 1100, margin: '0 auto', padding: '24px 16px' }}>
+    <div className="fade-in page-container">
       <div style={{ display: 'flex', justifyContent: 'space-between', alignItems: 'center', marginBottom: 20 }}>
         <button onClick={onClose} style={{ fontSize: 14, fontWeight: 500, color: 'var(--text-secondary)', cursor: 'pointer', background: 'none', border: 'none', display: 'flex', alignItems: 'center', gap: 6 }}>← Voltar</button>
         <h2 style={{ fontFamily: 'var(--font-display)', fontSize: 22, fontWeight: 600 }}>Comparar Apartamentos</h2>
@@ -1254,7 +1261,7 @@ function App() {
   return (
     <div>
       {view === 'list' && (
-        <div style={{ maxWidth: 1200, margin: '0 auto', padding: '24px 16px' }}>
+        <div className="page-container">
           {/* Header */}
           <header style={{ display: 'flex', justifyContent: 'space-between', alignItems: 'center', marginBottom: 28 }}>
             <div>
