@@ -117,7 +117,7 @@ const { useState, useEffect, useMemo, useCallback, useRef } = React;
 // ============================================================
 // CONFIG — Preencha com seus dados do GitHub
 // ============================================================
-const GITHUB_TOKEN = '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';
+const GITHUB_TOKEN = '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';
 const GITHUB_REPO = 'michellecolin/apartments-database';
 const DATA_FILE = 'data.json';
 // ============================================================
@@ -153,6 +153,10 @@ const defaultApt = () => ({
   andar: '',
   sacada: false,
   elevador: false,
+  churrasqueiraApt: false,
+  condPiscina: false,
+  condSalaoFestas: false,
+  condChurrasqueira: false,
   linkAnuncio: '',
   status: 'novo',
   avaliacoes: EVALUATION_CATEGORIES.reduce((acc, c) => {
@@ -309,19 +313,20 @@ function ApartmentForm({ apt, onSave, onClose }) {
   );
 
   return (
-    <div className="modal-overlay" onClick={e => e.target === e.currentTarget && onClose()}>
-      <div className="modal-content">
-        <div style={{ padding: '20px 24px', borderBottom: '1px solid var(--border)', display: 'flex', justifyContent: 'space-between', alignItems: 'center' }}>
-          <h2 style={{ fontFamily: 'var(--font-display)', fontSize: 22, fontWeight: 600 }}>
-            {apt ? 'Editar Apartamento' : 'Novo Apartamento'}
-          </h2>
-          <button className="btn btn-sm" onClick={onClose}>✕</button>
-        </div>
+    <div className="fade-in" style={{ maxWidth: 720, margin: '0 auto', padding: '24px 16px' }}>
+      <div style={{ marginBottom: 24, display: 'flex', justifyContent: 'space-between', alignItems: 'center' }}>
+        <button className="btn" onClick={onClose}>← Voltar</button>
+        <h2 style={{ fontFamily: 'var(--font-display)', fontSize: 26, fontWeight: 700 }}>
+          {apt ? 'Editar Apartamento' : 'Novo Apartamento'}
+        </h2>
+        <div style={{ width: 80 }} />
+      </div>
 
+      <div style={{ background: 'var(--bg-card)', borderRadius: 'var(--radius)', boxShadow: 'var(--shadow-sm)', border: '1px solid var(--border)', overflow: 'hidden' }}>
         <div style={{ display: 'flex', borderBottom: '1px solid var(--border)' }}>
           {[['info', 'Informações'], ['fotos', 'Fotos'], ['avaliacoes', 'Avaliações']].map(([k, l]) => (
             <button key={k} onClick={() => setTab(k)} style={{
-              flex: 1, padding: '12px', fontSize: 14, fontWeight: 500, border: 'none', cursor: 'pointer',
+              flex: 1, padding: '14px', fontSize: 14, fontWeight: 500, border: 'none', cursor: 'pointer',
               background: tab === k ? 'var(--bg-card)' : 'var(--bg)',
               color: tab === k ? 'var(--accent)' : 'var(--text-secondary)',
               borderBottom: tab === k ? '2px solid var(--accent)' : '2px solid transparent',
@@ -329,7 +334,7 @@ function ApartmentForm({ apt, onSave, onClose }) {
           ))}
         </div>
 
-        <div style={{ padding: 24, maxHeight: '60vh', overflowY: 'auto' }}>
+        <div style={{ padding: 24 }}>
           {tab === 'info' && (
             <div style={{ display: 'flex', flexDirection: 'column', gap: 16 }}>
               {inputRow('Endereço *', 'endereco', 'text', 'Rua, número, bairro...')}
@@ -350,15 +355,37 @@ function ApartmentForm({ apt, onSave, onClose }) {
 
               {inputRow('Área (m²)', 'area', 'number', '65')}
 
-              <div style={{ display: 'flex', gap: 24 }}>
-                <label className="checkbox-wrapper">
-                  <input type="checkbox" checked={form.sacada} onChange={e => set('sacada', e.target.checked)} />
-                  <span style={{ fontSize: 14 }}>Tem sacada</span>
-                </label>
-                <label className="checkbox-wrapper">
-                  <input type="checkbox" checked={form.elevador} onChange={e => set('elevador', e.target.checked)} />
-                  <span style={{ fontSize: 14 }}>Tem elevador</span>
-                </label>
+              <div style={{ display: 'flex', flexDirection: 'column', gap: 12 }}>
+                <label className="label" style={{ marginBottom: 0 }}>Apartamento</label>
+                <div style={{ display: 'flex', gap: 24, flexWrap: 'wrap' }}>
+                  <label className="checkbox-wrapper">
+                    <input type="checkbox" checked={form.sacada} onChange={e => set('sacada', e.target.checked)} />
+                    <span style={{ fontSize: 14 }}>Sacada</span>
+                  </label>
+                  <label className="checkbox-wrapper">
+                    <input type="checkbox" checked={form.elevador} onChange={e => set('elevador', e.target.checked)} />
+                    <span style={{ fontSize: 14 }}>Elevador</span>
+                  </label>
+                  <label className="checkbox-wrapper">
+                    <input type="checkbox" checked={form.churrasqueiraApt} onChange={e => set('churrasqueiraApt', e.target.checked)} />
+                    <span style={{ fontSize: 14 }}>Churrasqueira</span>
+                  </label>
+                </div>
+                <label className="label" style={{ marginBottom: 0, marginTop: 8 }}>Condomínio</label>
+                <div style={{ display: 'flex', gap: 24, flexWrap: 'wrap' }}>
+                  <label className="checkbox-wrapper">
+                    <input type="checkbox" checked={form.condPiscina} onChange={e => set('condPiscina', e.target.checked)} />
+                    <span style={{ fontSize: 14 }}>Piscina</span>
+                  </label>
+                  <label className="checkbox-wrapper">
+                    <input type="checkbox" checked={form.condSalaoFestas} onChange={e => set('condSalaoFestas', e.target.checked)} />
+                    <span style={{ fontSize: 14 }}>Salão de Festas</span>
+                  </label>
+                  <label className="checkbox-wrapper">
+                    <input type="checkbox" checked={form.condChurrasqueira} onChange={e => set('condChurrasqueira', e.target.checked)} />
+                    <span style={{ fontSize: 14 }}>Churrasqueira</span>
+                  </label>
+                </div>
               </div>
 
               <div>
@@ -383,7 +410,7 @@ function ApartmentForm({ apt, onSave, onClose }) {
               <div style={{ display: 'grid', gridTemplateColumns: 'repeat(auto-fill, minmax(180px, 1fr))', gap: 12 }}>
                 {form.fotos.map((f, i) => (
                   <div key={i} style={{ position: 'relative', borderRadius: 'var(--radius-sm)', overflow: 'hidden', aspectRatio: '4/3' }}>
-                    <img src={f} alt="" style={{ width: '100%', height: '100%', objectFit: 'cover' }}
+                    <img src={f} alt="" referrerPolicy="no-referrer" style={{ width: '100%', height: '100%', objectFit: 'cover' }}
                       onError={e => { e.target.style.display = 'none'; }} />
                     <button onClick={() => removeFoto(i)} style={{
                       position: 'absolute', top: 6, right: 6, background: 'rgba(0,0,0,0.6)', color: 'white',
@@ -434,95 +461,106 @@ function ApartmentForm({ apt, onSave, onClose }) {
 // ============================================================
 // ApartmentDetail
 // ============================================================
-function ApartmentDetail({ apt, onClose, onEdit, onStatusChange }) {
+function ApartmentDetail({ apt, onClose, onEdit, onStatusChange, onDelete }) {
   const media = calcMedia(apt.avaliacoes);
   return (
-    <div className="modal-overlay" onClick={e => e.target === e.currentTarget && onClose()}>
-      <div className="modal-content" style={{ maxWidth: 800 }}>
-        <div style={{ padding: '20px 24px', borderBottom: '1px solid var(--border)', display: 'flex', justifyContent: 'space-between', alignItems: 'center' }}>
-          <div style={{ display: 'flex', alignItems: 'center', gap: 12 }}>
-            <h2 style={{ fontFamily: 'var(--font-display)', fontSize: 22, fontWeight: 600 }}>{apt.endereco || 'Sem endereço'}</h2>
-            <StatusBadge status={apt.status} />
-          </div>
-          <button className="btn btn-sm" onClick={onClose}>✕</button>
+    <div className="fade-in" style={{ maxWidth: 900, margin: '0 auto', padding: '24px 16px' }}>
+      <div style={{ marginBottom: 24, display: 'flex', justifyContent: 'space-between', alignItems: 'center' }}>
+        <button className="btn" onClick={onClose}>← Voltar</button>
+        <div style={{ display: 'flex', gap: 8 }}>
+          <button className="btn" onClick={() => onEdit(apt)}>✏️ Editar</button>
+          <button className="btn btn-danger" onClick={() => onDelete(apt.id)}>🗑 Excluir</button>
         </div>
+      </div>
 
-        <div style={{ padding: 24, maxHeight: '70vh', overflowY: 'auto' }}>
-          {apt.fotos.length > 0 && (
-            <div className="photo-gallery" style={{ marginBottom: 20 }}>
-              {apt.fotos.map((f, i) => (
-                <img key={i} src={f} alt="" onError={e => { e.target.style.display = 'none'; }} />
+      <div style={{ display: 'flex', alignItems: 'center', gap: 12, marginBottom: 20 }}>
+        <h1 style={{ fontFamily: 'var(--font-display)', fontSize: 28, fontWeight: 700 }}>{apt.endereco || 'Sem endereço'}</h1>
+        <StatusBadge status={apt.status} />
+      </div>
+
+      {apt.fotos.length > 0 && (
+        <div style={{ marginBottom: 28 }}>
+          {apt.fotos[0] && (
+            <img src={apt.fotos[0]} alt="" referrerPolicy="no-referrer" style={{ width: '100%', height: 400, objectFit: 'cover', borderRadius: 'var(--radius)', marginBottom: 12 }}
+              onError={e => { e.target.style.display = 'none'; }} />
+          )}
+          {apt.fotos.length > 1 && (
+            <div style={{ display: 'grid', gridTemplateColumns: 'repeat(auto-fill, minmax(160px, 1fr))', gap: 8 }}>
+              {apt.fotos.slice(1).map((f, i) => (
+                <img key={i} src={f} alt="" referrerPolicy="no-referrer" style={{ width: '100%', height: 120, objectFit: 'cover', borderRadius: 'var(--radius-sm)' }}
+                  onError={e => { e.target.style.display = 'none'; }} />
               ))}
             </div>
           )}
+        </div>
+      )}
 
-          <div style={{ display: 'grid', gridTemplateColumns: 'repeat(auto-fit, minmax(160px, 1fr))', gap: 16, marginBottom: 24 }}>
-            {[
-              ['Preço', fmt(apt.preco)],
-              ['Condomínio', fmt(apt.condominio)],
-              ['IPTU', fmt(apt.iptu)],
-              ['Quartos', apt.quartos || '—'],
-              ['Banheiros', apt.banheiros || '—'],
-              ['Vagas', apt.vagas || '—'],
-              ['Área', apt.area ? `${fmtNum(apt.area)} m²` : '—'],
-              ['Andar', apt.andar || '—'],
-              ['Sacada', apt.sacada ? 'Sim ✓' : 'Não'],
-              ['Elevador', apt.elevador ? 'Sim ✓' : 'Não'],
-            ].map(([label, val]) => (
-              <div key={label} style={{ padding: 12, background: 'var(--bg)', borderRadius: 'var(--radius-sm)' }}>
-                <div style={{ fontSize: 12, color: 'var(--text-muted)', marginBottom: 4 }}>{label}</div>
-                <div style={{ fontSize: 15, fontWeight: 600 }}>{val}</div>
+      <div style={{ display: 'grid', gridTemplateColumns: 'repeat(auto-fit, minmax(160px, 1fr))', gap: 16, marginBottom: 28 }}>
+        {[
+          ['Preço', fmt(apt.preco)],
+          ['Condomínio', fmt(apt.condominio)],
+          ['IPTU', fmt(apt.iptu)],
+          ['Quartos', apt.quartos || '—'],
+          ['Banheiros', apt.banheiros || '—'],
+          ['Vagas', apt.vagas || '—'],
+          ['Área', apt.area ? `${fmtNum(apt.area)} m²` : '—'],
+          ['Andar', apt.andar || '—'],
+          ['Sacada', apt.sacada ? 'Sim ✓' : 'Não'],
+          ['Elevador', apt.elevador ? 'Sim ✓' : 'Não'],
+          ['Churrasqueira (apt)', apt.churrasqueiraApt ? 'Sim ✓' : 'Não'],
+          ['Piscina (cond)', apt.condPiscina ? 'Sim ✓' : 'Não'],
+          ['Salão de Festas (cond)', apt.condSalaoFestas ? 'Sim ✓' : 'Não'],
+          ['Churrasqueira (cond)', apt.condChurrasqueira ? 'Sim ✓' : 'Não'],
+        ].map(([label, val]) => (
+          <div key={label} style={{ padding: 14, background: 'var(--bg-card)', borderRadius: 'var(--radius-sm)', border: '1px solid var(--border)' }}>
+            <div style={{ fontSize: 12, color: 'var(--text-muted)', marginBottom: 4 }}>{label}</div>
+            <div style={{ fontSize: 15, fontWeight: 600 }}>{val}</div>
+          </div>
+        ))}
+      </div>
+
+      {apt.linkAnuncio && (
+        <a href={apt.linkAnuncio} target="_blank" rel="noopener noreferrer"
+          style={{ display: 'inline-flex', alignItems: 'center', gap: 6, color: 'var(--accent)', fontSize: 14, fontWeight: 500, marginBottom: 24, textDecoration: 'none' }}>
+          🔗 Ver anúncio original
+        </a>
+      )}
+
+      <h3 style={{ fontFamily: 'var(--font-display)', fontSize: 20, fontWeight: 600, marginBottom: 16 }}>Avaliações</h3>
+      <div style={{ display: 'flex', flexDirection: 'column', gap: 12, marginBottom: 16 }}>
+        {EVALUATION_CATEGORIES.map(cat => {
+          const av = apt.avaliacoes[cat.key];
+          if (!av) return null;
+          return (
+            <div key={cat.key} style={{ padding: 14, background: 'var(--bg-card)', borderRadius: 'var(--radius-sm)', border: '1px solid var(--border)' }}>
+              <div style={{ display: 'flex', justifyContent: 'space-between', alignItems: 'center' }}>
+                <span style={{ fontSize: 14, fontWeight: 500 }}>{cat.label}</span>
+                <StarRating value={av.nota} readonly />
               </div>
-            ))}
-          </div>
+              {av.comentario && (
+                <p style={{ fontSize: 13, color: 'var(--text-secondary)', marginTop: 6, fontStyle: 'italic' }}>
+                  "{av.comentario}"
+                </p>
+              )}
+            </div>
+          );
+        })}
+      </div>
 
-          {apt.linkAnuncio && (
-            <a href={apt.linkAnuncio} target="_blank" rel="noopener noreferrer"
-              style={{ display: 'inline-flex', alignItems: 'center', gap: 6, color: 'var(--accent)', fontSize: 14, fontWeight: 500, marginBottom: 20, textDecoration: 'none' }}>
-              🔗 Ver anúncio original
-            </a>
-          )}
+      <div style={{ padding: 16, background: 'var(--accent-light)', borderRadius: 'var(--radius-sm)', display: 'flex', justifyContent: 'space-between', alignItems: 'center', marginBottom: 28 }}>
+        <span style={{ fontSize: 15, fontWeight: 700, color: 'var(--accent-dark)' }}>Nota Geral</span>
+        <span style={{ fontSize: 28, fontWeight: 700, color: 'var(--accent)', fontFamily: 'var(--font-display)' }}>
+          {media.toFixed(1)} <span style={{ fontSize: 14, color: 'var(--text-muted)' }}>/ 5.0</span>
+        </span>
+      </div>
 
-          <h3 style={{ fontFamily: 'var(--font-display)', fontSize: 18, fontWeight: 600, marginBottom: 16, marginTop: 8 }}>Avaliações</h3>
-          <div style={{ display: 'flex', flexDirection: 'column', gap: 12, marginBottom: 16 }}>
-            {EVALUATION_CATEGORIES.map(cat => {
-              const av = apt.avaliacoes[cat.key];
-              if (!av) return null;
-              return (
-                <div key={cat.key} style={{ padding: 14, background: 'var(--bg)', borderRadius: 'var(--radius-sm)' }}>
-                  <div style={{ display: 'flex', justifyContent: 'space-between', alignItems: 'center' }}>
-                    <span style={{ fontSize: 14, fontWeight: 500 }}>{cat.label}</span>
-                    <StarRating value={av.nota} readonly />
-                  </div>
-                  {av.comentario && (
-                    <p style={{ fontSize: 13, color: 'var(--text-secondary)', marginTop: 6, fontStyle: 'italic' }}>
-                      "{av.comentario}"
-                    </p>
-                  )}
-                </div>
-              );
-            })}
-          </div>
-
-          <div style={{ padding: 16, background: 'var(--accent-light)', borderRadius: 'var(--radius-sm)', display: 'flex', justifyContent: 'space-between', alignItems: 'center' }}>
-            <span style={{ fontSize: 15, fontWeight: 700, color: 'var(--accent-dark)' }}>Nota Geral</span>
-            <span style={{ fontSize: 28, fontWeight: 700, color: 'var(--accent)', fontFamily: 'var(--font-display)' }}>
-              {media.toFixed(1)} <span style={{ fontSize: 14, color: 'var(--text-muted)' }}>/ 5.0</span>
-            </span>
-          </div>
-        </div>
-
-        <div style={{ padding: '16px 24px', borderTop: '1px solid var(--border)', display: 'flex', justifyContent: 'space-between' }}>
-          <div style={{ display: 'flex', gap: 8 }}>
-            {STATUSES.map(s => (
-              <button key={s.value} className={`btn btn-sm ${apt.status === s.value ? 'btn-primary' : ''}`}
-                onClick={() => onStatusChange(apt.id, s.value)}>
-                {s.emoji} {s.label}
-              </button>
-            ))}
-          </div>
-          <button className="btn" onClick={() => onEdit(apt)}>✏️ Editar</button>
-        </div>
+      <div style={{ display: 'flex', gap: 8, flexWrap: 'wrap' }}>
+        {STATUSES.map(s => (
+          <button key={s.value} className={`btn ${apt.status === s.value ? 'btn-primary' : ''}`}
+            onClick={() => onStatusChange(apt.id, s.value)}>
+            {s.emoji} {s.label}
+          </button>
+        ))}
       </div>
     </div>
   );
@@ -545,6 +583,10 @@ function CompareView({ apts, onClose }) {
     ['Andar', a => a.andar || '—'],
     ['Sacada', a => a.sacada ? '✓ Sim' : '✗ Não'],
     ['Elevador', a => a.elevador ? '✓ Sim' : '✗ Não'],
+    ['Churrasqueira (apt)', a => a.churrasqueiraApt ? '✓ Sim' : '✗ Não'],
+    ['Piscina (cond)', a => a.condPiscina ? '✓ Sim' : '✗ Não'],
+    ['Salão de Festas (cond)', a => a.condSalaoFestas ? '✓ Sim' : '✗ Não'],
+    ['Churrasqueira (cond)', a => a.condChurrasqueira ? '✓ Sim' : '✗ Não'],
     ...EVALUATION_CATEGORIES.map(cat => [cat.label, a => {
       const av = a.avaliacoes[cat.key];
       return av ? `${'★'.repeat(av.nota)}${'☆'.repeat(5 - av.nota)}` : '—';
@@ -566,7 +608,7 @@ function CompareView({ apts, onClose }) {
                 <th></th>
                 {apts.map(a => (
                   <td key={a.id} style={{ fontWeight: 700, fontSize: 15 }}>
-                    {a.fotos[0] && <img src={a.fotos[0]} alt="" style={{ width: '100%', height: 100, objectFit: 'cover', borderRadius: 'var(--radius-sm)', marginBottom: 8 }} />}
+                    {a.fotos[0] && <img src={a.fotos[0]} alt="" referrerPolicy="no-referrer" style={{ width: '100%', height: 100, objectFit: 'cover', borderRadius: 'var(--radius-sm)', marginBottom: 8 }} />}
                     {a.endereco || 'Sem endereço'}
                     <div style={{ marginTop: 4 }}><StatusBadge status={a.status} /></div>
                   </td>
@@ -607,7 +649,7 @@ function ApartmentCard({ apt, onClick, onCompareToggle, isCompareSelected }) {
     >
       <div style={{ position: 'relative', height: 180, background: '#E5E0D8' }}>
         {apt.fotos[0] ? (
-          <img src={apt.fotos[0]} alt="" style={{ width: '100%', height: '100%', objectFit: 'cover' }}
+          <img src={apt.fotos[0]} alt="" referrerPolicy="no-referrer" style={{ width: '100%', height: '100%', objectFit: 'cover' }}
             onError={e => { e.target.style.display = 'none'; }} />
         ) : (
           <div style={{ height: '100%', display: 'flex', alignItems: 'center', justifyContent: 'center', color: 'var(--text-muted)', fontSize: 36 }}>🏠</div>
@@ -640,9 +682,9 @@ function ApartmentCard({ apt, onClick, onCompareToggle, isCompareSelected }) {
           {fmt(apt.preco)}
         </div>
         <div style={{ display: 'flex', gap: 12, fontSize: 13, color: 'var(--text-secondary)', flexWrap: 'wrap' }}>
-          {apt.quartos && <span>🛏 {apt.quartos}q</span>}
-          {apt.banheiros && <span>🚿 {apt.banheiros}b</span>}
-          {apt.vagas && <span>🚗 {apt.vagas}v</span>}
+          {apt.quartos && <span>🛏 {apt.quartos}</span>}
+          {apt.banheiros && <span>🚿 {apt.banheiros}</span>}
+          {apt.vagas && <span>🚗 {apt.vagas}</span>}
           {apt.area && <span>📐 {fmtNum(apt.area)}m²</span>}
           {apt.andar && <span>🏢 {apt.andar}º</span>}
         </div>
@@ -666,7 +708,7 @@ function App() {
   const [loading, setLoading] = useState(true);
   const [saving, setSaving] = useState(false);
   const [toast, setToast] = useState(null);
-  const [showForm, setShowForm] = useState(false);
+  const [view, setView] = useState('list');
   const [editingApt, setEditingApt] = useState(null);
   const [detailApt, setDetailApt] = useState(null);
   const [compareIds, setCompareIds] = useState([]);
@@ -711,7 +753,7 @@ function App() {
       next = [...apartments, apt];
     }
     persist(next);
-    setShowForm(false);
+    setView('list');
     setEditingApt(null);
     setDetailApt(null);
   };
@@ -773,124 +815,128 @@ function App() {
   }
 
   return (
-    <div style={{ maxWidth: 1200, margin: '0 auto', padding: '24px 16px' }}>
-      {/* Header */}
-      <header style={{ display: 'flex', justifyContent: 'space-between', alignItems: 'center', marginBottom: 28 }}>
-        <div>
-          <h1 style={{ fontFamily: 'var(--font-display)', fontSize: 32, fontWeight: 700, letterSpacing: '-0.5px' }}>
-            🏠 Apê Finder
-          </h1>
-          <p style={{ color: 'var(--text-muted)', fontSize: 14, marginTop: 2 }}>
-            {apartments.length} apartamento{apartments.length !== 1 ? 's' : ''} cadastrado{apartments.length !== 1 ? 's' : ''}
-            {saving && <span style={{ color: 'var(--yellow)', marginLeft: 10 }}>⏳ Salvando...</span>}
-          </p>
-        </div>
-        <div style={{ display: 'flex', gap: 8 }}>
-          {compareIds.length >= 2 && (
-            <button className="btn" onClick={() => setShowCompare(true)}>
-              ⇔ Comparar ({compareIds.length})
-            </button>
-          )}
-          <button className="btn btn-primary" onClick={() => { setEditingApt(null); setShowForm(true); }}>
-            + Novo Apê
-          </button>
-        </div>
-      </header>
+    <div>
+      {view === 'list' && (
+        <div style={{ maxWidth: 1200, margin: '0 auto', padding: '24px 16px' }}>
+          {/* Header */}
+          <header style={{ display: 'flex', justifyContent: 'space-between', alignItems: 'center', marginBottom: 28 }}>
+            <div>
+              <h1 style={{ fontFamily: 'var(--font-display)', fontSize: 32, fontWeight: 700, letterSpacing: '-0.5px' }}>
+                🏠 Apê Finder
+              </h1>
+              <p style={{ color: 'var(--text-muted)', fontSize: 14, marginTop: 2 }}>
+                {apartments.length} apartamento{apartments.length !== 1 ? 's' : ''} cadastrado{apartments.length !== 1 ? 's' : ''}
+                {saving && <span style={{ color: 'var(--yellow)', marginLeft: 10 }}>⏳ Salvando...</span>}
+              </p>
+            </div>
+            <div style={{ display: 'flex', gap: 8 }}>
+              {compareIds.length >= 2 && (
+                <button className="btn" onClick={() => setShowCompare(true)}>
+                  ⇔ Comparar ({compareIds.length})
+                </button>
+              )}
+              <button className="btn btn-primary" onClick={() => { setEditingApt(null); setView('form'); }}>
+                + Novo Apê
+              </button>
+            </div>
+          </header>
 
-      {/* Filters */}
-      <div style={{
-        background: 'var(--bg-card)', borderRadius: 'var(--radius)', padding: 16,
-        marginBottom: 24, boxShadow: 'var(--shadow-sm)', border: '1px solid var(--border)',
-        display: 'flex', gap: 12, flexWrap: 'wrap', alignItems: 'flex-end',
-      }}>
-        <div style={{ flex: '1 1 200px' }}>
-          <label className="label">Buscar</label>
-          <input className="input" placeholder="Endereço..." value={search} onChange={e => setSearch(e.target.value)} />
-        </div>
-        <div style={{ flex: '0 1 140px' }}>
-          <label className="label">Status</label>
-          <select className="input" value={filterStatus} onChange={e => setFilterStatus(e.target.value)}>
-            <option value="todos">Todos</option>
-            {STATUSES.map(s => <option key={s.value} value={s.value}>{s.label}</option>)}
-          </select>
-        </div>
-        <div style={{ flex: '0 1 100px' }}>
-          <label className="label">Quartos</label>
-          <select className="input" value={filterQuartos} onChange={e => setFilterQuartos(e.target.value)}>
-            <option value="">Todos</option>
-            {[1,2,3,4,5].map(n => <option key={n} value={n}>{n}</option>)}
-          </select>
-        </div>
-        <div style={{ flex: '0 1 100px' }}>
-          <label className="label">Vagas</label>
-          <select className="input" value={filterVagas} onChange={e => setFilterVagas(e.target.value)}>
-            <option value="">Todas</option>
-            {[0,1,2,3].map(n => <option key={n} value={n}>{n}</option>)}
-          </select>
-        </div>
-        <div style={{ flex: '0 1 140px' }}>
-          <label className="label">Ordenar por</label>
-          <select className="input" value={sortBy} onChange={e => setSortBy(e.target.value)}>
-            <option value="createdAt">Data</option>
-            <option value="preco">Preço</option>
-            <option value="area">Área</option>
-            <option value="nota">Nota</option>
-            <option value="condominio">Condomínio</option>
-          </select>
-        </div>
-        <button className="btn btn-sm" onClick={() => setSortDir(d => d === 'asc' ? 'desc' : 'asc')}
-          style={{ marginBottom: 1 }}>
-          {sortDir === 'asc' ? '↑ Crescente' : '↓ Decrescente'}
-        </button>
-      </div>
-
-      {/* Grid */}
-      {filteredApts.length === 0 ? (
-        <div style={{ textAlign: 'center', padding: 60 }}>
-          <div style={{ fontSize: 48, marginBottom: 16 }}>🏠</div>
-          <p style={{ color: 'var(--text-muted)', fontSize: 16 }}>
-            {apartments.length === 0 ? 'Nenhum apartamento cadastrado ainda.' : 'Nenhum resultado para os filtros aplicados.'}
-          </p>
-          {apartments.length === 0 && (
-            <button className="btn btn-primary" style={{ marginTop: 16 }}
-              onClick={() => { setEditingApt(null); setShowForm(true); }}>
-              + Adicionar primeiro apê
+          {/* Filters */}
+          <div style={{
+            background: 'var(--bg-card)', borderRadius: 'var(--radius)', padding: 16,
+            marginBottom: 24, boxShadow: 'var(--shadow-sm)', border: '1px solid var(--border)',
+            display: 'flex', gap: 12, flexWrap: 'wrap', alignItems: 'flex-end',
+          }}>
+            <div style={{ flex: '1 1 200px' }}>
+              <label className="label">Buscar</label>
+              <input className="input" placeholder="Endereço..." value={search} onChange={e => setSearch(e.target.value)} />
+            </div>
+            <div style={{ flex: '0 1 140px' }}>
+              <label className="label">Status</label>
+              <select className="input" value={filterStatus} onChange={e => setFilterStatus(e.target.value)}>
+                <option value="todos">Todos</option>
+                {STATUSES.map(s => <option key={s.value} value={s.value}>{s.label}</option>)}
+              </select>
+            </div>
+            <div style={{ flex: '0 1 100px' }}>
+              <label className="label">Quartos</label>
+              <select className="input" value={filterQuartos} onChange={e => setFilterQuartos(e.target.value)}>
+                <option value="">Todos</option>
+                {[1,2,3,4,5].map(n => <option key={n} value={n}>{n}</option>)}
+              </select>
+            </div>
+            <div style={{ flex: '0 1 100px' }}>
+              <label className="label">Vagas</label>
+              <select className="input" value={filterVagas} onChange={e => setFilterVagas(e.target.value)}>
+                <option value="">Todas</option>
+                {[0,1,2,3].map(n => <option key={n} value={n}>{n}</option>)}
+              </select>
+            </div>
+            <div style={{ flex: '0 1 140px' }}>
+              <label className="label">Ordenar por</label>
+              <select className="input" value={sortBy} onChange={e => setSortBy(e.target.value)}>
+                <option value="createdAt">Data</option>
+                <option value="preco">Preço</option>
+                <option value="area">Área</option>
+                <option value="nota">Nota</option>
+                <option value="condominio">Condomínio</option>
+              </select>
+            </div>
+            <button className="btn btn-sm" onClick={() => setSortDir(d => d === 'asc' ? 'desc' : 'asc')}
+              style={{ marginBottom: 1 }}>
+              {sortDir === 'asc' ? '↑ Crescente' : '↓ Decrescente'}
             </button>
+          </div>
+
+          {/* Grid */}
+          {filteredApts.length === 0 ? (
+            <div style={{ textAlign: 'center', padding: 60 }}>
+              <div style={{ fontSize: 48, marginBottom: 16 }}>🏠</div>
+              <p style={{ color: 'var(--text-muted)', fontSize: 16 }}>
+                {apartments.length === 0 ? 'Nenhum apartamento cadastrado ainda.' : 'Nenhum resultado para os filtros aplicados.'}
+              </p>
+              {apartments.length === 0 && (
+                <button className="btn btn-primary" style={{ marginTop: 16 }}
+                  onClick={() => { setEditingApt(null); setView('form'); }}>
+                  + Adicionar primeiro apê
+                </button>
+              )}
+            </div>
+          ) : (
+            <div style={{ display: 'grid', gridTemplateColumns: 'repeat(auto-fill, minmax(280px, 1fr))', gap: 16 }}>
+              {filteredApts.map(apt => (
+                <ApartmentCard key={apt.id} apt={apt}
+                  onClick={() => { setDetailApt(apt); setView('detail'); }}
+                  onCompareToggle={toggleCompare}
+                  isCompareSelected={compareIds.includes(apt.id)} />
+              ))}
+            </div>
           )}
-        </div>
-      ) : (
-        <div style={{ display: 'grid', gridTemplateColumns: 'repeat(auto-fill, minmax(280px, 1fr))', gap: 16 }}>
-          {filteredApts.map(apt => (
-            <ApartmentCard key={apt.id} apt={apt}
-              onClick={() => setDetailApt(apt)}
-              onCompareToggle={toggleCompare}
-              isCompareSelected={compareIds.includes(apt.id)} />
-          ))}
+
+          {showCompare && (
+            <CompareView
+              apts={apartments.filter(a => compareIds.includes(a.id))}
+              onClose={() => setShowCompare(false)}
+            />
+          )}
         </div>
       )}
 
-      {/* Modals */}
-      {showForm && (
+      {view === 'detail' && detailApt && (
+        <ApartmentDetail
+          apt={apartments.find(a => a.id === detailApt.id) || detailApt}
+          onClose={() => { setDetailApt(null); setView('list'); }}
+          onEdit={(apt) => { setEditingApt(apt); setView('form'); }}
+          onStatusChange={handleStatusChange}
+          onDelete={handleDelete}
+        />
+      )}
+
+      {view === 'form' && (
         <ApartmentForm
           apt={editingApt}
           onSave={handleSaveApt}
-          onClose={() => { setShowForm(false); setEditingApt(null); }}
-        />
-      )}
-
-      {detailApt && (
-        <ApartmentDetail
-          apt={detailApt}
-          onClose={() => setDetailApt(null)}
-          onEdit={(apt) => { setEditingApt(apt); setShowForm(true); }}
-          onStatusChange={handleStatusChange}
-        />
-      )}
-
-      {showCompare && (
-        <CompareView
-          apts={apartments.filter(a => compareIds.includes(a.id))}
-          onClose={() => setShowCompare(false)}
+          onClose={() => { setEditingApt(null); setView(detailApt ? 'detail' : 'list'); }}
         />
       )}
 
