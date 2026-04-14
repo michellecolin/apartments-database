@@ -1598,5 +1598,102 @@
     },
     "visita": null,
     "createdAt": "2026-04-14T10:02:00.000Z"
+  },
+  {
+    "id": "apt_trindade_36768",
+    "fotos": [
+      "https://cdn.vistahost.com.br/gralhaim/vista.imobi/fotos/36768/i1O2P94YH9n_367686793effaaf6bd.jpg",
+      "https://cdn.vistahost.com.br/gralhaim/vista.imobi/fotos/36768/i1O2P94YH9n_367686793effda1c90.jpg",
+      "https://cdn.vistahost.com.br/gralhaim/vista.imobi/fotos/36768/i1O2P94YH9n_367686793f001a2fac.jpg",
+      "https://cdn.vistahost.com.br/gralhaim/vista.imobi/fotos/36768/i1O2P94YH9n_367686793f0083166e.jpg",
+      "https://cdn.vistahost.com.br/gralhaim/vista.imobi/fotos/36768/i1O2P94YH9n_367686793f016f0822.jpg",
+      "https://cdn.vistahost.com.br/gralhaim/vista.imobi/fotos/36768/i1O2P94YH9n_367686793f01c1cc6e.jpg",
+      "https://cdn.vistahost.com.br/gralhaim/vista.imobi/fotos/36768/i1O2P94YH9n_367686793f0259a23b.jpg",
+      "https://cdn.vistahost.com.br/gralhaim/vista.imobi/fotos/36768/i1O2P94YH9n_367686793f02d7ec67.jpg",
+      "https://cdn.vistahost.com.br/gralhaim/vista.imobi/fotos/36768/i1O2P94YH9n_367686793f033cb9b5.jpg",
+      "https://cdn.vistahost.com.br/gralhaim/vista.imobi/fotos/36768/i1O2P94YH9n_367686793f03727177.jpg",
+      "https://cdn.vistahost.com.br/gralhaim/vista.imobi/fotos/36768/i1O2P94YH9n_367686793f03abefb6.jpg",
+      "https://cdn.vistahost.com.br/gralhaim/vista.imobi/fotos/36768/i1O2P94YH9n_367686793f042aeb66.jpg",
+      "https://cdn.vistahost.com.br/gralhaim/vista.imobi/fotos/36768/i1O2P94YH9n_367686793f0475f53f.jpg",
+      "https://cdn.vistahost.com.br/gralhaim/vista.imobi/fotos/36768/i1O2P94YH9n_367686793f04c4a342.jpg",
+      "https://cdn.vistahost.com.br/gralhaim/vista.imobi/fotos/36768/i1O2P94YH9n_367686793f0503d01f.jpg",
+      "https://cdn.vistahost.com.br/gralhaim/vista.imobi/fotos/36768/i1O2P94YH9n_367686793f0540133b.jpg",
+      "https://cdn.vistahost.com.br/gralhaim/vista.imobi/fotos/36768/i1O2P94YH9n_367686793f0571d3f6.jpg",
+      "https://cdn.vistahost.com.br/gralhaim/vista.imobi/fotos/36768/i1O2P94YH9n_367686793f05a8f1c7.jpg",
+      "https://cdn.vistahost.com.br/gralhaim/vista.imobi/fotos/36768/i1O2P94YH9n_367686793f05e2c40f.jpg",
+      "https://cdn.vistahost.com.br/gralhaim/vista.imobi/fotos/36768/i1O2P94YH9n_367686793f062bca75.jpg",
+      "https://cdn.vistahost.com.br/gralhaim/vista.imobi/fotos/36768/i1O2P94YH9n_367686793f066efe63.jpg",
+      "https://cdn.vistahost.com.br/gralhaim/vista.imobi/fotos/36768/i1O2P94YH9n_367686793f06a109ab.jpg",
+      "https://cdn.vistahost.com.br/gralhaim/vista.imobi/fotos/36768/i1O2P94YH9n_367686793f06d22907.jpg",
+      "https://cdn.vistahost.com.br/gralhaim/vista.imobi/fotos/36768/i1O2P94YH9n_367686793f07169a78.jpg",
+      "https://cdn.vistahost.com.br/gralhaim/vista.imobi/fotos/36768/iz691355T9834h2_3676867941646ab03c.jpg",
+      "https://cdn.vistahost.com.br/gralhaim/vista.imobi/fotos/36768/iz691355T9834h2_36768679416495d9a0.jpg",
+      "https://cdn.vistahost.com.br/gralhaim/vista.imobi/fotos/36768/ii629P5H58jwKLS_3676867978cc61d04a.jpg"
+    ],
+    "endereco": "Trindade, Florianópolis",
+    "preco": "799000",
+    "condominio": "955",
+    "iptu": "3588",
+    "quartos": "3",
+    "banheiros": "2",
+    "vagas": "1",
+    "area": "109.8",
+    "andar": "",
+    "sacada": true,
+    "elevador": true,
+    "churrasqueiraApt": false,
+    "condPiscina": true,
+    "condSalaoFestas": true,
+    "condChurrasqueira": true,
+    "linkAnuncio": "https://imoveis.novovista.com.br/?v2=a2V5PTcyZDY0ZTdkMDc5ZGRjMTM4ZTRiNjEzZTBkOWRiNzE4JmNvZD0zNjc2OCZkPTE0NDgmY3M9NSZtYXBhPU5hbyZiYWlycm9fY29tZXJjaWFsPU5hbyZsb2dpbj1uYW8mc3RhdHVzPVZlbmRhJnB1cnBvc2U9JTVCJTIydmVuZGElMjIlNUQmY29kX2VtPTI2NjI",
+    "status": "novo",
+    "avaliacoes": {
+      "estadoGeral": {
+        "nota": 0,
+        "comentario": ""
+      },
+      "banheiroP": {
+        "nota": 0,
+        "comentario": ""
+      },
+      "outrosBanheiros": {
+        "nota": 0,
+        "comentario": ""
+      },
+      "cozinha": {
+        "nota": 0,
+        "comentario": ""
+      },
+      "areaServico": {
+        "nota": 0,
+        "comentario": ""
+      },
+      "quartosArmarios": {
+        "nota": 0,
+        "comentario": ""
+      },
+      "pisoAcabamento": {
+        "nota": 0,
+        "comentario": ""
+      },
+      "sacada": {
+        "nota": 0,
+        "comentario": ""
+      },
+      "localizacao": {
+        "nota": 0,
+        "comentario": ""
+      },
+      "elevador": {
+        "nota": 0,
+        "comentario": ""
+      },
+      "custoBeneficio": {
+        "nota": 0,
+        "comentario": ""
+      }
+    },
+    "visita": null,
+    "createdAt": "2026-04-14T14:00:00.000Z"
   }
 ]
