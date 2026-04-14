@@ -425,7 +425,7 @@
     "vagas": "1",
     "area": "85",
     "andar": "",
-    "sacada": false,
+    "sacada": true,
     "elevador": true,
     "churrasqueiraApt": false,
     "condPiscina": true,
