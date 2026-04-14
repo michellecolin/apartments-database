@@ -750,8 +750,7 @@ function ApartmentDetail({ apt, onClose, onEdit, onStatusChange, onDelete, onRat
         </div>
         <div style={{ display: 'flex', flexDirection: 'column', gap: 6 }}>
           {EVALUATION_CATEGORIES.map(cat => {
-            const av = apt.avaliacoes[cat.key];
-            if (!av) return null;
+            const av = apt.avaliacoes[cat.key] || { nota: 0, comentario: '' };
             const isExpanded = expandedEval === cat.key;
             return (
               <div key={cat.key} style={{
