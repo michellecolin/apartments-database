@@ -697,10 +697,8 @@ function ApartmentDetail({ apt, onClose, onEdit, onStatusChange, onDelete, onRat
         </div>
       )}
 
-      {/* Main 2-column layout */}
-      <div style={{ display: 'grid', gridTemplateColumns: 'repeat(auto-fit, minmax(340px, 1fr))', gap: 20, marginBottom: 24 }}>
-        {/* Left column: Valores + Características */}
-        <div style={{ display: 'flex', flexDirection: 'column', gap: 20 }}>
+      {/* Content sections */}
+      <div style={{ display: 'flex', flexDirection: 'column', gap: 20, marginBottom: 24 }}>
           {/* Valores */}
           <div style={{ background: 'var(--bg-card)', border: '1px solid var(--border)', borderRadius: 10, padding: 16 }}>
             <div style={{ fontSize: 13, fontWeight: 500, color: 'var(--text-secondary)', marginBottom: 12, textTransform: 'uppercase', letterSpacing: 0.5 }}>Valores</div>
@@ -751,10 +749,9 @@ function ApartmentDetail({ apt, onClose, onEdit, onStatusChange, onDelete, onRat
               ))}
             </div>
           </div>
-        </div>
 
-        {/* Right column: Avaliações */}
-        <div>
+          {/* Avaliações */}
+          <div style={{ background: 'var(--bg-card)', border: '1px solid var(--border)', borderRadius: 10, padding: 16 }}>
           <div style={{ display: 'flex', justifyContent: 'space-between', alignItems: 'center', marginBottom: 12 }}>
             <div style={{ fontSize: 13, fontWeight: 500, color: 'var(--text-secondary)', textTransform: 'uppercase', letterSpacing: 0.5 }}>Avaliações</div>
             <div style={{ textAlign: 'right' }}>
@@ -764,7 +761,7 @@ function ApartmentDetail({ apt, onClose, onEdit, onStatusChange, onDelete, onRat
               <div style={{ fontSize: 11, color: 'var(--text-muted)' }}>nota geral</div>
             </div>
           </div>
-        <div style={{ display: 'grid', gridTemplateColumns: 'repeat(auto-fit, minmax(280px, 1fr))', gap: 6 }}>
+        <div style={{ display: 'grid', gridTemplateColumns: '1fr 1fr', gap: 6 }}>
           {EVALUATION_CATEGORIES.map(cat => {
             const av = apt.avaliacoes[cat.key] || { nota: 0, comentario: '' };
             const isEditing = editingEval === cat.key;
