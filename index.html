@@ -171,10 +171,19 @@ const defaultApt = () => ({
   createdAt: new Date().toISOString(),
 });
 
+const EVAL_WEIGHTS = { custoBeneficio: 2 };
+
 const calcMedia = (avaliacoes) => {
-  const notas = Object.values(avaliacoes).map(a => a.nota).filter(n => n > 0);
-  if (notas.length === 0) return 0;
-  return notas.reduce((s, n) => s + n, 0) / notas.length;
+  let totalPeso = 0, totalNota = 0;
+  Object.entries(avaliacoes).forEach(([key, a]) => {
+    if (a.nota > 0) {
+      const peso = EVAL_WEIGHTS[key] || 1;
+      totalNota += a.nota * peso;
+      totalPeso += peso;
+    }
+  });
+  if (totalPeso === 0) return 0;
+  return totalNota / totalPeso;
 };
 
 const fmt = (v) => {
