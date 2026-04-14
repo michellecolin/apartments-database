@@ -136,7 +136,7 @@
     "status": "novo",
     "avaliacoes": {
       "estadoGeral": {
-        "nota": 0,
+        "nota": 5,
         "comentario": ""
       },
       "banheiroP": {
@@ -540,106 +540,570 @@
   },
   {
     "id": "apt_carvoeira_23408285",
-    "fotos": ["https://www.chavesnamao.com.br/imn/0850x0450/N/60/imoveis/32994/23408285/sc-florianopolis-carvoeira-rua-douglas-seabra-levier-cobertura-a-venda-3-quartos-63a49c4c-1.jpg"],
+    "fotos": [
+      "https://www.chavesnamao.com.br/imn/0850x0450/N/60/imoveis/32994/23408285/sc-florianopolis-carvoeira-rua-douglas-seabra-levier-cobertura-a-venda-3-quartos-63a49c4c-1.jpg"
+    ],
     "endereco": "Carvoeira, Florianópolis",
-    "preco": "875000", "condominio": "", "iptu": "",
-    "quartos": "3", "banheiros": "2", "vagas": "1", "area": "250", "andar": "",
-    "sacada": false, "elevador": false,
-    "churrasqueiraApt": false, "condPiscina": false, "condSalaoFestas": false, "condChurrasqueira": false,
+    "preco": "875000",
+    "condominio": "",
+    "iptu": "",
+    "quartos": "3",
+    "banheiros": "2",
+    "vagas": "1",
+    "area": "250",
+    "andar": "",
+    "sacada": false,
+    "elevador": false,
+    "churrasqueiraApt": false,
+    "condPiscina": false,
+    "condSalaoFestas": false,
+    "condChurrasqueira": false,
     "linkAnuncio": "https://www.chavesnamao.com.br/imovel/cobertura-a-venda-3-quartos-com-garagem-sc-florianopolis-carvoeira-250m2-RS875000/id-23408285/",
     "status": "novo",
-    "avaliacoes": { "estadoGeral":{"nota":0,"comentario":""},"banheiroP":{"nota":0,"comentario":""},"outrosBanheiros":{"nota":0,"comentario":""},"cozinha":{"nota":0,"comentario":""},"areaServico":{"nota":0,"comentario":""},"quartosArmarios":{"nota":0,"comentario":""},"pisoAcabamento":{"nota":0,"comentario":""},"sacada":{"nota":0,"comentario":""},"localizacao":{"nota":0,"comentario":""},"elevador":{"nota":0,"comentario":""},"custoBeneficio":{"nota":0,"comentario":""} },
-    "visita": null, "createdAt": "2026-04-13T14:00:00.000Z"
+    "avaliacoes": {
+      "estadoGeral": {
+        "nota": 0,
+        "comentario": ""
+      },
+      "banheiroP": {
+        "nota": 0,
+        "comentario": ""
+      },
+      "outrosBanheiros": {
+        "nota": 0,
+        "comentario": ""
+      },
+      "cozinha": {
+        "nota": 0,
+        "comentario": ""
+      },
+      "areaServico": {
+        "nota": 0,
+        "comentario": ""
+      },
+      "quartosArmarios": {
+        "nota": 0,
+        "comentario": ""
+      },
+      "pisoAcabamento": {
+        "nota": 0,
+        "comentario": ""
+      },
+      "sacada": {
+        "nota": 0,
+        "comentario": ""
+      },
+      "localizacao": {
+        "nota": 0,
+        "comentario": ""
+      },
+      "elevador": {
+        "nota": 0,
+        "comentario": ""
+      },
+      "custoBeneficio": {
+        "nota": 0,
+        "comentario": ""
+      }
+    },
+    "visita": null,
+    "createdAt": "2026-04-13T14:00:00.000Z"
   },
   {
     "id": "apt_carvoeira_36090041",
-    "fotos": ["https://www.chavesnamao.com.br/imn/0850x0450/N/60/imoveis/136620/36090041/sc-florianopolis-carvoeira-rua-douglas-seabra-levier-apartamento-a-venda-3-quartos-679f02c8-1.jpg"],
+    "fotos": [
+      "https://www.chavesnamao.com.br/imn/0850x0450/N/60/imoveis/136620/36090041/sc-florianopolis-carvoeira-rua-douglas-seabra-levier-apartamento-a-venda-3-quartos-679f02c8-1.jpg"
+    ],
     "endereco": "Carvoeira, Florianópolis",
-    "preco": "749000", "condominio": "", "iptu": "",
-    "quartos": "3", "banheiros": "2", "vagas": "1", "area": "120", "andar": "",
-    "sacada": false, "elevador": false,
-    "churrasqueiraApt": false, "condPiscina": false, "condSalaoFestas": false, "condChurrasqueira": false,
+    "preco": "749000",
+    "condominio": "",
+    "iptu": "",
+    "quartos": "3",
+    "banheiros": "2",
+    "vagas": "1",
+    "area": "120",
+    "andar": "",
+    "sacada": false,
+    "elevador": false,
+    "churrasqueiraApt": false,
+    "condPiscina": false,
+    "condSalaoFestas": false,
+    "condChurrasqueira": false,
     "linkAnuncio": "https://www.chavesnamao.com.br/imovel/apartamento-a-venda-3-quartos-com-garagem-sc-florianopolis-carvoeira-120m2-RS749000/id-36090041/",
     "status": "novo",
-    "avaliacoes": { "estadoGeral":{"nota":0,"comentario":""},"banheiroP":{"nota":0,"comentario":""},"outrosBanheiros":{"nota":0,"comentario":""},"cozinha":{"nota":0,"comentario":""},"areaServico":{"nota":0,"comentario":""},"quartosArmarios":{"nota":0,"comentario":""},"pisoAcabamento":{"nota":0,"comentario":""},"sacada":{"nota":0,"comentario":""},"localizacao":{"nota":0,"comentario":""},"elevador":{"nota":0,"comentario":""},"custoBeneficio":{"nota":0,"comentario":""} },
-    "visita": null, "createdAt": "2026-04-13T14:01:00.000Z"
+    "avaliacoes": {
+      "estadoGeral": {
+        "nota": 0,
+        "comentario": ""
+      },
+      "banheiroP": {
+        "nota": 0,
+        "comentario": ""
+      },
+      "outrosBanheiros": {
+        "nota": 0,
+        "comentario": ""
+      },
+      "cozinha": {
+        "nota": 0,
+        "comentario": ""
+      },
+      "areaServico": {
+        "nota": 0,
+        "comentario": ""
+      },
+      "quartosArmarios": {
+        "nota": 0,
+        "comentario": ""
+      },
+      "pisoAcabamento": {
+        "nota": 0,
+        "comentario": ""
+      },
+      "sacada": {
+        "nota": 0,
+        "comentario": ""
+      },
+      "localizacao": {
+        "nota": 0,
+        "comentario": ""
+      },
+      "elevador": {
+        "nota": 0,
+        "comentario": ""
+      },
+      "custoBeneficio": {
+        "nota": 0,
+        "comentario": ""
+      }
+    },
+    "visita": null,
+    "createdAt": "2026-04-13T14:01:00.000Z"
   },
   {
     "id": "apt_agronomica_25655824",
-    "fotos": ["https://www.chavesnamao.com.br/imn/0850x0450/N/60/imoveis/32994/25655824/sc-florianopolis-agronomica-rua-rui-barbosa-apartamento-a-venda-3-quartos-645a1758-1.jpg"],
+    "fotos": [
+      "https://www.chavesnamao.com.br/imn/0850x0450/N/60/imoveis/32994/25655824/sc-florianopolis-agronomica-rua-rui-barbosa-apartamento-a-venda-3-quartos-645a1758-1.jpg"
+    ],
     "endereco": "Agronômica, Florianópolis",
-    "preco": "795000", "condominio": "", "iptu": "",
-    "quartos": "3", "banheiros": "2", "vagas": "1", "area": "160", "andar": "",
-    "sacada": false, "elevador": false,
-    "churrasqueiraApt": false, "condPiscina": false, "condSalaoFestas": false, "condChurrasqueira": false,
+    "preco": "795000",
+    "condominio": "",
+    "iptu": "",
+    "quartos": "3",
+    "banheiros": "2",
+    "vagas": "1",
+    "area": "160",
+    "andar": "",
+    "sacada": false,
+    "elevador": false,
+    "churrasqueiraApt": false,
+    "condPiscina": false,
+    "condSalaoFestas": false,
+    "condChurrasqueira": false,
     "linkAnuncio": "https://www.chavesnamao.com.br/imovel/apartamento-a-venda-3-quartos-com-garagem-sc-florianopolis-agronomica-160m2-RS795000/id-25655824/",
     "status": "novo",
-    "avaliacoes": { "estadoGeral":{"nota":0,"comentario":""},"banheiroP":{"nota":0,"comentario":""},"outrosBanheiros":{"nota":0,"comentario":""},"cozinha":{"nota":0,"comentario":""},"areaServico":{"nota":0,"comentario":""},"quartosArmarios":{"nota":0,"comentario":""},"pisoAcabamento":{"nota":0,"comentario":""},"sacada":{"nota":0,"comentario":""},"localizacao":{"nota":0,"comentario":""},"elevador":{"nota":0,"comentario":""},"custoBeneficio":{"nota":0,"comentario":""} },
-    "visita": null, "createdAt": "2026-04-13T14:02:00.000Z"
+    "avaliacoes": {
+      "estadoGeral": {
+        "nota": 0,
+        "comentario": ""
+      },
+      "banheiroP": {
+        "nota": 0,
+        "comentario": ""
+      },
+      "outrosBanheiros": {
+        "nota": 0,
+        "comentario": ""
+      },
+      "cozinha": {
+        "nota": 0,
+        "comentario": ""
+      },
+      "areaServico": {
+        "nota": 0,
+        "comentario": ""
+      },
+      "quartosArmarios": {
+        "nota": 0,
+        "comentario": ""
+      },
+      "pisoAcabamento": {
+        "nota": 0,
+        "comentario": ""
+      },
+      "sacada": {
+        "nota": 0,
+        "comentario": ""
+      },
+      "localizacao": {
+        "nota": 0,
+        "comentario": ""
+      },
+      "elevador": {
+        "nota": 0,
+        "comentario": ""
+      },
+      "custoBeneficio": {
+        "nota": 0,
+        "comentario": ""
+      }
+    },
+    "visita": null,
+    "createdAt": "2026-04-13T14:02:00.000Z"
   },
   {
     "id": "apt_corrego_grande_37683908",
-    "fotos": ["https://www.chavesnamao.com.br/imn/0850x0450/N/60/imoveis/136620/37683908/sc-florianopolis-corrego-grande-rua-joao-pio-duarte-silva-apartamento-a-venda-3-quartos-67e80c58-1.jpg"],
+    "fotos": [
+      "https://www.chavesnamao.com.br/imn/0850x0450/N/60/imoveis/136620/37683908/sc-florianopolis-corrego-grande-rua-joao-pio-duarte-silva-apartamento-a-venda-3-quartos-67e80c58-1.jpg"
+    ],
     "endereco": "Córrego Grande, Florianópolis",
-    "preco": "798000", "condominio": "", "iptu": "",
-    "quartos": "3", "banheiros": "2", "vagas": "1", "area": "137", "andar": "",
-    "sacada": false, "elevador": false,
-    "churrasqueiraApt": false, "condPiscina": false, "condSalaoFestas": false, "condChurrasqueira": false,
+    "preco": "798000",
+    "condominio": "",
+    "iptu": "",
+    "quartos": "3",
+    "banheiros": "2",
+    "vagas": "1",
+    "area": "137",
+    "andar": "",
+    "sacada": false,
+    "elevador": false,
+    "churrasqueiraApt": false,
+    "condPiscina": false,
+    "condSalaoFestas": false,
+    "condChurrasqueira": false,
     "linkAnuncio": "https://www.chavesnamao.com.br/imovel/apartamento-a-venda-3-quartos-com-garagem-sc-florianopolis-corrego-grande-137m2-RS798000/id-37683908/",
     "status": "novo",
-    "avaliacoes": { "estadoGeral":{"nota":0,"comentario":""},"banheiroP":{"nota":0,"comentario":""},"outrosBanheiros":{"nota":0,"comentario":""},"cozinha":{"nota":0,"comentario":""},"areaServico":{"nota":0,"comentario":""},"quartosArmarios":{"nota":0,"comentario":""},"pisoAcabamento":{"nota":0,"comentario":""},"sacada":{"nota":0,"comentario":""},"localizacao":{"nota":0,"comentario":""},"elevador":{"nota":0,"comentario":""},"custoBeneficio":{"nota":0,"comentario":""} },
-    "visita": null, "createdAt": "2026-04-13T14:03:00.000Z"
+    "avaliacoes": {
+      "estadoGeral": {
+        "nota": 0,
+        "comentario": ""
+      },
+      "banheiroP": {
+        "nota": 0,
+        "comentario": ""
+      },
+      "outrosBanheiros": {
+        "nota": 0,
+        "comentario": ""
+      },
+      "cozinha": {
+        "nota": 0,
+        "comentario": ""
+      },
+      "areaServico": {
+        "nota": 0,
+        "comentario": ""
+      },
+      "quartosArmarios": {
+        "nota": 0,
+        "comentario": ""
+      },
+      "pisoAcabamento": {
+        "nota": 0,
+        "comentario": ""
+      },
+      "sacada": {
+        "nota": 0,
+        "comentario": ""
+      },
+      "localizacao": {
+        "nota": 0,
+        "comentario": ""
+      },
+      "elevador": {
+        "nota": 0,
+        "comentario": ""
+      },
+      "custoBeneficio": {
+        "nota": 0,
+        "comentario": ""
+      }
+    },
+    "visita": null,
+    "createdAt": "2026-04-13T14:03:00.000Z"
   },
   {
     "id": "apt_corrego_grande_31735159",
-    "fotos": ["https://www.chavesnamao.com.br/imn/0850x0450/N/60/imoveis/32994/31735159/sc-florianopolis-corrego-grande-rua-joao-pio-duarte-silva-apartamento-a-venda-3-quartos-66440bbe-1.jpg"],
+    "fotos": [
+      "https://www.chavesnamao.com.br/imn/0850x0450/N/60/imoveis/32994/31735159/sc-florianopolis-corrego-grande-rua-joao-pio-duarte-silva-apartamento-a-venda-3-quartos-66440bbe-1.jpg"
+    ],
     "endereco": "Córrego Grande, Florianópolis",
-    "preco": "700000", "condominio": "", "iptu": "",
-    "quartos": "3", "banheiros": "2", "vagas": "1", "area": "107", "andar": "",
-    "sacada": false, "elevador": false,
-    "churrasqueiraApt": false, "condPiscina": false, "condSalaoFestas": false, "condChurrasqueira": false,
+    "preco": "700000",
+    "condominio": "",
+    "iptu": "",
+    "quartos": "3",
+    "banheiros": "2",
+    "vagas": "1",
+    "area": "107",
+    "andar": "",
+    "sacada": false,
+    "elevador": false,
+    "churrasqueiraApt": false,
+    "condPiscina": false,
+    "condSalaoFestas": false,
+    "condChurrasqueira": false,
     "linkAnuncio": "https://www.chavesnamao.com.br/imovel/apartamento-a-venda-3-quartos-com-garagem-sc-florianopolis-corrego-grande-107m2-RS700000/id-31735159/",
     "status": "novo",
-    "avaliacoes": { "estadoGeral":{"nota":0,"comentario":""},"banheiroP":{"nota":0,"comentario":""},"outrosBanheiros":{"nota":0,"comentario":""},"cozinha":{"nota":0,"comentario":""},"areaServico":{"nota":0,"comentario":""},"quartosArmarios":{"nota":0,"comentario":""},"pisoAcabamento":{"nota":0,"comentario":""},"sacada":{"nota":0,"comentario":""},"localizacao":{"nota":0,"comentario":""},"elevador":{"nota":0,"comentario":""},"custoBeneficio":{"nota":0,"comentario":""} },
-    "visita": null, "createdAt": "2026-04-13T14:04:00.000Z"
+    "avaliacoes": {
+      "estadoGeral": {
+        "nota": 0,
+        "comentario": ""
+      },
+      "banheiroP": {
+        "nota": 0,
+        "comentario": ""
+      },
+      "outrosBanheiros": {
+        "nota": 0,
+        "comentario": ""
+      },
+      "cozinha": {
+        "nota": 0,
+        "comentario": ""
+      },
+      "areaServico": {
+        "nota": 0,
+        "comentario": ""
+      },
+      "quartosArmarios": {
+        "nota": 0,
+        "comentario": ""
+      },
+      "pisoAcabamento": {
+        "nota": 0,
+        "comentario": ""
+      },
+      "sacada": {
+        "nota": 0,
+        "comentario": ""
+      },
+      "localizacao": {
+        "nota": 0,
+        "comentario": ""
+      },
+      "elevador": {
+        "nota": 0,
+        "comentario": ""
+      },
+      "custoBeneficio": {
+        "nota": 0,
+        "comentario": ""
+      }
+    },
+    "visita": null,
+    "createdAt": "2026-04-13T14:04:00.000Z"
   },
   {
     "id": "apt_carvoeira_26766001",
-    "fotos": ["https://www.chavesnamao.com.br/imn/0850x0450/N/60/imoveis/32994/26766001/sc-florianopolis-carvoeira-rua-douglas-seabra-levier-apartamento-a-venda-3-quartos-64d6e238-1.jpg"],
+    "fotos": [
+      "https://www.chavesnamao.com.br/imn/0850x0450/N/60/imoveis/32994/26766001/sc-florianopolis-carvoeira-rua-douglas-seabra-levier-apartamento-a-venda-3-quartos-64d6e238-1.jpg"
+    ],
     "endereco": "Carvoeira, Florianópolis",
-    "preco": "650000", "condominio": "", "iptu": "",
-    "quartos": "3", "banheiros": "2", "vagas": "1", "area": "98", "andar": "",
-    "sacada": false, "elevador": false,
-    "churrasqueiraApt": false, "condPiscina": false, "condSalaoFestas": false, "condChurrasqueira": false,
+    "preco": "650000",
+    "condominio": "",
+    "iptu": "",
+    "quartos": "3",
+    "banheiros": "2",
+    "vagas": "1",
+    "area": "98",
+    "andar": "",
+    "sacada": false,
+    "elevador": false,
+    "churrasqueiraApt": false,
+    "condPiscina": false,
+    "condSalaoFestas": false,
+    "condChurrasqueira": false,
     "linkAnuncio": "https://www.chavesnamao.com.br/imovel/apartamento-a-venda-3-quartos-com-garagem-sc-florianopolis-carvoeira-98m2-RS650000/id-26766001/",
     "status": "novo",
-    "avaliacoes": { "estadoGeral":{"nota":0,"comentario":""},"banheiroP":{"nota":0,"comentario":""},"outrosBanheiros":{"nota":0,"comentario":""},"cozinha":{"nota":0,"comentario":""},"areaServico":{"nota":0,"comentario":""},"quartosArmarios":{"nota":0,"comentario":""},"pisoAcabamento":{"nota":0,"comentario":""},"sacada":{"nota":0,"comentario":""},"localizacao":{"nota":0,"comentario":""},"elevador":{"nota":0,"comentario":""},"custoBeneficio":{"nota":0,"comentario":""} },
-    "visita": null, "createdAt": "2026-04-13T14:05:00.000Z"
+    "avaliacoes": {
+      "estadoGeral": {
+        "nota": 0,
+        "comentario": ""
+      },
+      "banheiroP": {
+        "nota": 0,
+        "comentario": ""
+      },
+      "outrosBanheiros": {
+        "nota": 0,
+        "comentario": ""
+      },
+      "cozinha": {
+        "nota": 0,
+        "comentario": ""
+      },
+      "areaServico": {
+        "nota": 0,
+        "comentario": ""
+      },
+      "quartosArmarios": {
+        "nota": 0,
+        "comentario": ""
+      },
+      "pisoAcabamento": {
+        "nota": 0,
+        "comentario": ""
+      },
+      "sacada": {
+        "nota": 0,
+        "comentario": ""
+      },
+      "localizacao": {
+        "nota": 0,
+        "comentario": ""
+      },
+      "elevador": {
+        "nota": 0,
+        "comentario": ""
+      },
+      "custoBeneficio": {
+        "nota": 0,
+        "comentario": ""
+      }
+    },
+    "visita": null,
+    "createdAt": "2026-04-13T14:05:00.000Z"
   },
   {
     "id": "apt_pantanal_26671315",
-    "fotos": ["https://www.chavesnamao.com.br/imn/0850x0450/N/60/imoveis/32994/26671315/sc-florianopolis-pantanal-rua-deputado-antonio-edu-vieira-apartamento-a-venda-3-quartos-64c6f258-1.jpg"],
+    "fotos": [
+      "https://www.chavesnamao.com.br/imn/0850x0450/N/60/imoveis/32994/26671315/sc-florianopolis-pantanal-rua-deputado-antonio-edu-vieira-apartamento-a-venda-3-quartos-64c6f258-1.jpg"
+    ],
     "endereco": "Pantanal, Florianópolis",
-    "preco": "645000", "condominio": "", "iptu": "",
-    "quartos": "3", "banheiros": "2", "vagas": "1", "area": "110", "andar": "",
-    "sacada": false, "elevador": false,
-    "churrasqueiraApt": false, "condPiscina": false, "condSalaoFestas": false, "condChurrasqueira": false,
+    "preco": "645000",
+    "condominio": "",
+    "iptu": "",
+    "quartos": "3",
+    "banheiros": "2",
+    "vagas": "1",
+    "area": "110",
+    "andar": "",
+    "sacada": false,
+    "elevador": false,
+    "churrasqueiraApt": false,
+    "condPiscina": false,
+    "condSalaoFestas": false,
+    "condChurrasqueira": false,
     "linkAnuncio": "https://www.chavesnamao.com.br/imovel/apartamento-a-venda-3-quartos-com-garagem-sc-florianopolis-pantanal-110m2-RS645000/id-26671315/",
     "status": "novo",
-    "avaliacoes": { "estadoGeral":{"nota":0,"comentario":""},"banheiroP":{"nota":0,"comentario":""},"outrosBanheiros":{"nota":0,"comentario":""},"cozinha":{"nota":0,"comentario":""},"areaServico":{"nota":0,"comentario":""},"quartosArmarios":{"nota":0,"comentario":""},"pisoAcabamento":{"nota":0,"comentario":""},"sacada":{"nota":0,"comentario":""},"localizacao":{"nota":0,"comentario":""},"elevador":{"nota":0,"comentario":""},"custoBeneficio":{"nota":0,"comentario":""} },
-    "visita": null, "createdAt": "2026-04-13T14:06:00.000Z"
+    "avaliacoes": {
+      "estadoGeral": {
+        "nota": 0,
+        "comentario": ""
+      },
+      "banheiroP": {
+        "nota": 0,
+        "comentario": ""
+      },
+      "outrosBanheiros": {
+        "nota": 0,
+        "comentario": ""
+      },
+      "cozinha": {
+        "nota": 0,
+        "comentario": ""
+      },
+      "areaServico": {
+        "nota": 0,
+        "comentario": ""
+      },
+      "quartosArmarios": {
+        "nota": 0,
+        "comentario": ""
+      },
+      "pisoAcabamento": {
+        "nota": 0,
+        "comentario": ""
+      },
+      "sacada": {
+        "nota": 0,
+        "comentario": ""
+      },
+      "localizacao": {
+        "nota": 0,
+        "comentario": ""
+      },
+      "elevador": {
+        "nota": 0,
+        "comentario": ""
+      },
+      "custoBeneficio": {
+        "nota": 0,
+        "comentario": ""
+      }
+    },
+    "visita": null,
+    "createdAt": "2026-04-13T14:06:00.000Z"
   },
   {
     "id": "apt_trindade_35856547",
-    "fotos": ["https://www.chavesnamao.com.br/imn/0850x0450/N/60/imoveis/136620/35856547/sc-florianopolis-trindade-rua-lauro-linhares-apartamento-a-venda-3-quartos-6789c44c-1.jpg"],
+    "fotos": [
+      "https://www.chavesnamao.com.br/imn/0850x0450/N/60/imoveis/136620/35856547/sc-florianopolis-trindade-rua-lauro-linhares-apartamento-a-venda-3-quartos-6789c44c-1.jpg"
+    ],
     "endereco": "Trindade, Florianópolis",
-    "preco": "750000", "condominio": "", "iptu": "",
-    "quartos": "3", "banheiros": "2", "vagas": "1", "area": "113", "andar": "",
-    "sacada": false, "elevador": false,
-    "churrasqueiraApt": false, "condPiscina": false, "condSalaoFestas": false, "condChurrasqueira": false,
+    "preco": "750000",
+    "condominio": "",
+    "iptu": "",
+    "quartos": "3",
+    "banheiros": "2",
+    "vagas": "1",
+    "area": "113",
+    "andar": "",
+    "sacada": false,
+    "elevador": false,
+    "churrasqueiraApt": false,
+    "condPiscina": false,
+    "condSalaoFestas": false,
+    "condChurrasqueira": false,
     "linkAnuncio": "https://www.chavesnamao.com.br/imovel/apartamento-a-venda-3-quartos-com-garagem-sc-florianopolis-trindade-113m2-RS750000/id-35856547/",
     "status": "novo",
-    "avaliacoes": { "estadoGeral":{"nota":0,"comentario":""},"banheiroP":{"nota":0,"comentario":""},"outrosBanheiros":{"nota":0,"comentario":""},"cozinha":{"nota":0,"comentario":""},"areaServico":{"nota":0,"comentario":""},"quartosArmarios":{"nota":0,"comentario":""},"pisoAcabamento":{"nota":0,"comentario":""},"sacada":{"nota":0,"comentario":""},"localizacao":{"nota":0,"comentario":""},"elevador":{"nota":0,"comentario":""},"custoBeneficio":{"nota":0,"comentario":""} },
-    "visita": null, "createdAt": "2026-04-13T14:07:00.000Z"
+    "avaliacoes": {
+      "estadoGeral": {
+        "nota": 0,
+        "comentario": ""
+      },
+      "banheiroP": {
+        "nota": 0,
+        "comentario": ""
+      },
+      "outrosBanheiros": {
+        "nota": 0,
+        "comentario": ""
+      },
+      "cozinha": {
+        "nota": 0,
+        "comentario": ""
+      },
+      "areaServico": {
+        "nota": 0,
+        "comentario": ""
+      },
+      "quartosArmarios": {
+        "nota": 0,
+        "comentario": ""
+      },
+      "pisoAcabamento": {
+        "nota": 0,
+        "comentario": ""
+      },
+      "sacada": {
+        "nota": 0,
+        "comentario": ""
+      },
+      "localizacao": {
+        "nota": 0,
+        "comentario": ""
+      },
+      "elevador": {
+        "nota": 0,
+        "comentario": ""
+      },
+      "custoBeneficio": {
+        "nota": 0,
+        "comentario": ""
+      }
+    },
+    "visita": null,
+    "createdAt": "2026-04-13T14:07:00.000Z"
   }
 ]
