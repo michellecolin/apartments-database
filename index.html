@@ -1,0 +1,905 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+<meta charset="UTF-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1.0" />
+<title>Apê Finder</title>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/react/18.2.0/umd/react.production.min.js"></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/react-dom/18.2.0/umd/react-dom.production.min.js"></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/babel-standalone/7.23.9/babel.min.js"></script>
+<link href="https://fonts.googleapis.com/css2?family=DM+Sans:ital,opsz,wght@0,9..40,300;0,9..40,400;0,9..40,500;0,9..40,600;0,9..40,700;1,9..40,400&family=Fraunces:ital,opsz,wght@0,9..144,400;0,9..144,600;0,9..144,700;1,9..144,400&display=swap" rel="stylesheet" />
+<style>
+  * { margin: 0; padding: 0; box-sizing: border-box; }
+  :root {
+    --bg: #F7F5F0;
+    --bg-card: #FFFFFF;
+    --bg-hover: #F0EDE6;
+    --text: #2C2926;
+    --text-secondary: #6B6560;
+    --text-muted: #9B9590;
+    --accent: #C45D3E;
+    --accent-light: #F4E8E3;
+    --accent-dark: #A14A30;
+    --green: #4A7C59;
+    --green-light: #E8F0EB;
+    --yellow: #C49A3E;
+    --yellow-light: #F5F0E0;
+    --red: #C45D5D;
+    --red-light: #F4E3E3;
+    --blue: #4A6A8C;
+    --blue-light: #E3EBF4;
+    --border: #E5E0D8;
+    --shadow-sm: 0 1px 3px rgba(44,41,38,0.06);
+    --shadow-md: 0 4px 12px rgba(44,41,38,0.08);
+    --shadow-lg: 0 8px 30px rgba(44,41,38,0.12);
+    --radius: 12px;
+    --radius-sm: 8px;
+    --font-display: 'Fraunces', serif;
+    --font-body: 'DM Sans', sans-serif;
+  }
+  body { font-family: var(--font-body); background: var(--bg); color: var(--text); min-height: 100vh; }
+  input, select, textarea, button { font-family: var(--font-body); }
+  
+  .fade-in { animation: fadeIn 0.3s ease-out; }
+  @keyframes fadeIn { from { opacity: 0; transform: translateY(8px); } to { opacity: 1; transform: translateY(0); } }
+  
+  .slide-up { animation: slideUp 0.35s ease-out; }
+  @keyframes slideUp { from { opacity: 0; transform: translateY(24px); } to { opacity: 1; transform: translateY(0); } }
+
+  ::-webkit-scrollbar { width: 6px; }
+  ::-webkit-scrollbar-track { background: transparent; }
+  ::-webkit-scrollbar-thumb { background: var(--border); border-radius: 3px; }
+  ::-webkit-scrollbar-thumb:hover { background: var(--text-muted); }
+
+  .modal-overlay {
+    position: fixed; inset: 0; background: rgba(44,41,38,0.4); backdrop-filter: blur(4px);
+    display: flex; align-items: flex-start; justify-content: center;
+    z-index: 100; overflow-y: auto; padding: 40px 16px;
+  }
+  .modal-content {
+    background: var(--bg-card); border-radius: var(--radius); width: 100%; max-width: 720px;
+    box-shadow: var(--shadow-lg); animation: slideUp 0.35s ease-out;
+  }
+
+  .btn {
+    display: inline-flex; align-items: center; gap: 6px;
+    padding: 8px 16px; border-radius: var(--radius-sm); font-size: 14px; font-weight: 500;
+    border: 1px solid var(--border); background: var(--bg-card); color: var(--text);
+    cursor: pointer; transition: all 0.15s ease;
+  }
+  .btn:hover { background: var(--bg-hover); border-color: var(--text-muted); }
+  .btn-primary { background: var(--accent); color: white; border-color: var(--accent); }
+  .btn-primary:hover { background: var(--accent-dark); border-color: var(--accent-dark); }
+  .btn-sm { padding: 5px 10px; font-size: 13px; }
+  .btn-danger { color: var(--red); border-color: var(--red); }
+  .btn-danger:hover { background: var(--red-light); }
+
+  .input {
+    width: 100%; padding: 9px 12px; border: 1px solid var(--border); border-radius: var(--radius-sm);
+    font-size: 14px; background: var(--bg-card); color: var(--text); outline: none; transition: border-color 0.15s;
+  }
+  .input:focus { border-color: var(--accent); }
+  .input::placeholder { color: var(--text-muted); }
+  textarea.input { resize: vertical; min-height: 60px; }
+  select.input { cursor: pointer; }
+
+  .label { display: block; font-size: 13px; font-weight: 500; color: var(--text-secondary); margin-bottom: 4px; }
+
+  .status-novo { background: var(--blue-light); color: var(--blue); }
+  .status-favorito { background: var(--green-light); color: var(--green); }
+  .status-rejeitado { background: var(--red-light); color: var(--red); }
+  .status-visitado { background: var(--yellow-light); color: var(--yellow); }
+
+  .star { cursor: pointer; font-size: 20px; transition: transform 0.1s; }
+  .star:hover { transform: scale(1.2); }
+
+  .photo-gallery { display: flex; gap: 8px; overflow-x: auto; padding-bottom: 8px; }
+  .photo-gallery img { height: 200px; border-radius: var(--radius-sm); object-fit: cover; flex-shrink: 0; }
+
+  .compare-table { width: 100%; border-collapse: collapse; }
+  .compare-table th, .compare-table td { 
+    padding: 10px 14px; text-align: left; border-bottom: 1px solid var(--border); font-size: 14px;
+  }
+  .compare-table th { font-weight: 500; color: var(--text-muted); background: var(--bg); position: sticky; left: 0; }
+  .compare-table td { min-width: 200px; }
+
+  .checkbox-wrapper { display: flex; align-items: center; gap: 8px; cursor: pointer; }
+  .checkbox-wrapper input[type="checkbox"] { 
+    width: 18px; height: 18px; accent-color: var(--accent); cursor: pointer;
+  }
+</style>
+</head>
+<body>
+<div id="root"></div>
+<script type="text/babel">
+const { useState, useEffect, useMemo, useCallback, useRef } = React;
+
+// ============================================================
+// CONFIG — Preencha com seus dados do GitHub
+// ============================================================
+const GITHUB_TOKEN = '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';
+const GITHUB_REPO = 'michellecolin/apartments-database';
+const DATA_FILE = 'data.json';
+// ============================================================
+
+const STATUSES = [
+  { value: 'novo', label: 'Novo', emoji: '🆕' },
+  { value: 'visitado', label: 'Visitado', emoji: '👀' },
+  { value: 'favorito', label: 'Favorito', emoji: '⭐' },
+  { value: 'rejeitado', label: 'Rejeitado', emoji: '❌' },
+];
+
+const EVALUATION_CATEGORIES = [
+  { key: 'estadoGeral', label: 'Estado Geral' },
+  { key: 'banheiroP', label: 'Banheiro Principal' },
+  { key: 'outrosBanheiros', label: 'Outros Banheiros' },
+  { key: 'cozinha', label: 'Cozinha (móveis/reforma)' },
+  { key: 'areaServico', label: 'Área de Serviço' },
+  { key: 'quartosArmarios', label: 'Quartos / Armários' },
+  { key: 'pisoAcabamento', label: 'Piso / Acabamento' },
+];
+
+const defaultApt = () => ({
+  id: Date.now().toString(36) + Math.random().toString(36).slice(2, 7),
+  fotos: [],
+  endereco: '',
+  preco: '',
+  condominio: '',
+  iptu: '',
+  quartos: '',
+  banheiros: '',
+  vagas: '',
+  area: '',
+  andar: '',
+  sacada: false,
+  elevador: false,
+  linkAnuncio: '',
+  status: 'novo',
+  avaliacoes: EVALUATION_CATEGORIES.reduce((acc, c) => {
+    acc[c.key] = { nota: 0, comentario: '' };
+    return acc;
+  }, {}),
+  createdAt: new Date().toISOString(),
+});
+
+const calcMedia = (avaliacoes) => {
+  const notas = Object.values(avaliacoes).map(a => a.nota).filter(n => n > 0);
+  if (notas.length === 0) return 0;
+  return notas.reduce((s, n) => s + n, 0) / notas.length;
+};
+
+const fmt = (v) => {
+  const num = parseFloat(v);
+  if (isNaN(num)) return '—';
+  return num.toLocaleString('pt-BR', { style: 'currency', currency: 'BRL' });
+};
+
+const fmtNum = (v) => {
+  const num = parseFloat(v);
+  if (isNaN(num)) return '—';
+  return num.toLocaleString('pt-BR');
+};
+
+// ============================================================
+// GitHub API
+// ============================================================
+let fileSha = null;
+
+async function loadFromGitHub() {
+  try {
+    const res = await fetch(`https://api.github.com/repos/${GITHUB_REPO}/contents/${DATA_FILE}`, {
+      headers: { 'Authorization': `Bearer ${GITHUB_TOKEN}`, 'Accept': 'application/vnd.github.v3+json' },
+    });
+    if (res.status === 404) return [];
+    if (!res.ok) throw new Error(`GitHub GET ${res.status}`);
+    const json = await res.json();
+    fileSha = json.sha;
+    const content = atob(json.content.replace(/\n/g, ''));
+    return JSON.parse(new TextDecoder().decode(new Uint8Array([...content].map(c => c.charCodeAt(0)))));
+  } catch (e) {
+    console.error('Erro ao carregar do GitHub:', e);
+    return null;
+  }
+}
+
+async function saveToGitHub(data) {
+  try {
+    const content = new TextEncoder().encode(JSON.stringify(data, null, 2));
+    const base64 = btoa(String.fromCharCode(...content));
+    const body = {
+      message: `Atualizar apartamentos - ${new Date().toLocaleString('pt-BR')}`,
+      content: base64,
+    };
+    if (fileSha) body.sha = fileSha;
+    const res = await fetch(`https://api.github.com/repos/${GITHUB_REPO}/contents/${DATA_FILE}`, {
+      method: 'PUT',
+      headers: {
+        'Authorization': `Bearer ${GITHUB_TOKEN}`,
+        'Accept': 'application/vnd.github.v3+json',
+        'Content-Type': 'application/json',
+      },
+      body: JSON.stringify(body),
+    });
+    if (!res.ok) {
+      const err = await res.json();
+      throw new Error(err.message || `GitHub PUT ${res.status}`);
+    }
+    const json = await res.json();
+    fileSha = json.content.sha;
+    return true;
+  } catch (e) {
+    console.error('Erro ao salvar no GitHub:', e);
+    return false;
+  }
+}
+
+// ============================================================
+// Components
+// ============================================================
+
+function StarRating({ value, onChange, readonly = false }) {
+  return (
+    <div style={{ display: 'flex', gap: 2 }}>
+      {[1,2,3,4,5].map(i => (
+        <span key={i} className="star"
+          onClick={() => !readonly && onChange(value === i ? 0 : i)}
+          style={{ color: i <= value ? '#C49A3E' : '#DDD', cursor: readonly ? 'default' : 'pointer' }}
+        >★</span>
+      ))}
+    </div>
+  );
+}
+
+function StatusBadge({ status }) {
+  const s = STATUSES.find(x => x.value === status) || STATUSES[0];
+  return (
+    <span className={`status-${s.value}`} style={{
+      padding: '3px 10px', borderRadius: 20, fontSize: 12, fontWeight: 600, display: 'inline-flex', alignItems: 'center', gap: 4
+    }}>
+      {s.emoji} {s.label}
+    </span>
+  );
+}
+
+function Toast({ message, type, onClose }) {
+  useEffect(() => { const t = setTimeout(onClose, 3000); return () => clearTimeout(t); }, []);
+  const bg = type === 'success' ? 'var(--green)' : type === 'error' ? 'var(--red)' : 'var(--blue)';
+  return (
+    <div className="fade-in" style={{
+      position: 'fixed', bottom: 24, right: 24, background: bg, color: 'white',
+      padding: '12px 20px', borderRadius: 'var(--radius-sm)', fontSize: 14, fontWeight: 500,
+      boxShadow: 'var(--shadow-lg)', zIndex: 200, maxWidth: 360,
+    }}>
+      {message}
+    </div>
+  );
+}
+
+// ============================================================
+// ApartmentForm
+// ============================================================
+function ApartmentForm({ apt, onSave, onClose }) {
+  const [form, setForm] = useState(apt ? { ...apt, avaliacoes: { ...apt.avaliacoes } } : defaultApt());
+  const [tab, setTab] = useState('info');
+
+  const set = (key, val) => setForm(prev => ({ ...prev, [key]: val }));
+  const setAvaliacao = (cat, field, val) => setForm(prev => ({
+    ...prev,
+    avaliacoes: { ...prev.avaliacoes, [cat]: { ...prev.avaliacoes[cat], [field]: val } }
+  }));
+
+  const addFoto = () => {
+    const url = prompt('URL da foto:');
+    if (url && url.trim()) set('fotos', [...form.fotos, url.trim()]);
+  };
+
+  const removeFoto = (i) => set('fotos', form.fotos.filter((_, idx) => idx !== i));
+
+  const handleSave = () => {
+    if (!form.endereco.trim()) { alert('Preencha o endereço!'); return; }
+    onSave(form);
+  };
+
+  const inputRow = (label, key, type = 'text', placeholder = '') => (
+    <div>
+      <label className="label">{label}</label>
+      <input className="input" type={type} placeholder={placeholder}
+        value={form[key]} onChange={e => set(key, e.target.value)} />
+    </div>
+  );
+
+  return (
+    <div className="modal-overlay" onClick={e => e.target === e.currentTarget && onClose()}>
+      <div className="modal-content">
+        <div style={{ padding: '20px 24px', borderBottom: '1px solid var(--border)', display: 'flex', justifyContent: 'space-between', alignItems: 'center' }}>
+          <h2 style={{ fontFamily: 'var(--font-display)', fontSize: 22, fontWeight: 600 }}>
+            {apt ? 'Editar Apartamento' : 'Novo Apartamento'}
+          </h2>
+          <button className="btn btn-sm" onClick={onClose}>✕</button>
+        </div>
+
+        <div style={{ display: 'flex', borderBottom: '1px solid var(--border)' }}>
+          {[['info', 'Informações'], ['fotos', 'Fotos'], ['avaliacoes', 'Avaliações']].map(([k, l]) => (
+            <button key={k} onClick={() => setTab(k)} style={{
+              flex: 1, padding: '12px', fontSize: 14, fontWeight: 500, border: 'none', cursor: 'pointer',
+              background: tab === k ? 'var(--bg-card)' : 'var(--bg)',
+              color: tab === k ? 'var(--accent)' : 'var(--text-secondary)',
+              borderBottom: tab === k ? '2px solid var(--accent)' : '2px solid transparent',
+            }}>{l}</button>
+          ))}
+        </div>
+
+        <div style={{ padding: 24, maxHeight: '60vh', overflowY: 'auto' }}>
+          {tab === 'info' && (
+            <div style={{ display: 'flex', flexDirection: 'column', gap: 16 }}>
+              {inputRow('Endereço *', 'endereco', 'text', 'Rua, número, bairro...')}
+              {inputRow('Link do Anúncio', 'linkAnuncio', 'url', 'https://...')}
+              
+              <div style={{ display: 'grid', gridTemplateColumns: '1fr 1fr 1fr', gap: 12 }}>
+                {inputRow('Preço (R$)', 'preco', 'number', '500000')}
+                {inputRow('Condomínio (R$)', 'condominio', 'number', '800')}
+                {inputRow('IPTU (R$)', 'iptu', 'number', '200')}
+              </div>
+
+              <div style={{ display: 'grid', gridTemplateColumns: '1fr 1fr 1fr 1fr', gap: 12 }}>
+                {inputRow('Quartos', 'quartos', 'number', '2')}
+                {inputRow('Banheiros', 'banheiros', 'number', '1')}
+                {inputRow('Vagas', 'vagas', 'number', '1')}
+                {inputRow('Andar', 'andar', 'number', '3')}
+              </div>
+
+              {inputRow('Área (m²)', 'area', 'number', '65')}
+
+              <div style={{ display: 'flex', gap: 24 }}>
+                <label className="checkbox-wrapper">
+                  <input type="checkbox" checked={form.sacada} onChange={e => set('sacada', e.target.checked)} />
+                  <span style={{ fontSize: 14 }}>Tem sacada</span>
+                </label>
+                <label className="checkbox-wrapper">
+                  <input type="checkbox" checked={form.elevador} onChange={e => set('elevador', e.target.checked)} />
+                  <span style={{ fontSize: 14 }}>Tem elevador</span>
+                </label>
+              </div>
+
+              <div>
+                <label className="label">Status</label>
+                <select className="input" value={form.status} onChange={e => set('status', e.target.value)}>
+                  {STATUSES.map(s => <option key={s.value} value={s.value}>{s.emoji} {s.label}</option>)}
+                </select>
+              </div>
+            </div>
+          )}
+
+          {tab === 'fotos' && (
+            <div style={{ display: 'flex', flexDirection: 'column', gap: 16 }}>
+              <button className="btn" onClick={addFoto} style={{ alignSelf: 'flex-start' }}>
+                + Adicionar foto (URL)
+              </button>
+              {form.fotos.length === 0 && (
+                <p style={{ color: 'var(--text-muted)', fontSize: 14, fontStyle: 'italic' }}>
+                  Nenhuma foto adicionada. Cole URLs de imagens dos anúncios.
+                </p>
+              )}
+              <div style={{ display: 'grid', gridTemplateColumns: 'repeat(auto-fill, minmax(180px, 1fr))', gap: 12 }}>
+                {form.fotos.map((f, i) => (
+                  <div key={i} style={{ position: 'relative', borderRadius: 'var(--radius-sm)', overflow: 'hidden', aspectRatio: '4/3' }}>
+                    <img src={f} alt="" style={{ width: '100%', height: '100%', objectFit: 'cover' }}
+                      onError={e => { e.target.style.display = 'none'; }} />
+                    <button onClick={() => removeFoto(i)} style={{
+                      position: 'absolute', top: 6, right: 6, background: 'rgba(0,0,0,0.6)', color: 'white',
+                      border: 'none', borderRadius: '50%', width: 24, height: 24, cursor: 'pointer', fontSize: 12,
+                    }}>✕</button>
+                  </div>
+                ))}
+              </div>
+            </div>
+          )}
+
+          {tab === 'avaliacoes' && (
+            <div style={{ display: 'flex', flexDirection: 'column', gap: 20 }}>
+              {EVALUATION_CATEGORIES.map(cat => (
+                <div key={cat.key} style={{ padding: 16, background: 'var(--bg)', borderRadius: 'var(--radius-sm)' }}>
+                  <div style={{ display: 'flex', justifyContent: 'space-between', alignItems: 'center', marginBottom: 8 }}>
+                    <span style={{ fontSize: 14, fontWeight: 600 }}>{cat.label}</span>
+                    <StarRating value={form.avaliacoes[cat.key]?.nota || 0}
+                      onChange={v => setAvaliacao(cat.key, 'nota', v)} />
+                  </div>
+                  <textarea className="input" placeholder="Comentário (opcional)..."
+                    value={form.avaliacoes[cat.key]?.comentario || ''}
+                    onChange={e => setAvaliacao(cat.key, 'comentario', e.target.value)}
+                    style={{ minHeight: 50 }} />
+                </div>
+              ))}
+              <div style={{ padding: 16, background: 'var(--accent-light)', borderRadius: 'var(--radius-sm)', display: 'flex', justifyContent: 'space-between', alignItems: 'center' }}>
+                <span style={{ fontSize: 15, fontWeight: 700, color: 'var(--accent-dark)' }}>Nota Geral (média)</span>
+                <span style={{ fontSize: 22, fontWeight: 700, color: 'var(--accent)', fontFamily: 'var(--font-display)' }}>
+                  {calcMedia(form.avaliacoes).toFixed(1)}
+                </span>
+              </div>
+            </div>
+          )}
+        </div>
+
+        <div style={{ padding: '16px 24px', borderTop: '1px solid var(--border)', display: 'flex', justifyContent: 'flex-end', gap: 10 }}>
+          <button className="btn" onClick={onClose}>Cancelar</button>
+          <button className="btn btn-primary" onClick={handleSave}>
+            {apt ? 'Salvar Alterações' : 'Adicionar Apartamento'}
+          </button>
+        </div>
+      </div>
+    </div>
+  );
+}
+
+// ============================================================
+// ApartmentDetail
+// ============================================================
+function ApartmentDetail({ apt, onClose, onEdit, onStatusChange }) {
+  const media = calcMedia(apt.avaliacoes);
+  return (
+    <div className="modal-overlay" onClick={e => e.target === e.currentTarget && onClose()}>
+      <div className="modal-content" style={{ maxWidth: 800 }}>
+        <div style={{ padding: '20px 24px', borderBottom: '1px solid var(--border)', display: 'flex', justifyContent: 'space-between', alignItems: 'center' }}>
+          <div style={{ display: 'flex', alignItems: 'center', gap: 12 }}>
+            <h2 style={{ fontFamily: 'var(--font-display)', fontSize: 22, fontWeight: 600 }}>{apt.endereco || 'Sem endereço'}</h2>
+            <StatusBadge status={apt.status} />
+          </div>
+          <button className="btn btn-sm" onClick={onClose}>✕</button>
+        </div>
+
+        <div style={{ padding: 24, maxHeight: '70vh', overflowY: 'auto' }}>
+          {apt.fotos.length > 0 && (
+            <div className="photo-gallery" style={{ marginBottom: 20 }}>
+              {apt.fotos.map((f, i) => (
+                <img key={i} src={f} alt="" onError={e => { e.target.style.display = 'none'; }} />
+              ))}
+            </div>
+          )}
+
+          <div style={{ display: 'grid', gridTemplateColumns: 'repeat(auto-fit, minmax(160px, 1fr))', gap: 16, marginBottom: 24 }}>
+            {[
+              ['Preço', fmt(apt.preco)],
+              ['Condomínio', fmt(apt.condominio)],
+              ['IPTU', fmt(apt.iptu)],
+              ['Quartos', apt.quartos || '—'],
+              ['Banheiros', apt.banheiros || '—'],
+              ['Vagas', apt.vagas || '—'],
+              ['Área', apt.area ? `${fmtNum(apt.area)} m²` : '—'],
+              ['Andar', apt.andar || '—'],
+              ['Sacada', apt.sacada ? 'Sim ✓' : 'Não'],
+              ['Elevador', apt.elevador ? 'Sim ✓' : 'Não'],
+            ].map(([label, val]) => (
+              <div key={label} style={{ padding: 12, background: 'var(--bg)', borderRadius: 'var(--radius-sm)' }}>
+                <div style={{ fontSize: 12, color: 'var(--text-muted)', marginBottom: 4 }}>{label}</div>
+                <div style={{ fontSize: 15, fontWeight: 600 }}>{val}</div>
+              </div>
+            ))}
+          </div>
+
+          {apt.linkAnuncio && (
+            <a href={apt.linkAnuncio} target="_blank" rel="noopener noreferrer"
+              style={{ display: 'inline-flex', alignItems: 'center', gap: 6, color: 'var(--accent)', fontSize: 14, fontWeight: 500, marginBottom: 20, textDecoration: 'none' }}>
+              🔗 Ver anúncio original
+            </a>
+          )}
+
+          <h3 style={{ fontFamily: 'var(--font-display)', fontSize: 18, fontWeight: 600, marginBottom: 16, marginTop: 8 }}>Avaliações</h3>
+          <div style={{ display: 'flex', flexDirection: 'column', gap: 12, marginBottom: 16 }}>
+            {EVALUATION_CATEGORIES.map(cat => {
+              const av = apt.avaliacoes[cat.key];
+              if (!av) return null;
+              return (
+                <div key={cat.key} style={{ padding: 14, background: 'var(--bg)', borderRadius: 'var(--radius-sm)' }}>
+                  <div style={{ display: 'flex', justifyContent: 'space-between', alignItems: 'center' }}>
+                    <span style={{ fontSize: 14, fontWeight: 500 }}>{cat.label}</span>
+                    <StarRating value={av.nota} readonly />
+                  </div>
+                  {av.comentario && (
+                    <p style={{ fontSize: 13, color: 'var(--text-secondary)', marginTop: 6, fontStyle: 'italic' }}>
+                      "{av.comentario}"
+                    </p>
+                  )}
+                </div>
+              );
+            })}
+          </div>
+
+          <div style={{ padding: 16, background: 'var(--accent-light)', borderRadius: 'var(--radius-sm)', display: 'flex', justifyContent: 'space-between', alignItems: 'center' }}>
+            <span style={{ fontSize: 15, fontWeight: 700, color: 'var(--accent-dark)' }}>Nota Geral</span>
+            <span style={{ fontSize: 28, fontWeight: 700, color: 'var(--accent)', fontFamily: 'var(--font-display)' }}>
+              {media.toFixed(1)} <span style={{ fontSize: 14, color: 'var(--text-muted)' }}>/ 5.0</span>
+            </span>
+          </div>
+        </div>
+
+        <div style={{ padding: '16px 24px', borderTop: '1px solid var(--border)', display: 'flex', justifyContent: 'space-between' }}>
+          <div style={{ display: 'flex', gap: 8 }}>
+            {STATUSES.map(s => (
+              <button key={s.value} className={`btn btn-sm ${apt.status === s.value ? 'btn-primary' : ''}`}
+                onClick={() => onStatusChange(apt.id, s.value)}>
+                {s.emoji} {s.label}
+              </button>
+            ))}
+          </div>
+          <button className="btn" onClick={() => onEdit(apt)}>✏️ Editar</button>
+        </div>
+      </div>
+    </div>
+  );
+}
+
+// ============================================================
+// CompareView
+// ============================================================
+function CompareView({ apts, onClose }) {
+  if (apts.length < 2) return null;
+  const rows = [
+    ['Preço', a => fmt(a.preco)],
+    ['Condomínio', a => fmt(a.condominio)],
+    ['IPTU', a => fmt(a.iptu)],
+    ['Custo mensal total', a => fmt((parseFloat(a.condominio) || 0) + (parseFloat(a.iptu) || 0))],
+    ['Quartos', a => a.quartos || '—'],
+    ['Banheiros', a => a.banheiros || '—'],
+    ['Vagas', a => a.vagas || '—'],
+    ['Área', a => a.area ? `${fmtNum(a.area)} m²` : '—'],
+    ['Andar', a => a.andar || '—'],
+    ['Sacada', a => a.sacada ? '✓ Sim' : '✗ Não'],
+    ['Elevador', a => a.elevador ? '✓ Sim' : '✗ Não'],
+    ...EVALUATION_CATEGORIES.map(cat => [cat.label, a => {
+      const av = a.avaliacoes[cat.key];
+      return av ? `${'★'.repeat(av.nota)}${'☆'.repeat(5 - av.nota)}` : '—';
+    }]),
+    ['Nota Geral', a => calcMedia(a.avaliacoes).toFixed(1)],
+  ];
+
+  return (
+    <div className="modal-overlay" onClick={e => e.target === e.currentTarget && onClose()}>
+      <div className="modal-content" style={{ maxWidth: 1000 }}>
+        <div style={{ padding: '20px 24px', borderBottom: '1px solid var(--border)', display: 'flex', justifyContent: 'space-between', alignItems: 'center' }}>
+          <h2 style={{ fontFamily: 'var(--font-display)', fontSize: 22, fontWeight: 600 }}>Comparação</h2>
+          <button className="btn btn-sm" onClick={onClose}>✕</button>
+        </div>
+        <div style={{ overflow: 'auto', maxHeight: '70vh' }}>
+          <table className="compare-table">
+            <thead>
+              <tr>
+                <th></th>
+                {apts.map(a => (
+                  <td key={a.id} style={{ fontWeight: 700, fontSize: 15 }}>
+                    {a.fotos[0] && <img src={a.fotos[0]} alt="" style={{ width: '100%', height: 100, objectFit: 'cover', borderRadius: 'var(--radius-sm)', marginBottom: 8 }} />}
+                    {a.endereco || 'Sem endereço'}
+                    <div style={{ marginTop: 4 }}><StatusBadge status={a.status} /></div>
+                  </td>
+                ))}
+              </tr>
+            </thead>
+            <tbody>
+              {rows.map(([label, fn]) => (
+                <tr key={label}>
+                  <th>{label}</th>
+                  {apts.map(a => <td key={a.id}>{fn(a)}</td>)}
+                </tr>
+              ))}
+            </tbody>
+          </table>
+        </div>
+        <div style={{ padding: '16px 24px', borderTop: '1px solid var(--border)', display: 'flex', justifyContent: 'flex-end' }}>
+          <button className="btn" onClick={onClose}>Fechar</button>
+        </div>
+      </div>
+    </div>
+  );
+}
+
+// ============================================================
+// ApartmentCard
+// ============================================================
+function ApartmentCard({ apt, onClick, onCompareToggle, isCompareSelected }) {
+  const media = calcMedia(apt.avaliacoes);
+  return (
+    <div className="fade-in" onClick={onClick} style={{
+      background: 'var(--bg-card)', borderRadius: 'var(--radius)', boxShadow: 'var(--shadow-sm)',
+      border: isCompareSelected ? '2px solid var(--accent)' : '1px solid var(--border)',
+      cursor: 'pointer', overflow: 'hidden', transition: 'all 0.2s',
+    }}
+    onMouseEnter={e => { e.currentTarget.style.boxShadow = 'var(--shadow-md)'; e.currentTarget.style.transform = 'translateY(-2px)'; }}
+    onMouseLeave={e => { e.currentTarget.style.boxShadow = 'var(--shadow-sm)'; e.currentTarget.style.transform = 'translateY(0)'; }}
+    >
+      <div style={{ position: 'relative', height: 180, background: '#E5E0D8' }}>
+        {apt.fotos[0] ? (
+          <img src={apt.fotos[0]} alt="" style={{ width: '100%', height: '100%', objectFit: 'cover' }}
+            onError={e => { e.target.style.display = 'none'; }} />
+        ) : (
+          <div style={{ height: '100%', display: 'flex', alignItems: 'center', justifyContent: 'center', color: 'var(--text-muted)', fontSize: 36 }}>🏠</div>
+        )}
+        <div style={{ position: 'absolute', top: 10, left: 10 }}>
+          <StatusBadge status={apt.status} />
+        </div>
+        {media > 0 && (
+          <div style={{
+            position: 'absolute', top: 10, right: 10, background: 'rgba(0,0,0,0.7)', color: 'white',
+            padding: '3px 8px', borderRadius: 6, fontSize: 13, fontWeight: 700, fontFamily: 'var(--font-display)',
+          }}>
+            ★ {media.toFixed(1)}
+          </div>
+        )}
+        <div style={{ position: 'absolute', bottom: 10, right: 10 }}
+          onClick={e => { e.stopPropagation(); onCompareToggle(apt.id); }}>
+          <div style={{
+            width: 28, height: 28, borderRadius: 6, display: 'flex', alignItems: 'center', justifyContent: 'center',
+            background: isCompareSelected ? 'var(--accent)' : 'rgba(255,255,255,0.9)', color: isCompareSelected ? 'white' : 'var(--text-muted)',
+            fontSize: 14, fontWeight: 700, border: '1px solid rgba(0,0,0,0.1)', cursor: 'pointer',
+          }}>⇔</div>
+        </div>
+      </div>
+      <div style={{ padding: 16 }}>
+        <div style={{ fontSize: 14, fontWeight: 500, marginBottom: 6, lineHeight: 1.3, display: '-webkit-box', WebkitLineClamp: 2, WebkitBoxOrient: 'vertical', overflow: 'hidden' }}>
+          {apt.endereco || 'Sem endereço'}
+        </div>
+        <div style={{ fontSize: 20, fontWeight: 700, color: 'var(--accent)', fontFamily: 'var(--font-display)', marginBottom: 10 }}>
+          {fmt(apt.preco)}
+        </div>
+        <div style={{ display: 'flex', gap: 12, fontSize: 13, color: 'var(--text-secondary)', flexWrap: 'wrap' }}>
+          {apt.quartos && <span>🛏 {apt.quartos}q</span>}
+          {apt.banheiros && <span>🚿 {apt.banheiros}b</span>}
+          {apt.vagas && <span>🚗 {apt.vagas}v</span>}
+          {apt.area && <span>📐 {fmtNum(apt.area)}m²</span>}
+          {apt.andar && <span>🏢 {apt.andar}º</span>}
+        </div>
+        {(apt.condominio || apt.iptu) && (
+          <div style={{ marginTop: 8, fontSize: 12, color: 'var(--text-muted)' }}>
+            {apt.condominio && <span>Cond. {fmt(apt.condominio)}</span>}
+            {apt.condominio && apt.iptu && <span> · </span>}
+            {apt.iptu && <span>IPTU {fmt(apt.iptu)}</span>}
+          </div>
+        )}
+      </div>
+    </div>
+  );
+}
+
+// ============================================================
+// App
+// ============================================================
+function App() {
+  const [apartments, setApartments] = useState([]);
+  const [loading, setLoading] = useState(true);
+  const [saving, setSaving] = useState(false);
+  const [toast, setToast] = useState(null);
+  const [showForm, setShowForm] = useState(false);
+  const [editingApt, setEditingApt] = useState(null);
+  const [detailApt, setDetailApt] = useState(null);
+  const [compareIds, setCompareIds] = useState([]);
+  const [showCompare, setShowCompare] = useState(false);
+
+  // Filters
+  const [search, setSearch] = useState('');
+  const [filterStatus, setFilterStatus] = useState('todos');
+  const [filterQuartos, setFilterQuartos] = useState('');
+  const [filterVagas, setFilterVagas] = useState('');
+  const [sortBy, setSortBy] = useState('createdAt');
+  const [sortDir, setSortDir] = useState('desc');
+
+  const showToast = (message, type = 'info') => setToast({ message, type });
+
+  useEffect(() => {
+    loadFromGitHub().then(data => {
+      if (data !== null) {
+        setApartments(data);
+      } else {
+        showToast('Erro ao conectar com GitHub. Verifique token e repositório.', 'error');
+      }
+      setLoading(false);
+    });
+  }, []);
+
+  const persist = async (newData) => {
+    setApartments(newData);
+    setSaving(true);
+    const ok = await saveToGitHub(newData);
+    setSaving(false);
+    if (ok) showToast('Salvo no GitHub ✓', 'success');
+    else showToast('Erro ao salvar no GitHub', 'error');
+  };
+
+  const handleSaveApt = (apt) => {
+    const exists = apartments.find(a => a.id === apt.id);
+    let next;
+    if (exists) {
+      next = apartments.map(a => a.id === apt.id ? apt : a);
+    } else {
+      next = [...apartments, apt];
+    }
+    persist(next);
+    setShowForm(false);
+    setEditingApt(null);
+    setDetailApt(null);
+  };
+
+  const handleDelete = (id) => {
+    if (!confirm('Tem certeza que quer excluir este apartamento?')) return;
+    persist(apartments.filter(a => a.id !== id));
+    setDetailApt(null);
+  };
+
+  const handleStatusChange = (id, status) => {
+    const next = apartments.map(a => a.id === id ? { ...a, status } : a);
+    persist(next);
+    setDetailApt(prev => prev && prev.id === id ? { ...prev, status } : prev);
+  };
+
+  const toggleCompare = (id) => {
+    setCompareIds(prev => {
+      if (prev.includes(id)) return prev.filter(x => x !== id);
+      if (prev.length >= 3) { showToast('Máximo 3 para comparar', 'info'); return prev; }
+      return [...prev, id];
+    });
+  };
+
+  const filteredApts = useMemo(() => {
+    let result = [...apartments];
+    if (search) {
+      const s = search.toLowerCase();
+      result = result.filter(a => a.endereco.toLowerCase().includes(s));
+    }
+    if (filterStatus !== 'todos') result = result.filter(a => a.status === filterStatus);
+    if (filterQuartos) result = result.filter(a => String(a.quartos) === filterQuartos);
+    if (filterVagas) result = result.filter(a => String(a.vagas) === filterVagas);
+
+    result.sort((a, b) => {
+      let va, vb;
+      switch (sortBy) {
+        case 'preco': va = parseFloat(a.preco) || 0; vb = parseFloat(b.preco) || 0; break;
+        case 'area': va = parseFloat(a.area) || 0; vb = parseFloat(b.area) || 0; break;
+        case 'nota': va = calcMedia(a.avaliacoes); vb = calcMedia(b.avaliacoes); break;
+        case 'condominio': va = parseFloat(a.condominio) || 0; vb = parseFloat(b.condominio) || 0; break;
+        default: va = a.createdAt; vb = b.createdAt;
+      }
+      if (sortDir === 'asc') return va > vb ? 1 : -1;
+      return va < vb ? 1 : -1;
+    });
+    return result;
+  }, [apartments, search, filterStatus, filterQuartos, filterVagas, sortBy, sortDir]);
+
+  if (loading) {
+    return (
+      <div style={{ minHeight: '100vh', display: 'flex', alignItems: 'center', justifyContent: 'center' }}>
+        <div style={{ textAlign: 'center' }}>
+          <div style={{ fontSize: 48, marginBottom: 16, animation: 'fadeIn 0.5s ease-out' }}>🏠</div>
+          <p style={{ color: 'var(--text-secondary)', fontSize: 15 }}>Carregando apartamentos...</p>
+        </div>
+      </div>
+    );
+  }
+
+  return (
+    <div style={{ maxWidth: 1200, margin: '0 auto', padding: '24px 16px' }}>
+      {/* Header */}
+      <header style={{ display: 'flex', justifyContent: 'space-between', alignItems: 'center', marginBottom: 28 }}>
+        <div>
+          <h1 style={{ fontFamily: 'var(--font-display)', fontSize: 32, fontWeight: 700, letterSpacing: '-0.5px' }}>
+            🏠 Apê Finder
+          </h1>
+          <p style={{ color: 'var(--text-muted)', fontSize: 14, marginTop: 2 }}>
+            {apartments.length} apartamento{apartments.length !== 1 ? 's' : ''} cadastrado{apartments.length !== 1 ? 's' : ''}
+            {saving && <span style={{ color: 'var(--yellow)', marginLeft: 10 }}>⏳ Salvando...</span>}
+          </p>
+        </div>
+        <div style={{ display: 'flex', gap: 8 }}>
+          {compareIds.length >= 2 && (
+            <button className="btn" onClick={() => setShowCompare(true)}>
+              ⇔ Comparar ({compareIds.length})
+            </button>
+          )}
+          <button className="btn btn-primary" onClick={() => { setEditingApt(null); setShowForm(true); }}>
+            + Novo Apê
+          </button>
+        </div>
+      </header>
+
+      {/* Filters */}
+      <div style={{
+        background: 'var(--bg-card)', borderRadius: 'var(--radius)', padding: 16,
+        marginBottom: 24, boxShadow: 'var(--shadow-sm)', border: '1px solid var(--border)',
+        display: 'flex', gap: 12, flexWrap: 'wrap', alignItems: 'flex-end',
+      }}>
+        <div style={{ flex: '1 1 200px' }}>
+          <label className="label">Buscar</label>
+          <input className="input" placeholder="Endereço..." value={search} onChange={e => setSearch(e.target.value)} />
+        </div>
+        <div style={{ flex: '0 1 140px' }}>
+          <label className="label">Status</label>
+          <select className="input" value={filterStatus} onChange={e => setFilterStatus(e.target.value)}>
+            <option value="todos">Todos</option>
+            {STATUSES.map(s => <option key={s.value} value={s.value}>{s.label}</option>)}
+          </select>
+        </div>
+        <div style={{ flex: '0 1 100px' }}>
+          <label className="label">Quartos</label>
+          <select className="input" value={filterQuartos} onChange={e => setFilterQuartos(e.target.value)}>
+            <option value="">Todos</option>
+            {[1,2,3,4,5].map(n => <option key={n} value={n}>{n}</option>)}
+          </select>
+        </div>
+        <div style={{ flex: '0 1 100px' }}>
+          <label className="label">Vagas</label>
+          <select className="input" value={filterVagas} onChange={e => setFilterVagas(e.target.value)}>
+            <option value="">Todas</option>
+            {[0,1,2,3].map(n => <option key={n} value={n}>{n}</option>)}
+          </select>
+        </div>
+        <div style={{ flex: '0 1 140px' }}>
+          <label className="label">Ordenar por</label>
+          <select className="input" value={sortBy} onChange={e => setSortBy(e.target.value)}>
+            <option value="createdAt">Data</option>
+            <option value="preco">Preço</option>
+            <option value="area">Área</option>
+            <option value="nota">Nota</option>
+            <option value="condominio">Condomínio</option>
+          </select>
+        </div>
+        <button className="btn btn-sm" onClick={() => setSortDir(d => d === 'asc' ? 'desc' : 'asc')}
+          style={{ marginBottom: 1 }}>
+          {sortDir === 'asc' ? '↑ Crescente' : '↓ Decrescente'}
+        </button>
+      </div>
+
+      {/* Grid */}
+      {filteredApts.length === 0 ? (
+        <div style={{ textAlign: 'center', padding: 60 }}>
+          <div style={{ fontSize: 48, marginBottom: 16 }}>🏠</div>
+          <p style={{ color: 'var(--text-muted)', fontSize: 16 }}>
+            {apartments.length === 0 ? 'Nenhum apartamento cadastrado ainda.' : 'Nenhum resultado para os filtros aplicados.'}
+          </p>
+          {apartments.length === 0 && (
+            <button className="btn btn-primary" style={{ marginTop: 16 }}
+              onClick={() => { setEditingApt(null); setShowForm(true); }}>
+              + Adicionar primeiro apê
+            </button>
+          )}
+        </div>
+      ) : (
+        <div style={{ display: 'grid', gridTemplateColumns: 'repeat(auto-fill, minmax(280px, 1fr))', gap: 16 }}>
+          {filteredApts.map(apt => (
+            <ApartmentCard key={apt.id} apt={apt}
+              onClick={() => setDetailApt(apt)}
+              onCompareToggle={toggleCompare}
+              isCompareSelected={compareIds.includes(apt.id)} />
+          ))}
+        </div>
+      )}
+
+      {/* Modals */}
+      {showForm && (
+        <ApartmentForm
+          apt={editingApt}
+          onSave={handleSaveApt}
+          onClose={() => { setShowForm(false); setEditingApt(null); }}
+        />
+      )}
+
+      {detailApt && (
+        <ApartmentDetail
+          apt={detailApt}
+          onClose={() => setDetailApt(null)}
+          onEdit={(apt) => { setEditingApt(apt); setShowForm(true); }}
+          onStatusChange={handleStatusChange}
+        />
+      )}
+
+      {showCompare && (
+        <CompareView
+          apts={apartments.filter(a => compareIds.includes(a.id))}
+          onClose={() => setShowCompare(false)}
+        />
+      )}
+
+      {toast && <Toast {...toast} onClose={() => setToast(null)} />}
+    </div>
+  );
+}
+
+ReactDOM.createRoot(document.getElementById('root')).render(<App />);
+</script>
+</body>
+</html>
