@@ -990,10 +990,29 @@ function App() {
 
   const showToast = (message, type = 'info') => setToast({ message, type });
 
+  const openApt = (apt) => {
+    setDetailApt(apt);
+    setView('detail');
+    window.location.hash = apt.id;
+    window.scrollTo(0, 0);
+  };
+
+  const closeApt = () => {
+    setDetailApt(null);
+    setView('list');
+    history.replaceState(null, '', window.location.pathname);
+  };
+
   useEffect(() => {
     loadFromGitHub().then(data => {
       if (data !== null) {
         setApartments(data);
+        // Check URL hash for direct link to apartment
+        const hash = window.location.hash.replace('#', '');
+        if (hash) {
+          const apt = data.find(a => a.id === hash);
+          if (apt) { setDetailApt(apt); setView('detail'); }
+        }
       } else {
         showToast('Erro ao conectar com GitHub. Verifique token e repositório.', 'error');
       }
@@ -1269,7 +1288,7 @@ function App() {
             <div style={{ display: 'grid', gridTemplateColumns: 'repeat(auto-fill, minmax(280px, 1fr))', gap: 16 }}>
               {filteredApts.map(apt => (
                 <ApartmentCard key={apt.id} apt={apt}
-                  onClick={() => { setDetailApt(apt); setView('detail'); }}
+                  onClick={() => openApt(apt)}
                   onCompareToggle={toggleCompare}
                   isCompareSelected={compareIds.includes(apt.id)} />
               ))}
@@ -1288,7 +1307,7 @@ function App() {
       {view === 'detail' && detailApt && (
         <ApartmentDetail
           apt={apartments.find(a => a.id === detailApt.id) || detailApt}
-          onClose={() => { setDetailApt(null); setView('list'); }}
+          onClose={closeApt}
           onEdit={(apt) => { setEditingApt(apt); setView('form'); }}
           onStatusChange={handleStatusChange}
           onDelete={handleDelete}
