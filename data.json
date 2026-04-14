@@ -76,6 +76,14 @@
       "pisoAcabamento": {
         "nota": 4,
         "comentario": ""
+      },
+      "sacada": {
+        "nota": 0,
+        "comentario": ""
+      },
+      "elevador": {
+        "nota": 0,
+        "comentario": ""
       }
     },
     "createdAt": "2026-04-13T00:00:00.000Z"
