@@ -88,6 +88,9 @@
       "custoBeneficio": {
         "nota": 4,
         "comentario": "120k pra deixar perfeito e reformar tudo. total: 940K\nmas ja da pra ir morar agora localização perfeita "
+      },
+      "localizacao": {
+        "nota": 5
       }
     },
     "createdAt": "2026-04-13T00:00:00.000Z"
