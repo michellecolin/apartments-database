@@ -115,11 +115,12 @@
 const { useState, useEffect, useMemo, useCallback, useRef } = React;
 
 // ============================================================
-// CONFIG — Preencha com seus dados do GitHub
+// CONFIG
 // ============================================================
-const GITHUB_TOKEN = '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';
 const GITHUB_REPO = 'michellecolin/apartments-database';
 const DATA_FILE = 'data.json';
+const getToken = () => localStorage.getItem('gh_token') || '';
+const setToken = (t) => localStorage.setItem('gh_token', t);
 // ============================================================
 
 const STATUSES = [
@@ -191,9 +192,10 @@ let fileSha = null;
 
 async function loadFromGitHub() {
   try {
-    const res = await fetch(`https://api.github.com/repos/${GITHUB_REPO}/contents/${DATA_FILE}`, {
-      headers: { 'Authorization': `Bearer ${GITHUB_TOKEN}`, 'Accept': 'application/vnd.github.v3+json' },
-    });
+    const headers = { 'Accept': 'application/vnd.github.v3+json' };
+    const token = getToken();
+    if (token) headers['Authorization'] = `Bearer ${token}`;
+    const res = await fetch(`https://api.github.com/repos/${GITHUB_REPO}/contents/${DATA_FILE}`, { headers });
     if (res.status === 404) return [];
     if (!res.ok) throw new Error(`GitHub GET ${res.status}`);
     const json = await res.json();
@@ -207,6 +209,8 @@ async function loadFromGitHub() {
 }
 
 async function saveToGitHub(data) {
+  const token = getToken();
+  if (!token) return 'no_token';
   try {
     const content = new TextEncoder().encode(JSON.stringify(data, null, 2));
     const base64 = btoa(String.fromCharCode(...content));
@@ -218,7 +222,7 @@ async function saveToGitHub(data) {
     const res = await fetch(`https://api.github.com/repos/${GITHUB_REPO}/contents/${DATA_FILE}`, {
       method: 'PUT',
       headers: {
-        'Authorization': `Bearer ${GITHUB_TOKEN}`,
+        'Authorization': `Bearer ${token}`,
         'Accept': 'application/vnd.github.v3+json',
         'Content-Type': 'application/json',
       },
@@ -713,6 +717,8 @@ function App() {
   const [detailApt, setDetailApt] = useState(null);
   const [compareIds, setCompareIds] = useState([]);
   const [showCompare, setShowCompare] = useState(false);
+  const [showSettings, setShowSettings] = useState(false);
+  const [tokenInput, setTokenInput] = useState(getToken());
 
   // Filters
   const [search, setSearch] = useState('');
@@ -738,9 +744,10 @@ function App() {
   const persist = async (newData) => {
     setApartments(newData);
     setSaving(true);
-    const ok = await saveToGitHub(newData);
+    const result = await saveToGitHub(newData);
     setSaving(false);
-    if (ok) showToast('Salvo no GitHub ✓', 'success');
+    if (result === true) showToast('Salvo no GitHub ✓', 'success');
+    else if (result === 'no_token') showToast('Configure seu token GitHub em ⚙️ para salvar', 'error');
     else showToast('Erro ao salvar no GitHub', 'error');
   };
 
@@ -830,6 +837,7 @@ function App() {
               </p>
             </div>
             <div style={{ display: 'flex', gap: 8 }}>
+              <button className="btn btn-sm" onClick={() => setShowSettings(true)} title="Configurações">⚙️</button>
               {compareIds.length >= 2 && (
                 <button className="btn" onClick={() => setShowCompare(true)}>
                   ⇔ Comparar ({compareIds.length})
@@ -938,6 +946,33 @@ function App() {
           onSave={handleSaveApt}
           onClose={() => { setEditingApt(null); setView(detailApt ? 'detail' : 'list'); }}
         />
+      )}
+
+      {showSettings && (
+        <div className="modal-overlay" onClick={e => e.target === e.currentTarget && setShowSettings(false)}>
+          <div className="modal-content" style={{ maxWidth: 480 }}>
+            <div style={{ padding: '20px 24px', borderBottom: '1px solid var(--border)', display: 'flex', justifyContent: 'space-between', alignItems: 'center' }}>
+              <h2 style={{ fontFamily: 'var(--font-display)', fontSize: 20, fontWeight: 600 }}>⚙️ Configurações</h2>
+              <button className="btn btn-sm" onClick={() => setShowSettings(false)}>✕</button>
+            </div>
+            <div style={{ padding: 24 }}>
+              <label className="label">GitHub Token (para salvar alterações)</label>
+              <p style={{ fontSize: 12, color: 'var(--text-muted)', marginBottom: 8 }}>
+                Gere em github.com/settings/tokens. O token fica salvo apenas no seu navegador.
+              </p>
+              <input className="input" type="password" placeholder="github_pat_..."
+                value={tokenInput} onChange={e => setTokenInput(e.target.value)} />
+              <div style={{ display: 'flex', gap: 8, marginTop: 16, justifyContent: 'flex-end' }}>
+                <button className="btn" onClick={() => setShowSettings(false)}>Cancelar</button>
+                <button className="btn btn-primary" onClick={() => {
+                  setToken(tokenInput);
+                  setShowSettings(false);
+                  showToast('Token salvo no navegador ✓', 'success');
+                }}>Salvar</button>
+              </div>
+            </div>
+          </div>
+        </div>
       )}
 
       {toast && <Toast {...toast} onClose={() => setToast(null)} />}
