@@ -523,7 +523,7 @@
     "andar": "",
     "sacada": true,
     "elevador": false,
-    "churrasqueiraApt": false,
+    "churrasqueiraApt": true,
     "condPiscina": false,
     "condSalaoFestas": false,
     "condChurrasqueira": false,
