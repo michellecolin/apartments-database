@@ -697,71 +697,73 @@ function ApartmentDetail({ apt, onClose, onEdit, onStatusChange, onDelete, onRat
         </div>
       )}
 
-      {/* Two columns: Valores + Características */}
-      <div style={{ display: 'grid', gridTemplateColumns: '1fr 1fr', gap: 20, marginBottom: 24 }}>
-        {/* Valores */}
-        <div style={{ background: 'var(--bg-card)', border: '1px solid var(--border)', borderRadius: 10, padding: 16 }}>
-          <div style={{ fontSize: 13, fontWeight: 500, color: 'var(--text-secondary)', marginBottom: 12, textTransform: 'uppercase', letterSpacing: 0.5 }}>Valores</div>
-          <div style={{ fontFamily: 'var(--font-display)', fontSize: 26, fontWeight: 500, color: 'var(--accent)', marginBottom: 4 }}>{fmt(apt.preco)}</div>
-          <div style={{ fontSize: 13, color: 'var(--text-secondary)', marginBottom: 12 }}>Preço do imóvel</div>
-          {[
-            ['Condomínio', apt.condominio ? `${fmt(apt.condominio)}/mês` : '—'],
-            ['IPTU', apt.iptu ? `${fmt(apt.iptu)}/mês` : '—'],
-          ].map(([label, val]) => (
-            <div key={label} style={{ display: 'flex', justifyContent: 'space-between', padding: '6px 0', fontSize: 13, borderBottom: '1px solid var(--border)' }}>
-              <span style={{ color: 'var(--text-secondary)' }}>{label}</span>
-              <span style={{ fontWeight: 500, color: 'var(--text)' }}>{val}</span>
-            </div>
-          ))}
-          {custoMensal > 0 && (
-            <div style={{ display: 'flex', justifyContent: 'space-between', paddingTop: 8, fontSize: 13, marginTop: 2 }}>
-              <span style={{ fontWeight: 500, color: 'var(--text-secondary)' }}>Custo mensal</span>
-              <span style={{ fontWeight: 500, color: 'var(--accent)' }}>{fmt(custoMensal)}/mês</span>
-            </div>
-          )}
-        </div>
-
-        {/* Características */}
-        <div style={{ background: 'var(--bg-card)', border: '1px solid var(--border)', borderRadius: 10, padding: 16 }}>
-          <div style={{ fontSize: 13, fontWeight: 500, color: 'var(--text-secondary)', marginBottom: 12, textTransform: 'uppercase', letterSpacing: 0.5 }}>Características</div>
-          <div style={{ display: 'grid', gridTemplateColumns: '1fr 1fr', gap: 8 }}>
+      {/* Main 2-column layout */}
+      <div style={{ display: 'grid', gridTemplateColumns: 'repeat(auto-fit, minmax(340px, 1fr))', gap: 20, marginBottom: 24 }}>
+        {/* Left column: Valores + Características */}
+        <div style={{ display: 'flex', flexDirection: 'column', gap: 20 }}>
+          {/* Valores */}
+          <div style={{ background: 'var(--bg-card)', border: '1px solid var(--border)', borderRadius: 10, padding: 16 }}>
+            <div style={{ fontSize: 13, fontWeight: 500, color: 'var(--text-secondary)', marginBottom: 12, textTransform: 'uppercase', letterSpacing: 0.5 }}>Valores</div>
+            <div style={{ fontFamily: 'var(--font-display)', fontSize: 26, fontWeight: 500, color: 'var(--accent)', marginBottom: 4 }}>{fmt(apt.preco)}</div>
+            <div style={{ fontSize: 13, color: 'var(--text-secondary)', marginBottom: 12 }}>Preço do imóvel</div>
             {[
-              [apt.quartos || '—', 'quartos'],
-              [apt.banheiros || '—', 'banheiros'],
-              [apt.vagas || '—', apt.vagas === '1' ? 'vaga' : 'vagas'],
-              [apt.area ? `${fmtNum(apt.area)} m²` : '—', 'área'],
-              [apt.andar ? `${apt.andar}º` : '—', 'andar'],
-              [apt.elevador ? 'Sim' : 'Não', 'elevador'],
-            ].map(([val, label]) => (
-              <div key={label} style={{ padding: '8px 10px', background: 'var(--bg)', borderRadius: 6 }}>
-                <div style={{ fontSize: 16, fontWeight: 500, color: 'var(--text)' }}>{val}</div>
-                <div style={{ fontSize: 11, color: 'var(--text-secondary)', marginTop: 1 }}>{label}</div>
+              ['Condomínio', apt.condominio ? `${fmt(apt.condominio)}/mês` : '—'],
+              ['IPTU', apt.iptu ? `${fmt(apt.iptu)}/mês` : '—'],
+            ].map(([label, val]) => (
+              <div key={label} style={{ display: 'flex', justifyContent: 'space-between', padding: '6px 0', fontSize: 13, borderBottom: '1px solid var(--border)' }}>
+                <span style={{ color: 'var(--text-secondary)' }}>{label}</span>
+                <span style={{ fontWeight: 500, color: 'var(--text)' }}>{val}</span>
               </div>
             ))}
+            {custoMensal > 0 && (
+              <div style={{ display: 'flex', justifyContent: 'space-between', paddingTop: 8, fontSize: 13, marginTop: 2 }}>
+                <span style={{ fontWeight: 500, color: 'var(--text-secondary)' }}>Custo mensal</span>
+                <span style={{ fontWeight: 500, color: 'var(--accent)' }}>{fmt(custoMensal)}/mês</span>
+              </div>
+            )}
           </div>
-          <div style={{ display: 'flex', flexWrap: 'wrap', gap: 6, marginTop: 12 }}>
-            {features.map(([label, active]) => (
-              <span key={label} style={{
-                padding: '4px 10px', borderRadius: 14, fontSize: 12, fontWeight: 500,
-                background: active ? 'var(--green-light)' : 'var(--bg)',
-                color: active ? 'var(--green)' : 'var(--text-muted)',
-              }}>{label}</span>
-            ))}
-          </div>
-        </div>
-      </div>
 
-      {/* Avaliações */}
-      <div style={{ marginBottom: 20 }}>
-        <div style={{ display: 'flex', justifyContent: 'space-between', alignItems: 'center', marginBottom: 12 }}>
-          <div style={{ fontSize: 13, fontWeight: 500, color: 'var(--text-secondary)', textTransform: 'uppercase', letterSpacing: 0.5 }}>Avaliações</div>
-          <div style={{ textAlign: 'right' }}>
-            <div style={{ fontFamily: 'var(--font-display)', fontSize: 28, fontWeight: 500, color: 'var(--accent)' }}>
-              {media.toFixed(1)} <span style={{ fontSize: 13, color: 'var(--text-secondary)', fontFamily: 'var(--font-body)', fontWeight: 400 }}>/ 5</span>
+          {/* Características */}
+          <div style={{ background: 'var(--bg-card)', border: '1px solid var(--border)', borderRadius: 10, padding: 16 }}>
+            <div style={{ fontSize: 13, fontWeight: 500, color: 'var(--text-secondary)', marginBottom: 12, textTransform: 'uppercase', letterSpacing: 0.5 }}>Características</div>
+            <div style={{ display: 'grid', gridTemplateColumns: '1fr 1fr 1fr', gap: 8 }}>
+              {[
+                [apt.quartos || '—', 'quartos'],
+                [apt.banheiros || '—', 'banheiros'],
+                [apt.vagas || '—', apt.vagas === '1' ? 'vaga' : 'vagas'],
+                [apt.area ? `${fmtNum(apt.area)} m²` : '—', 'área'],
+                [apt.andar ? `${apt.andar}º` : '—', 'andar'],
+                [apt.elevador ? 'Sim' : 'Não', 'elevador'],
+              ].map(([val, label]) => (
+                <div key={label} style={{ padding: '8px 10px', background: 'var(--bg)', borderRadius: 6 }}>
+                  <div style={{ fontSize: 16, fontWeight: 500, color: 'var(--text)' }}>{val}</div>
+                  <div style={{ fontSize: 11, color: 'var(--text-secondary)', marginTop: 1 }}>{label}</div>
+                </div>
+              ))}
             </div>
-            <div style={{ fontSize: 11, color: 'var(--text-muted)' }}>nota geral</div>
+            <div style={{ display: 'flex', flexWrap: 'wrap', gap: 6, marginTop: 12 }}>
+              {features.map(([label, active]) => (
+                <span key={label} style={{
+                  padding: '4px 10px', borderRadius: 14, fontSize: 12, fontWeight: 500,
+                  background: active ? 'var(--green-light)' : 'var(--bg)',
+                  color: active ? 'var(--green)' : 'var(--text-muted)',
+                }}>{label}</span>
+              ))}
+            </div>
           </div>
         </div>
+
+        {/* Right column: Avaliações */}
+        <div>
+          <div style={{ display: 'flex', justifyContent: 'space-between', alignItems: 'center', marginBottom: 12 }}>
+            <div style={{ fontSize: 13, fontWeight: 500, color: 'var(--text-secondary)', textTransform: 'uppercase', letterSpacing: 0.5 }}>Avaliações</div>
+            <div style={{ textAlign: 'right' }}>
+              <div style={{ fontFamily: 'var(--font-display)', fontSize: 28, fontWeight: 500, color: 'var(--accent)' }}>
+                {media.toFixed(1)} <span style={{ fontSize: 13, color: 'var(--text-secondary)', fontFamily: 'var(--font-body)', fontWeight: 400 }}>/ 5</span>
+              </div>
+              <div style={{ fontSize: 11, color: 'var(--text-muted)' }}>nota geral</div>
+            </div>
+          </div>
         <div style={{ display: 'flex', flexDirection: 'column', gap: 6 }}>
           {EVALUATION_CATEGORIES.map(cat => {
             const av = apt.avaliacoes[cat.key] || { nota: 0, comentario: '' };
@@ -813,6 +815,7 @@ function ApartmentDetail({ apt, onClose, onEdit, onStatusChange, onDelete, onRat
               </div>
             );
           })}
+        </div>
         </div>
       </div>
     </div>
