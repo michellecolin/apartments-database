@@ -743,11 +743,11 @@
         "comentario": "excelente"
       },
       "elevador": {
-        "nota": 0,
+        "nota": 5,
         "comentario": ""
       },
       "custoBeneficio": {
-        "nota": 0,
+        "nota": 3,
         "comentario": ""
       }
     },
