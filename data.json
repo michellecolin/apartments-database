@@ -3225,6 +3225,12 @@
       },
       "pisoAcabamento": {
         "nota": 4
+      },
+      "sacada": {
+        "nota": 5
+      },
+      "localizacao": {
+        "nota": 3
       }
     },
     "visita": null,
