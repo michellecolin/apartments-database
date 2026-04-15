@@ -2990,6 +2990,9 @@
     "avaliacoes": {
       "custoBeneficio": {
         "nota": 3
+      },
+      "estadoGeral": {
+        "nota": 4
       }
     },
     "visita": null,
