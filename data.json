@@ -3097,6 +3097,12 @@
     "avaliacoes": {
       "outrosBanheiros": {
         "nota": 3
+      },
+      "banheiroP": {
+        "nota": 3
+      },
+      "estadoGeral": {
+        "nota": 3
       }
     },
     "visita": null,
