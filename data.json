@@ -2989,7 +2989,7 @@
     "status": "novo",
     "avaliacoes": {
       "custoBeneficio": {
-        "nota": 3
+        "nota": 4
       },
       "estadoGeral": {
         "nota": 4
@@ -3017,6 +3017,9 @@
       },
       "pisoAcabamento": {
         "nota": 5
+      },
+      "localizacao": {
+        "nota": 4
       }
     },
     "visita": null,
