@@ -2888,6 +2888,9 @@
       },
       "outrosBanheiros": {
         "nota": 4
+      },
+      "cozinha": {
+        "nota": 0
       }
     },
     "visita": null,
