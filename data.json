@@ -3103,6 +3103,9 @@
       },
       "estadoGeral": {
         "nota": 3
+      },
+      "cozinha": {
+        "nota": 3
       }
     },
     "visita": null,
