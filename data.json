@@ -2952,6 +2952,9 @@
       },
       "quartosArmarios": {
         "nota": 4
+      },
+      "sacada": {
+        "nota": 5
       }
     },
     "visita": null,
