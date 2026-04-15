@@ -3428,10 +3428,13 @@
         "nota": 2
       },
       "localizacao": {
-        "nota": 4
+        "nota": 5
       },
       "elevador": {
         "nota": 5
+      },
+      "custoBeneficio": {
+        "nota": 4
       }
     },
     "visita": null,
