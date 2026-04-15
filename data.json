@@ -3176,6 +3176,9 @@
       },
       "localizacao": {
         "nota": 4
+      },
+      "elevador": {
+        "nota": 5
       }
     },
     "visita": null,
