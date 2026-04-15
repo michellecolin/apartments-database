@@ -3408,6 +3408,9 @@
       },
       "banheiroP": {
         "nota": 3
+      },
+      "outrosBanheiros": {
+        "nota": 3
       }
     },
     "visita": null,
