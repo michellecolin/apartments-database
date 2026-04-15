@@ -47,7 +47,7 @@
     "condSalaoFestas": true,
     "condChurrasqueira": true,
     "linkAnuncio": "https://imoveis.novovista.com.br/?v2=a2V5PWM1NjcwMzJkNThlYWMyMjM2NjcwMzExMTMwMTc5MTg2JmNvZD03NDE4MzQ2NiZkPTIzMTU4JmNzPTIzNiZtYXBhPU5hbyZiYWlycm9fY29tZXJjaWFsPVNpbSZsb2dpbj1uYW8mc3RhdHVzPUElMkJWRU5EQSZwdXJwb3NlPSU1QiUyMnZlbmRhJTIyJTVEJmNvZF9lbT04NDE",
-    "status": "favorito",
+    "status": "rejeitado",
     "avaliacoes": {
       "estadoGeral": {
         "nota": 4,
