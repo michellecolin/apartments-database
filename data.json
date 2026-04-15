@@ -3428,7 +3428,10 @@
         "nota": 2
       },
       "localizacao": {
-        "nota": 3
+        "nota": 4
+      },
+      "elevador": {
+        "nota": 5
       }
     },
     "visita": null,
