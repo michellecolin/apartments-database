@@ -3094,7 +3094,11 @@
     "condChurrasqueira": true,
     "linkAnuncio": "https://www.chavesnamao.com.br/imovel/apartamento-a-venda-4-quartos-com-garagem-sc-sao-jose-campinas-141m2-RS799000/id-37945722/",
     "status": "favorito",
-    "avaliacoes": {},
+    "avaliacoes": {
+      "outrosBanheiros": {
+        "nota": 3
+      }
+    },
     "visita": null,
     "createdAt": "2026-04-15T00:00:00.000Z"
   },
