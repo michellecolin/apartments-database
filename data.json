@@ -1695,5 +1695,1002 @@
     },
     "visita": null,
     "createdAt": "2026-04-14T14:00:00.000Z"
+  },
+  {
+    "id": "apt_campinas_sj_41400008",
+    "fotos": [
+      "https://www.chavesnamao.com.br/imn/0850x0600/N/60/imoveis/809806/41400008/sc-sao-jose-campinas-rua-victor-meirelles-apartamento-a-venda-3-quartos-69d81359-1.jpg",
+      "https://www.chavesnamao.com.br/imn/0850x0600/N/60/imoveis/809806/41400008/sc-sao-jose-campinas-rua-victor-meirelles-apartamento-a-venda-3-quartos-69d81359-2.jpg",
+      "https://www.chavesnamao.com.br/imn/0850x0600/N/60/imoveis/809806/41400008/sc-sao-jose-campinas-rua-victor-meirelles-apartamento-a-venda-3-quartos-69d81359-3.jpg",
+      "https://www.chavesnamao.com.br/imn/0850x0600/N/60/imoveis/809806/41400008/sc-sao-jose-campinas-rua-victor-meirelles-apartamento-a-venda-3-quartos-69d81359-4.jpg",
+      "https://www.chavesnamao.com.br/imn/0850x0600/N/60/imoveis/809806/41400008/sc-sao-jose-campinas-rua-victor-meirelles-apartamento-a-venda-3-quartos-69d81359-5.jpg",
+      "https://www.chavesnamao.com.br/imn/0850x0600/N/60/imoveis/809806/41400008/sc-sao-jose-campinas-rua-victor-meirelles-apartamento-a-venda-3-quartos-69d81359-6.jpg",
+      "https://www.chavesnamao.com.br/imn/0850x0600/N/60/imoveis/809806/41400008/sc-sao-jose-campinas-rua-victor-meirelles-apartamento-a-venda-3-quartos-69d81359-7.jpg",
+      "https://www.chavesnamao.com.br/imn/0850x0600/N/60/imoveis/809806/41400008/sc-sao-jose-campinas-rua-victor-meirelles-apartamento-a-venda-3-quartos-69d81359-8.jpg",
+      "https://www.chavesnamao.com.br/imn/0850x0600/N/60/imoveis/809806/41400008/sc-sao-jose-campinas-rua-victor-meirelles-apartamento-a-venda-3-quartos-69d81359-9.jpg",
+      "https://www.chavesnamao.com.br/imn/0850x0600/N/60/imoveis/809806/41400008/sc-sao-jose-campinas-rua-victor-meirelles-apartamento-a-venda-3-quartos-69d81359-10.jpg"
+    ],
+    "endereco": "Rua Victor Meirelles, Campinas, São José",
+    "preco": "650000",
+    "condominio": "600",
+    "iptu": "150",
+    "quartos": "3",
+    "banheiros": "2",
+    "vagas": "1",
+    "area": "89",
+    "andar": "",
+    "sacada": true,
+    "elevador": true,
+    "churrasqueiraApt": false,
+    "condPiscina": false,
+    "condSalaoFestas": false,
+    "condChurrasqueira": false,
+    "linkAnuncio": "https://www.chavesnamao.com.br/imovel/apartamento-a-venda-3-quartos-com-garagem-sc-sao-jose-campinas-89m2-RS650000/id-41400008/",
+    "status": "novo",
+    "avaliacoes": {
+      "estadoGeral": {
+        "nota": 0,
+        "comentario": ""
+      },
+      "banheiroP": {
+        "nota": 0,
+        "comentario": ""
+      },
+      "outrosBanheiros": {
+        "nota": 0,
+        "comentario": ""
+      },
+      "cozinha": {
+        "nota": 0,
+        "comentario": ""
+      },
+      "areaServico": {
+        "nota": 0,
+        "comentario": ""
+      },
+      "quartosArmarios": {
+        "nota": 0,
+        "comentario": ""
+      },
+      "pisoAcabamento": {
+        "nota": 0,
+        "comentario": ""
+      },
+      "sacada": {
+        "nota": 0,
+        "comentario": ""
+      },
+      "localizacao": {
+        "nota": 0,
+        "comentario": ""
+      },
+      "elevador": {
+        "nota": 0,
+        "comentario": ""
+      },
+      "custoBeneficio": {
+        "nota": 0,
+        "comentario": ""
+      }
+    },
+    "visita": null,
+    "createdAt": "2026-04-14T16:00:00.000Z"
+  },
+  {
+    "id": "apt_estreito_41092088",
+    "fotos": [
+      "https://www.chavesnamao.com.br/imn/0850x0600/N/60/imoveis/27487/41092088/sc-florianopolis-estreito-rua-quatorze-de-julho-apartamento-a-venda-3-quartos-69ce308e-1.jpg",
+      "https://www.chavesnamao.com.br/imn/0850x0600/N/60/imoveis/27487/41092088/sc-florianopolis-estreito-rua-quatorze-de-julho-apartamento-a-venda-3-quartos-69ce308e-2.jpg",
+      "https://www.chavesnamao.com.br/imn/0850x0600/N/60/imoveis/27487/41092088/sc-florianopolis-estreito-rua-quatorze-de-julho-apartamento-a-venda-3-quartos-69ce308e-3.jpg",
+      "https://www.chavesnamao.com.br/imn/0850x0600/N/60/imoveis/27487/41092088/sc-florianopolis-estreito-rua-quatorze-de-julho-apartamento-a-venda-3-quartos-69ce308e-4.jpg",
+      "https://www.chavesnamao.com.br/imn/0850x0600/N/60/imoveis/27487/41092088/sc-florianopolis-estreito-rua-quatorze-de-julho-apartamento-a-venda-3-quartos-69ce308e-5.jpg",
+      "https://www.chavesnamao.com.br/imn/0850x0600/N/60/imoveis/27487/41092088/sc-florianopolis-estreito-rua-quatorze-de-julho-apartamento-a-venda-3-quartos-69ce308e-6.jpg",
+      "https://www.chavesnamao.com.br/imn/0850x0600/N/60/imoveis/27487/41092088/sc-florianopolis-estreito-rua-quatorze-de-julho-apartamento-a-venda-3-quartos-69ce308e-7.jpg",
+      "https://www.chavesnamao.com.br/imn/0850x0600/N/60/imoveis/27487/41092088/sc-florianopolis-estreito-rua-quatorze-de-julho-apartamento-a-venda-3-quartos-69ce308e-8.jpg",
+      "https://www.chavesnamao.com.br/imn/0850x0600/N/60/imoveis/27487/41092088/sc-florianopolis-estreito-rua-quatorze-de-julho-apartamento-a-venda-3-quartos-69ce308e-9.jpg",
+      "https://www.chavesnamao.com.br/imn/0850x0600/N/60/imoveis/27487/41092088/sc-florianopolis-estreito-rua-quatorze-de-julho-apartamento-a-venda-3-quartos-69ce308e-10.jpg",
+      "https://www.chavesnamao.com.br/imn/0850x0600/N/60/imoveis/27487/41092088/sc-florianopolis-estreito-rua-quatorze-de-julho-apartamento-a-venda-3-quartos-69ce308e-11.jpg",
+      "https://www.chavesnamao.com.br/imn/0850x0600/N/60/imoveis/27487/41092088/sc-florianopolis-estreito-rua-quatorze-de-julho-apartamento-a-venda-3-quartos-69ce308e-12.jpg",
+      "https://www.chavesnamao.com.br/imn/0850x0600/N/60/imoveis/27487/41092088/sc-florianopolis-estreito-rua-quatorze-de-julho-apartamento-a-venda-3-quartos-69ce308e-13.jpg",
+      "https://www.chavesnamao.com.br/imn/0850x0600/N/60/imoveis/27487/41092088/sc-florianopolis-estreito-rua-quatorze-de-julho-apartamento-a-venda-3-quartos-69ce308e-14.jpg",
+      "https://www.chavesnamao.com.br/imn/0850x0600/N/60/imoveis/27487/41092088/sc-florianopolis-estreito-rua-quatorze-de-julho-apartamento-a-venda-3-quartos-69ce308e-15.jpg",
+      "https://www.chavesnamao.com.br/imn/0850x0600/N/60/imoveis/27487/41092088/sc-florianopolis-estreito-rua-quatorze-de-julho-apartamento-a-venda-3-quartos-69ce308e-16.jpg",
+      "https://www.chavesnamao.com.br/imn/0850x0600/N/60/imoveis/27487/41092088/sc-florianopolis-estreito-rua-quatorze-de-julho-apartamento-a-venda-3-quartos-69ce308e-17.jpg",
+      "https://www.chavesnamao.com.br/imn/0850x0600/N/60/imoveis/27487/41092088/sc-florianopolis-estreito-rua-quatorze-de-julho-apartamento-a-venda-3-quartos-69ce308e-18.jpg",
+      "https://www.chavesnamao.com.br/imn/0850x0600/N/60/imoveis/27487/41092088/sc-florianopolis-estreito-rua-quatorze-de-julho-apartamento-a-venda-3-quartos-69ce308e-19.jpg",
+      "https://www.chavesnamao.com.br/imn/0850x0600/N/60/imoveis/27487/41092088/sc-florianopolis-estreito-rua-quatorze-de-julho-apartamento-a-venda-3-quartos-69ce308e-20.jpg",
+      "https://www.chavesnamao.com.br/imn/0850x0600/N/60/imoveis/27487/41092088/sc-florianopolis-estreito-rua-quatorze-de-julho-apartamento-a-venda-3-quartos-69ce308e-21.jpg",
+      "https://www.chavesnamao.com.br/imn/0850x0600/N/60/imoveis/27487/41092088/sc-florianopolis-estreito-rua-quatorze-de-julho-apartamento-a-venda-3-quartos-69ce308e-22.jpg"
+    ],
+    "endereco": "Rua Quatorze de Julho, 133, Estreito, Florianópolis",
+    "preco": "540000",
+    "condominio": "745",
+    "iptu": "1239",
+    "quartos": "3",
+    "banheiros": "2",
+    "vagas": "1",
+    "area": "137",
+    "andar": "",
+    "sacada": false,
+    "elevador": false,
+    "churrasqueiraApt": false,
+    "condPiscina": false,
+    "condSalaoFestas": false,
+    "condChurrasqueira": false,
+    "linkAnuncio": "https://www.chavesnamao.com.br/imovel/apartamento-a-venda-3-quartos-com-garagem-sc-florianopolis-estreito-137m2-RS540000/id-41092088/",
+    "status": "novo",
+    "avaliacoes": {
+      "estadoGeral": {
+        "nota": 0,
+        "comentario": ""
+      },
+      "banheiroP": {
+        "nota": 0,
+        "comentario": ""
+      },
+      "outrosBanheiros": {
+        "nota": 0,
+        "comentario": ""
+      },
+      "cozinha": {
+        "nota": 0,
+        "comentario": ""
+      },
+      "areaServico": {
+        "nota": 0,
+        "comentario": ""
+      },
+      "quartosArmarios": {
+        "nota": 0,
+        "comentario": ""
+      },
+      "pisoAcabamento": {
+        "nota": 0,
+        "comentario": ""
+      },
+      "sacada": {
+        "nota": 0,
+        "comentario": ""
+      },
+      "localizacao": {
+        "nota": 0,
+        "comentario": ""
+      },
+      "elevador": {
+        "nota": 0,
+        "comentario": ""
+      },
+      "custoBeneficio": {
+        "nota": 0,
+        "comentario": ""
+      }
+    },
+    "visita": null,
+    "createdAt": "2026-04-14T16:00:00.000Z"
+  },
+  {
+    "id": "apt_carvoeira_iw_3028304098",
+    "fotos": [
+      "https://imgbr.imovelwebcdn.com/avisos/resize/2/30/28/30/40/98/1200x1200/6107941265.jpg",
+      "https://imgbr.imovelwebcdn.com/avisos/2/30/28/30/40/98/360x266/6107941279.jpg",
+      "https://imgbr.imovelwebcdn.com/avisos/2/30/28/30/40/98/360x266/6107941209.jpg",
+      "https://imgbr.imovelwebcdn.com/avisos/2/30/28/30/40/98/360x266/6107941196.jpg",
+      "https://imgbr.imovelwebcdn.com/avisos/2/30/28/30/40/98/360x266/6107941223.jpg"
+    ],
+    "endereco": "Carvoeira, Florianópolis",
+    "preco": "750000",
+    "condominio": "610",
+    "iptu": "940",
+    "quartos": "3",
+    "banheiros": "2",
+    "vagas": "1",
+    "area": "114",
+    "andar": "",
+    "sacada": false,
+    "elevador": false,
+    "churrasqueiraApt": false,
+    "condPiscina": false,
+    "condSalaoFestas": false,
+    "condChurrasqueira": false,
+    "linkAnuncio": "https://www.imovelweb.com.br/propriedades/imoveis-em-carvoeira-3028304098.html",
+    "status": "novo",
+    "avaliacoes": {
+      "estadoGeral": {
+        "nota": 0,
+        "comentario": ""
+      },
+      "banheiroP": {
+        "nota": 0,
+        "comentario": ""
+      },
+      "outrosBanheiros": {
+        "nota": 0,
+        "comentario": ""
+      },
+      "cozinha": {
+        "nota": 0,
+        "comentario": ""
+      },
+      "areaServico": {
+        "nota": 0,
+        "comentario": ""
+      },
+      "quartosArmarios": {
+        "nota": 0,
+        "comentario": ""
+      },
+      "pisoAcabamento": {
+        "nota": 0,
+        "comentario": ""
+      },
+      "sacada": {
+        "nota": 0,
+        "comentario": ""
+      },
+      "localizacao": {
+        "nota": 0,
+        "comentario": ""
+      },
+      "elevador": {
+        "nota": 0,
+        "comentario": ""
+      },
+      "custoBeneficio": {
+        "nota": 0,
+        "comentario": ""
+      }
+    },
+    "visita": null,
+    "createdAt": "2026-04-14T16:00:00.000Z"
+  },
+  {
+    "id": "apt_centro_olx_1489104656",
+    "fotos": [
+      "https://img.olx.com.br/images/35/352691505498627.jpg",
+      "https://img.olx.com.br/images/17/178663864032551.jpg",
+      "https://img.olx.com.br/images/24/241624861631137.jpg",
+      "https://img.olx.com.br/images/35/350680625810712.jpg",
+      "https://img.olx.com.br/images/17/172668620629433.jpg"
+    ],
+    "endereco": "Av. Mauro Ramos, Centro, Florianópolis",
+    "preco": "730000",
+    "condominio": "1137",
+    "iptu": "3183",
+    "quartos": "3",
+    "banheiros": "2",
+    "vagas": "1",
+    "area": "103",
+    "andar": "",
+    "sacada": false,
+    "elevador": true,
+    "churrasqueiraApt": false,
+    "condPiscina": false,
+    "condSalaoFestas": false,
+    "condChurrasqueira": false,
+    "linkAnuncio": "https://sc.olx.com.br/florianopolis-e-regiao/imoveis/imovel-para-venda-tem-103-metros-quadrados-com-3-quartos-em-centro-florianopolis-sc-1489104656",
+    "status": "novo",
+    "avaliacoes": {
+      "estadoGeral": {
+        "nota": 0,
+        "comentario": ""
+      },
+      "banheiroP": {
+        "nota": 0,
+        "comentario": ""
+      },
+      "outrosBanheiros": {
+        "nota": 0,
+        "comentario": ""
+      },
+      "cozinha": {
+        "nota": 0,
+        "comentario": ""
+      },
+      "areaServico": {
+        "nota": 0,
+        "comentario": ""
+      },
+      "quartosArmarios": {
+        "nota": 0,
+        "comentario": ""
+      },
+      "pisoAcabamento": {
+        "nota": 0,
+        "comentario": ""
+      },
+      "sacada": {
+        "nota": 0,
+        "comentario": ""
+      },
+      "localizacao": {
+        "nota": 0,
+        "comentario": ""
+      },
+      "elevador": {
+        "nota": 0,
+        "comentario": ""
+      },
+      "custoBeneficio": {
+        "nota": 0,
+        "comentario": ""
+      }
+    },
+    "visita": null,
+    "createdAt": "2026-04-14T16:00:00.000Z"
+  },
+  {
+    "id": "apt_coqueiros_olx_1480446244",
+    "fotos": [
+      "https://img.olx.com.br/images/79/793689010907013.jpg",
+      "https://img.olx.com.br/images/50/508654611382345.jpg",
+      "https://img.olx.com.br/images/93/935684490578271.jpg",
+      "https://img.olx.com.br/images/29/293654617841778.jpg",
+      "https://img.olx.com.br/images/60/608606251072960.jpg"
+    ],
+    "endereco": "Coqueiros, Florianópolis",
+    "preco": "750000",
+    "condominio": "980",
+    "iptu": "1800",
+    "quartos": "3",
+    "banheiros": "2",
+    "vagas": "1",
+    "area": "113",
+    "andar": "",
+    "sacada": false,
+    "elevador": false,
+    "churrasqueiraApt": false,
+    "condPiscina": false,
+    "condSalaoFestas": false,
+    "condChurrasqueira": false,
+    "linkAnuncio": "https://sc.olx.com.br/florianopolis-e-regiao/imoveis/apartamento-a-venda-em-coqueiros-3-dormitorios-com-suite-vista-livre-florianopolis-1480446244",
+    "status": "novo",
+    "avaliacoes": {
+      "estadoGeral": {
+        "nota": 0,
+        "comentario": ""
+      },
+      "banheiroP": {
+        "nota": 0,
+        "comentario": ""
+      },
+      "outrosBanheiros": {
+        "nota": 0,
+        "comentario": ""
+      },
+      "cozinha": {
+        "nota": 0,
+        "comentario": ""
+      },
+      "areaServico": {
+        "nota": 0,
+        "comentario": ""
+      },
+      "quartosArmarios": {
+        "nota": 0,
+        "comentario": ""
+      },
+      "pisoAcabamento": {
+        "nota": 0,
+        "comentario": ""
+      },
+      "sacada": {
+        "nota": 0,
+        "comentario": ""
+      },
+      "localizacao": {
+        "nota": 0,
+        "comentario": ""
+      },
+      "elevador": {
+        "nota": 0,
+        "comentario": ""
+      },
+      "custoBeneficio": {
+        "nota": 0,
+        "comentario": ""
+      }
+    },
+    "visita": null,
+    "createdAt": "2026-04-14T16:00:00.000Z"
+  },
+  {
+    "id": "apt_coqueiros_olx_1487377374",
+    "fotos": [
+      "https://img.olx.com.br/images/56/563606623132196.jpg",
+      "https://img.olx.com.br/images/56/562658868323965.jpg",
+      "https://img.olx.com.br/images/56/565612025250244.jpg",
+      "https://img.olx.com.br/images/56/561641740234491.jpg",
+      "https://img.olx.com.br/images/56/562687144465732.jpg"
+    ],
+    "endereco": "Coqueiros, Florianópolis",
+    "preco": "900000",
+    "condominio": "712",
+    "iptu": "2448",
+    "quartos": "3",
+    "banheiros": "2",
+    "vagas": "1",
+    "area": "120",
+    "andar": "",
+    "sacada": false,
+    "elevador": false,
+    "churrasqueiraApt": false,
+    "condPiscina": false,
+    "condSalaoFestas": false,
+    "condChurrasqueira": false,
+    "linkAnuncio": "https://sc.olx.com.br/florianopolis-e-regiao/imoveis/apartamento-a-venda-com-120-m-e-3-dormitorios-no-coracao-de-coqueiros-1487377374",
+    "status": "novo",
+    "avaliacoes": {
+      "estadoGeral": {
+        "nota": 0,
+        "comentario": ""
+      },
+      "banheiroP": {
+        "nota": 0,
+        "comentario": ""
+      },
+      "outrosBanheiros": {
+        "nota": 0,
+        "comentario": ""
+      },
+      "cozinha": {
+        "nota": 0,
+        "comentario": ""
+      },
+      "areaServico": {
+        "nota": 0,
+        "comentario": ""
+      },
+      "quartosArmarios": {
+        "nota": 0,
+        "comentario": ""
+      },
+      "pisoAcabamento": {
+        "nota": 0,
+        "comentario": ""
+      },
+      "sacada": {
+        "nota": 0,
+        "comentario": ""
+      },
+      "localizacao": {
+        "nota": 0,
+        "comentario": ""
+      },
+      "elevador": {
+        "nota": 0,
+        "comentario": ""
+      },
+      "custoBeneficio": {
+        "nota": 0,
+        "comentario": ""
+      }
+    },
+    "visita": null,
+    "createdAt": "2026-04-14T16:00:00.000Z"
+  },
+  {
+    "id": "apt_campinas_sj_olx_1483468402",
+    "fotos": [
+      "https://img.olx.com.br/images/34/341602389302327.jpg",
+      "https://img.olx.com.br/images/34/341685380988449.jpg",
+      "https://img.olx.com.br/images/35/352638628577595.jpg",
+      "https://img.olx.com.br/images/35/351665509374834.jpg",
+      "https://img.olx.com.br/images/34/344605508334692.jpg"
+    ],
+    "endereco": "Av. Presidente Kennedy, Campinas, São José",
+    "preco": "656000",
+    "condominio": "391",
+    "iptu": "79",
+    "quartos": "3",
+    "banheiros": "2",
+    "vagas": "1",
+    "area": "104",
+    "andar": "",
+    "sacada": false,
+    "elevador": false,
+    "churrasqueiraApt": false,
+    "condPiscina": false,
+    "condSalaoFestas": false,
+    "condChurrasqueira": false,
+    "linkAnuncio": "https://sc.olx.com.br/florianopolis-e-regiao/imoveis/apartamento-a-venda-avenida-presidente-kennedy-campinas-sao-jose-1483468402",
+    "status": "novo",
+    "avaliacoes": {
+      "estadoGeral": {
+        "nota": 0,
+        "comentario": ""
+      },
+      "banheiroP": {
+        "nota": 0,
+        "comentario": ""
+      },
+      "outrosBanheiros": {
+        "nota": 0,
+        "comentario": ""
+      },
+      "cozinha": {
+        "nota": 0,
+        "comentario": ""
+      },
+      "areaServico": {
+        "nota": 0,
+        "comentario": ""
+      },
+      "quartosArmarios": {
+        "nota": 0,
+        "comentario": ""
+      },
+      "pisoAcabamento": {
+        "nota": 0,
+        "comentario": ""
+      },
+      "sacada": {
+        "nota": 0,
+        "comentario": ""
+      },
+      "localizacao": {
+        "nota": 0,
+        "comentario": ""
+      },
+      "elevador": {
+        "nota": 0,
+        "comentario": ""
+      },
+      "custoBeneficio": {
+        "nota": 0,
+        "comentario": ""
+      }
+    },
+    "visita": null,
+    "createdAt": "2026-04-14T16:00:00.000Z"
+  },
+  {
+    "id": "apt_kobrasol_olx_1481465169",
+    "fotos": [
+      "https://img.olx.com.br/images/79/790669736594786.jpg",
+      "https://img.olx.com.br/images/11/111615374434397.jpg",
+      "https://img.olx.com.br/images/93/938629730969214.jpg",
+      "https://img.olx.com.br/images/98/986633614743087.jpg",
+      "https://img.olx.com.br/images/11/111636377417313.jpg"
+    ],
+    "endereco": "Kobrasol, São José",
+    "preco": "699000",
+    "condominio": "",
+    "iptu": "",
+    "quartos": "3",
+    "banheiros": "2",
+    "vagas": "1",
+    "area": "108",
+    "andar": "",
+    "sacada": false,
+    "elevador": false,
+    "churrasqueiraApt": false,
+    "condPiscina": false,
+    "condSalaoFestas": false,
+    "condChurrasqueira": false,
+    "linkAnuncio": "https://sc.olx.com.br/florianopolis-e-regiao/imoveis/apartamento-3-quartos-com-1-suite-kobrasol-sao-jose-1481465169",
+    "status": "novo",
+    "avaliacoes": {
+      "estadoGeral": {
+        "nota": 0,
+        "comentario": ""
+      },
+      "banheiroP": {
+        "nota": 0,
+        "comentario": ""
+      },
+      "outrosBanheiros": {
+        "nota": 0,
+        "comentario": ""
+      },
+      "cozinha": {
+        "nota": 0,
+        "comentario": ""
+      },
+      "areaServico": {
+        "nota": 0,
+        "comentario": ""
+      },
+      "quartosArmarios": {
+        "nota": 0,
+        "comentario": ""
+      },
+      "pisoAcabamento": {
+        "nota": 0,
+        "comentario": ""
+      },
+      "sacada": {
+        "nota": 0,
+        "comentario": ""
+      },
+      "localizacao": {
+        "nota": 0,
+        "comentario": ""
+      },
+      "elevador": {
+        "nota": 0,
+        "comentario": ""
+      },
+      "custoBeneficio": {
+        "nota": 0,
+        "comentario": ""
+      }
+    },
+    "visita": null,
+    "createdAt": "2026-04-14T16:00:00.000Z"
+  },
+  {
+    "id": "apt_kobrasol_olx_1494140105",
+    "fotos": [
+      "https://img.olx.com.br/images/43/432657752595161.jpg",
+      "https://img.olx.com.br/images/44/449608275275084.jpg",
+      "https://img.olx.com.br/images/44/448677272136480.jpg",
+      "https://img.olx.com.br/images/44/440638635306435.jpg",
+      "https://img.olx.com.br/images/44/443638153131019.jpg"
+    ],
+    "endereco": "Kobrasol, São José",
+    "preco": "750000",
+    "condominio": "900",
+    "iptu": "1",
+    "quartos": "3",
+    "banheiros": "2",
+    "vagas": "1",
+    "area": "112",
+    "andar": "",
+    "sacada": false,
+    "elevador": false,
+    "churrasqueiraApt": false,
+    "condPiscina": false,
+    "condSalaoFestas": false,
+    "condChurrasqueira": false,
+    "linkAnuncio": "https://sc.olx.com.br/florianopolis-e-regiao/imoveis/apartamento-3-quartos-no-edificio-brasilar-kobrasol-1494140105",
+    "status": "novo",
+    "avaliacoes": {
+      "estadoGeral": {
+        "nota": 0,
+        "comentario": ""
+      },
+      "banheiroP": {
+        "nota": 0,
+        "comentario": ""
+      },
+      "outrosBanheiros": {
+        "nota": 0,
+        "comentario": ""
+      },
+      "cozinha": {
+        "nota": 0,
+        "comentario": ""
+      },
+      "areaServico": {
+        "nota": 0,
+        "comentario": ""
+      },
+      "quartosArmarios": {
+        "nota": 0,
+        "comentario": ""
+      },
+      "pisoAcabamento": {
+        "nota": 0,
+        "comentario": ""
+      },
+      "sacada": {
+        "nota": 0,
+        "comentario": ""
+      },
+      "localizacao": {
+        "nota": 0,
+        "comentario": ""
+      },
+      "elevador": {
+        "nota": 0,
+        "comentario": ""
+      },
+      "custoBeneficio": {
+        "nota": 0,
+        "comentario": ""
+      }
+    },
+    "visita": null,
+    "createdAt": "2026-04-14T16:00:00.000Z"
+  },
+  {
+    "id": "apt_abraao_olx_1481388761",
+    "fotos": [
+      "https://img.olx.com.br/images/67/670639251258704.jpg",
+      "https://img.olx.com.br/images/67/673624131983778.jpg",
+      "https://img.olx.com.br/images/67/673615015242229.jpg",
+      "https://img.olx.com.br/images/67/674609491620355.jpg",
+      "https://img.olx.com.br/images/68/680608137558330.jpg"
+    ],
+    "endereco": "Abraão (Itaguaçu), Florianópolis",
+    "preco": "739000",
+    "condominio": "250",
+    "iptu": "1635",
+    "quartos": "3",
+    "banheiros": "2",
+    "vagas": "1",
+    "area": "108",
+    "andar": "",
+    "sacada": false,
+    "elevador": false,
+    "churrasqueiraApt": false,
+    "condPiscina": false,
+    "condSalaoFestas": false,
+    "condChurrasqueira": false,
+    "linkAnuncio": "https://sc.olx.com.br/florianopolis-e-regiao/imoveis/apartamento-com-3-dormitorios-no-itaguacu-1481388761",
+    "status": "novo",
+    "avaliacoes": {
+      "estadoGeral": {
+        "nota": 0,
+        "comentario": ""
+      },
+      "banheiroP": {
+        "nota": 0,
+        "comentario": ""
+      },
+      "outrosBanheiros": {
+        "nota": 0,
+        "comentario": ""
+      },
+      "cozinha": {
+        "nota": 0,
+        "comentario": ""
+      },
+      "areaServico": {
+        "nota": 0,
+        "comentario": ""
+      },
+      "quartosArmarios": {
+        "nota": 0,
+        "comentario": ""
+      },
+      "pisoAcabamento": {
+        "nota": 0,
+        "comentario": ""
+      },
+      "sacada": {
+        "nota": 0,
+        "comentario": ""
+      },
+      "localizacao": {
+        "nota": 0,
+        "comentario": ""
+      },
+      "elevador": {
+        "nota": 0,
+        "comentario": ""
+      },
+      "custoBeneficio": {
+        "nota": 0,
+        "comentario": ""
+      }
+    },
+    "visita": null,
+    "createdAt": "2026-04-14T16:00:00.000Z"
+  },
+  {
+    "id": "apt_kobrasol_olx_1478959121",
+    "fotos": [
+      "https://img.olx.com.br/images/41/417612752068019.jpg",
+      "https://img.olx.com.br/images/41/413633397067708.jpg",
+      "https://img.olx.com.br/images/41/410679513513945.jpg",
+      "https://img.olx.com.br/images/41/411606634201979.jpg",
+      "https://img.olx.com.br/images/41/416689510173719.jpg"
+    ],
+    "endereco": "Kobrasol, São José",
+    "preco": "797000",
+    "condominio": "750",
+    "iptu": "715",
+    "quartos": "3",
+    "banheiros": "2",
+    "vagas": "1",
+    "area": "105",
+    "andar": "",
+    "sacada": false,
+    "elevador": false,
+    "churrasqueiraApt": false,
+    "condPiscina": false,
+    "condSalaoFestas": false,
+    "condChurrasqueira": false,
+    "linkAnuncio": "https://sc.olx.com.br/florianopolis-e-regiao/imoveis/apartamento-de-105-m-campinas-sao-jose-1478959121",
+    "status": "novo",
+    "avaliacoes": {
+      "estadoGeral": {
+        "nota": 0,
+        "comentario": ""
+      },
+      "banheiroP": {
+        "nota": 0,
+        "comentario": ""
+      },
+      "outrosBanheiros": {
+        "nota": 0,
+        "comentario": ""
+      },
+      "cozinha": {
+        "nota": 0,
+        "comentario": ""
+      },
+      "areaServico": {
+        "nota": 0,
+        "comentario": ""
+      },
+      "quartosArmarios": {
+        "nota": 0,
+        "comentario": ""
+      },
+      "pisoAcabamento": {
+        "nota": 0,
+        "comentario": ""
+      },
+      "sacada": {
+        "nota": 0,
+        "comentario": ""
+      },
+      "localizacao": {
+        "nota": 0,
+        "comentario": ""
+      },
+      "elevador": {
+        "nota": 0,
+        "comentario": ""
+      },
+      "custoBeneficio": {
+        "nota": 0,
+        "comentario": ""
+      }
+    },
+    "visita": null,
+    "createdAt": "2026-04-14T16:00:00.000Z"
+  },
+  {
+    "id": "apt_coqueiros_olx_1477153265",
+    "fotos": [
+      "https://img.olx.com.br/images/19/193654497313538.jpg",
+      "https://img.olx.com.br/images/20/204628370900579.jpg",
+      "https://img.olx.com.br/images/64/645615616370763.jpg",
+      "https://img.olx.com.br/images/22/222686138221152.jpg",
+      "https://img.olx.com.br/images/15/151626137102694.jpg"
+    ],
+    "endereco": "Coqueiros, Florianópolis",
+    "preco": "649000",
+    "condominio": "700",
+    "iptu": "945",
+    "quartos": "3",
+    "banheiros": "2",
+    "vagas": "1",
+    "area": "111",
+    "andar": "",
+    "sacada": false,
+    "elevador": false,
+    "churrasqueiraApt": false,
+    "condPiscina": false,
+    "condSalaoFestas": false,
+    "condChurrasqueira": false,
+    "linkAnuncio": "https://sc.olx.com.br/florianopolis-e-regiao/imoveis/apartamento-de-3-dormitorios-a-venda-em-coqueiros-1477153265",
+    "status": "novo",
+    "avaliacoes": {
+      "estadoGeral": {
+        "nota": 0,
+        "comentario": ""
+      },
+      "banheiroP": {
+        "nota": 0,
+        "comentario": ""
+      },
+      "outrosBanheiros": {
+        "nota": 0,
+        "comentario": ""
+      },
+      "cozinha": {
+        "nota": 0,
+        "comentario": ""
+      },
+      "areaServico": {
+        "nota": 0,
+        "comentario": ""
+      },
+      "quartosArmarios": {
+        "nota": 0,
+        "comentario": ""
+      },
+      "pisoAcabamento": {
+        "nota": 0,
+        "comentario": ""
+      },
+      "sacada": {
+        "nota": 0,
+        "comentario": ""
+      },
+      "localizacao": {
+        "nota": 0,
+        "comentario": ""
+      },
+      "elevador": {
+        "nota": 0,
+        "comentario": ""
+      },
+      "custoBeneficio": {
+        "nota": 0,
+        "comentario": ""
+      }
+    },
+    "visita": null,
+    "createdAt": "2026-04-14T16:00:00.000Z"
+  },
+  {
+    "id": "apt_campinas_sj_olx_1477085626",
+    "fotos": [
+      "https://img.olx.com.br/images/57/572676371768386.jpg",
+      "https://img.olx.com.br/images/56/567627614189770.jpg",
+      "https://img.olx.com.br/images/56/565670252783216.jpg",
+      "https://img.olx.com.br/images/57/570674496317533.jpg",
+      "https://img.olx.com.br/images/58/583633497914388.jpg"
+    ],
+    "endereco": "Campinas, São José",
+    "preco": "724900",
+    "condominio": "716",
+    "iptu": "1200",
+    "quartos": "3",
+    "banheiros": "2",
+    "vagas": "1",
+    "area": "102",
+    "andar": "",
+    "sacada": false,
+    "elevador": false,
+    "churrasqueiraApt": false,
+    "condPiscina": false,
+    "condSalaoFestas": false,
+    "condChurrasqueira": false,
+    "linkAnuncio": "https://sc.olx.com.br/florianopolis-e-regiao/imoveis/apartamento-em-campinas-sao-jose-sc-1477085626",
+    "status": "novo",
+    "avaliacoes": {
+      "estadoGeral": {
+        "nota": 0,
+        "comentario": ""
+      },
+      "banheiroP": {
+        "nota": 0,
+        "comentario": ""
+      },
+      "outrosBanheiros": {
+        "nota": 0,
+        "comentario": ""
+      },
+      "cozinha": {
+        "nota": 0,
+        "comentario": ""
+      },
+      "areaServico": {
+        "nota": 0,
+        "comentario": ""
+      },
+      "quartosArmarios": {
+        "nota": 0,
+        "comentario": ""
+      },
+      "pisoAcabamento": {
+        "nota": 0,
+        "comentario": ""
+      },
+      "sacada": {
+        "nota": 0,
+        "comentario": ""
+      },
+      "localizacao": {
+        "nota": 0,
+        "comentario": ""
+      },
+      "elevador": {
+        "nota": 0,
+        "comentario": ""
+      },
+      "custoBeneficio": {
+        "nota": 0,
+        "comentario": ""
+      }
+    },
+    "visita": null,
+    "createdAt": "2026-04-14T16:00:00.000Z"
   }
 ]
