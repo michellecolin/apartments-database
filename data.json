@@ -2946,6 +2946,12 @@
       },
       "outrosBanheiros": {
         "nota": 4
+      },
+      "areaServico": {
+        "nota": 4
+      },
+      "quartosArmarios": {
+        "nota": 4
       }
     },
     "visita": null,
