@@ -3391,6 +3391,9 @@
       },
       "localizacao": {
         "nota": 5
+      },
+      "custoBeneficio": {
+        "nota": 4
       }
     },
     "visita": null,
