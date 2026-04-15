@@ -1035,6 +1035,13 @@ function CompareView({ allApts, selectedIds, onToggle, onClose, onOpenApt }) {
 // ============================================================
 function ApartmentCard({ apt, onClick, onCompareToggle, isCompareSelected }) {
   const media = calcMedia(apt.avaliacoes);
+  const [photoIdx, setPhotoIdx] = useState(0);
+  const photos = apt.fotos.slice(0, 5);
+  const hasMultiplePhotos = photos.length > 1;
+  
+  const prevPhoto = (e) => { e.stopPropagation(); setPhotoIdx(i => i > 0 ? i - 1 : photos.length - 1); };
+  const nextPhoto = (e) => { e.stopPropagation(); setPhotoIdx(i => i < photos.length - 1 ? i + 1 : 0); };
+  
   return (
     <div className="fade-in" onClick={onClick} style={{
       background: 'var(--bg-card)', borderRadius: 'var(--radius)', boxShadow: 'var(--shadow-sm)',
@@ -1045,11 +1052,41 @@ function ApartmentCard({ apt, onClick, onCompareToggle, isCompareSelected }) {
     onMouseLeave={e => { e.currentTarget.style.boxShadow = 'var(--shadow-sm)'; e.currentTarget.style.transform = 'translateY(0)'; }}
     >
       <div style={{ position: 'relative', height: 180, background: '#E5E0D8' }}>
-        {apt.fotos[0] ? (
-          <img src={apt.fotos[0]} alt="" referrerPolicy="no-referrer" style={{ width: '100%', height: '100%', objectFit: 'cover' }}
+        {photos[photoIdx] ? (
+          <img src={photos[photoIdx]} alt="" referrerPolicy="no-referrer" style={{ width: '100%', height: '100%', objectFit: 'cover' }}
             onError={e => { e.target.style.display = 'none'; }} />
         ) : (
           <div style={{ height: '100%', display: 'flex', alignItems: 'center', justifyContent: 'center', color: 'var(--text-muted)', fontSize: 36 }}>🏠</div>
+        )}
+        {hasMultiplePhotos && (
+          <>
+            <button onClick={prevPhoto} style={{
+              position: 'absolute', left: 8, top: '50%', transform: 'translateY(-50%)',
+              width: 28, height: 28, borderRadius: '50%', border: 'none',
+              background: 'rgba(255,255,255,0.9)', color: '#333', fontSize: 14, fontWeight: 700,
+              cursor: 'pointer', display: 'flex', alignItems: 'center', justifyContent: 'center',
+              boxShadow: '0 2px 6px rgba(0,0,0,0.2)',
+            }}>‹</button>
+            <button onClick={nextPhoto} style={{
+              position: 'absolute', right: 8, top: '50%', transform: 'translateY(-50%)',
+              width: 28, height: 28, borderRadius: '50%', border: 'none',
+              background: 'rgba(255,255,255,0.9)', color: '#333', fontSize: 14, fontWeight: 700,
+              cursor: 'pointer', display: 'flex', alignItems: 'center', justifyContent: 'center',
+              boxShadow: '0 2px 6px rgba(0,0,0,0.2)',
+            }}>›</button>
+            <div style={{
+              position: 'absolute', bottom: 8, left: '50%', transform: 'translateX(-50%)',
+              display: 'flex', gap: 4,
+            }}>
+              {photos.map((_, i) => (
+                <div key={i} style={{
+                  width: 6, height: 6, borderRadius: '50%',
+                  background: i === photoIdx ? 'white' : 'rgba(255,255,255,0.5)',
+                  transition: 'background 0.2s',
+                }} />
+              ))}
+            </div>
+          </>
         )}
         <div style={{ position: 'absolute', top: 10, left: 10 }}>
           <StatusBadge status={apt.status} />
