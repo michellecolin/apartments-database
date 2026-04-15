@@ -243,7 +243,9 @@ async function saveToGitHub(data) {
     }
 
     const content = new TextEncoder().encode(JSON.stringify(data, null, 2));
-    const base64 = btoa(String.fromCharCode(...content));
+    let binary = '';
+    for (let i = 0; i < content.length; i++) binary += String.fromCharCode(content[i]);
+    const base64 = btoa(binary);
     const body = {
       message: `Atualizar apartamentos - ${new Date().toLocaleString('pt-BR')}`,
       content: base64,
@@ -1231,7 +1233,8 @@ function App() {
       const s = search.toLowerCase();
       result = result.filter(a => a.endereco.toLowerCase().includes(s));
     }
-    if (filterStatus !== 'todos') result = result.filter(a => a.status === filterStatus);
+    if (filterStatus === 'todos') result = result.filter(a => a.status !== 'rejeitado');
+    else result = result.filter(a => a.status === filterStatus);
     if (filterVisita === 'agendado') result = result.filter(a => a.visita);
     if (filterVisita === 'sem') result = result.filter(a => !a.visita);
     if (filterPrecoMax) result = result.filter(a => (parseFloat(a.preco) || 0) <= parseFloat(filterPrecoMax));
