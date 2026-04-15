@@ -2837,7 +2837,10 @@
         "nota": 4
       },
       "cozinha": {
-        "nota": 3
+        "nota": 4
+      },
+      "quartosArmarios": {
+        "nota": 4
       }
     },
     "visita": null,
