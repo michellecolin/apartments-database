@@ -233,6 +233,15 @@ async function saveToGitHub(data) {
   const token = getToken();
   if (!token) return 'no_token';
   try {
+    // Always fetch latest SHA before saving to avoid 409 conflicts
+    const getRes = await fetch(`https://api.github.com/repos/${GITHUB_REPO}/contents/${DATA_FILE}`, {
+      headers: { 'Authorization': `Bearer ${token}`, 'Accept': 'application/vnd.github.v3+json' },
+    });
+    if (getRes.ok) {
+      const getJson = await getRes.json();
+      fileSha = getJson.sha;
+    }
+
     const content = new TextEncoder().encode(JSON.stringify(data, null, 2));
     const base64 = btoa(String.fromCharCode(...content));
     const body = {
