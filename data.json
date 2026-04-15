@@ -2961,6 +2961,12 @@
       },
       "localizacao": {
         "nota": 4
+      },
+      "elevador": {
+        "nota": 5
+      },
+      "custoBeneficio": {
+        "nota": 4
       }
     },
     "visita": null,
