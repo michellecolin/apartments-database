@@ -3054,6 +3054,9 @@
       },
       "cozinha": {
         "nota": 3
+      },
+      "areaServico": {
+        "nota": 3
       }
     },
     "visita": null,
