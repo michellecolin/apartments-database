@@ -3204,7 +3204,11 @@
     "condChurrasqueira": false,
     "linkAnuncio": "https://www.chavesnamao.com.br/imovel/apartamento-a-venda-4-quartos-com-garagem-sc-sao-jose-campinas-113m2-RS786000/id-35349614/",
     "status": "favorito",
-    "avaliacoes": {},
+    "avaliacoes": {
+      "estadoGeral": {
+        "nota": 5
+      }
+    },
     "visita": null,
     "createdAt": "2026-04-15T00:00:00.000Z"
   },
@@ -3287,6 +3291,9 @@
       },
       "elevador": {
         "nota": 5
+      },
+      "custoBeneficio": {
+        "nota": 4
       }
     },
     "visita": null,
