@@ -1778,10 +1778,7 @@
         "comentario": ""
       }
     },
-    "visita": {
-      "data": "2026-04-18",
-      "hora": "11:00"
-    },
+    "visita": null,
     "createdAt": "2026-04-14T16:00:00.000Z"
   },
   {
@@ -2733,7 +2730,10 @@
     "linkAnuncio": "https://www.chavesnamao.com.br/imovel/apartamento-a-venda-3-quartos-com-garagem-sc-florianopolis-itaguacu-159m2-RS870000/id-22726622/",
     "status": "favorito",
     "avaliacoes": {},
-    "visita": null,
+    "visita": {
+      "data": "2026-04-18",
+      "hora": "11:00"
+    },
     "createdAt": "2026-04-15T00:00:00.000Z"
   },
   {
