@@ -117,7 +117,7 @@
       "https://cdn.vistahost.com.br/imoveisc841/vista.imobi/fotos/687155/iJ25L4_68715568d400128bf2c.jpg",
       "https://cdn.vistahost.com.br/imoveisc841/vista.imobi/fotos/687155/iJ25L4_68715568d400149dc47.jpg"
     ],
-    "endereco": "Trindade, Florianópolis",
+    "endereco": "Residencial Burble Marx Rodovia Amaro Antônio Vieira, 2797",
     "preco": "850000",
     "condominio": "550",
     "iptu": "150",
@@ -2879,38 +2879,7 @@
     "condChurrasqueira": false,
     "linkAnuncio": "https://www.chavesnamao.com.br/imovel/apartamento-a-venda-3-quartos-com-garagem-sc-florianopolis-capoeiras-110m2-RS895000/id-39602420/",
     "status": "novo",
-    "avaliacoes": {
-      "estadoGeral": {
-        "nota": 5
-      },
-      "banheiroP": {
-        "nota": 4
-      },
-      "outrosBanheiros": {
-        "nota": 4
-      },
-      "cozinha": {
-        "nota": 3
-      },
-      "areaServico": {
-        "nota": 4
-      },
-      "pisoAcabamento": {
-        "nota": 5
-      },
-      "sacada": {
-        "nota": 5
-      },
-      "localizacao": {
-        "nota": 4
-      },
-      "elevador": {
-        "nota": 5
-      },
-      "custoBeneficio": {
-        "nota": 4
-      }
-    },
+    "avaliacoes": {},
     "visita": null,
     "createdAt": "2026-04-15T00:00:00.000Z"
   },
@@ -2965,41 +2934,7 @@
     "condChurrasqueira": false,
     "linkAnuncio": "https://www.chavesnamao.com.br/imovel/apartamento-a-venda-3-quartos-com-garagem-sc-sao-jose-campinas-113m2-RS850000/id-39012354/",
     "status": "novo",
-    "avaliacoes": {
-      "estadoGeral": {
-        "nota": 4
-      },
-      "banheiroP": {
-        "nota": 4
-      },
-      "cozinha": {
-        "nota": 4
-      },
-      "outrosBanheiros": {
-        "nota": 4
-      },
-      "areaServico": {
-        "nota": 4
-      },
-      "quartosArmarios": {
-        "nota": 4
-      },
-      "sacada": {
-        "nota": 5
-      },
-      "pisoAcabamento": {
-        "nota": 4
-      },
-      "localizacao": {
-        "nota": 4
-      },
-      "elevador": {
-        "nota": 5
-      },
-      "custoBeneficio": {
-        "nota": 4
-      }
-    },
+    "avaliacoes": {},
     "visita": null,
     "createdAt": "2026-04-15T00:00:00.000Z"
   },
@@ -3052,41 +2987,7 @@
     "condChurrasqueira": true,
     "linkAnuncio": "https://www.chavesnamao.com.br/imovel/apartamento-a-venda-3-quartos-com-garagem-sc-florianopolis-estreito-105m2-RS790000/id-38736397/",
     "status": "novo",
-    "avaliacoes": {
-      "custoBeneficio": {
-        "nota": 4
-      },
-      "estadoGeral": {
-        "nota": 4
-      },
-      "banheiroP": {
-        "nota": 4
-      },
-      "outrosBanheiros": {
-        "nota": 4
-      },
-      "cozinha": {
-        "nota": 4
-      },
-      "quartosArmarios": {
-        "nota": 3
-      },
-      "areaServico": {
-        "nota": 3
-      },
-      "sacada": {
-        "nota": 4
-      },
-      "elevador": {
-        "nota": 5
-      },
-      "pisoAcabamento": {
-        "nota": 5
-      },
-      "localizacao": {
-        "nota": 4
-      }
-    },
+    "avaliacoes": {},
     "visita": null,
     "createdAt": "2026-04-15T00:00:00.000Z"
   },
@@ -3141,41 +3042,7 @@
     "condChurrasqueira": true,
     "linkAnuncio": "https://www.chavesnamao.com.br/imovel/apartamento-a-venda-3-quartos-com-garagem-sc-florianopolis-abraao-109m2-RS860000/id-38482936/",
     "status": "favorito",
-    "avaliacoes": {
-      "estadoGeral": {
-        "nota": 5
-      },
-      "banheiroP": {
-        "nota": 5
-      },
-      "outrosBanheiros": {
-        "nota": 4
-      },
-      "cozinha": {
-        "nota": 3
-      },
-      "areaServico": {
-        "nota": 3
-      },
-      "quartosArmarios": {
-        "nota": 4
-      },
-      "pisoAcabamento": {
-        "nota": 5
-      },
-      "sacada": {
-        "nota": 3
-      },
-      "localizacao": {
-        "nota": 4
-      },
-      "elevador": {
-        "nota": 5
-      },
-      "custoBeneficio": {
-        "nota": 0
-      }
-    },
+    "avaliacoes": {},
     "visita": null,
     "createdAt": "2026-04-15T00:00:00.000Z"
   },
@@ -3227,41 +3094,7 @@
     "condChurrasqueira": true,
     "linkAnuncio": "https://www.chavesnamao.com.br/imovel/apartamento-a-venda-4-quartos-com-garagem-sc-sao-jose-campinas-141m2-RS799000/id-37945722/",
     "status": "favorito",
-    "avaliacoes": {
-      "outrosBanheiros": {
-        "nota": 3
-      },
-      "banheiroP": {
-        "nota": 3
-      },
-      "estadoGeral": {
-        "nota": 3
-      },
-      "cozinha": {
-        "nota": 3
-      },
-      "quartosArmarios": {
-        "nota": 4
-      },
-      "areaServico": {
-        "nota": 4
-      },
-      "pisoAcabamento": {
-        "nota": 4
-      },
-      "sacada": {
-        "nota": 4
-      },
-      "elevador": {
-        "nota": 5
-      },
-      "localizacao": {
-        "nota": 4
-      },
-      "custoBeneficio": {
-        "nota": 4
-      }
-    },
+    "avaliacoes": {},
     "visita": null,
     "createdAt": "2026-04-15T00:00:00.000Z"
   },
@@ -3316,41 +3149,7 @@
     "condChurrasqueira": true,
     "linkAnuncio": "https://www.chavesnamao.com.br/imovel/apartamento-a-venda-3-quartos-com-garagem-sc-florianopolis-capoeiras-128m2-RS820000/id-36372144/",
     "status": "favorito",
-    "avaliacoes": {
-      "estadoGeral": {
-        "nota": 4
-      },
-      "banheiroP": {
-        "nota": 4
-      },
-      "outrosBanheiros": {
-        "nota": 3
-      },
-      "cozinha": {
-        "nota": 4
-      },
-      "areaServico": {
-        "nota": 4
-      },
-      "quartosArmarios": {
-        "nota": 4
-      },
-      "pisoAcabamento": {
-        "nota": 4
-      },
-      "sacada": {
-        "nota": 4
-      },
-      "localizacao": {
-        "nota": 4
-      },
-      "elevador": {
-        "nota": 5
-      },
-      "custoBeneficio": {
-        "nota": 4
-      }
-    },
+    "avaliacoes": {},
     "visita": null,
     "createdAt": "2026-04-15T00:00:00.000Z"
   },
@@ -3405,41 +3204,7 @@
     "condChurrasqueira": false,
     "linkAnuncio": "https://www.chavesnamao.com.br/imovel/apartamento-a-venda-4-quartos-com-garagem-sc-sao-jose-campinas-113m2-RS786000/id-35349614/",
     "status": "favorito",
-    "avaliacoes": {
-      "estadoGeral": {
-        "nota": 5
-      },
-      "banheiroP": {
-        "nota": 4
-      },
-      "outrosBanheiros": {
-        "nota": 4
-      },
-      "cozinha": {
-        "nota": 4
-      },
-      "areaServico": {
-        "nota": 4
-      },
-      "quartosArmarios": {
-        "nota": 5
-      },
-      "pisoAcabamento": {
-        "nota": 4
-      },
-      "sacada": {
-        "nota": 5
-      },
-      "localizacao": {
-        "nota": 3
-      },
-      "elevador": {
-        "nota": 5
-      },
-      "custoBeneficio": {
-        "nota": 4
-      }
-    },
+    "avaliacoes": {},
     "visita": null,
     "createdAt": "2026-04-15T00:00:00.000Z"
   },
@@ -3491,42 +3256,8 @@
     "condSalaoFestas": true,
     "condChurrasqueira": false,
     "linkAnuncio": "https://www.chavesnamao.com.br/imovel/apartamento-a-venda-3-quartos-com-garagem-sc-florianopolis-capoeiras-107m2-RS869000/id-34812781/",
-    "status": "favorito",
-    "avaliacoes": {
-      "estadoGeral": {
-        "nota": 5
-      },
-      "banheiroP": {
-        "nota": 4
-      },
-      "outrosBanheiros": {
-        "nota": 4
-      },
-      "cozinha": {
-        "nota": 4
-      },
-      "areaServico": {
-        "nota": 4
-      },
-      "quartosArmarios": {
-        "nota": 4
-      },
-      "pisoAcabamento": {
-        "nota": 5
-      },
-      "sacada": {
-        "nota": 5
-      },
-      "localizacao": {
-        "nota": 3
-      },
-      "elevador": {
-        "nota": 5
-      },
-      "custoBeneficio": {
-        "nota": 4
-      }
-    },
+    "status": "novo",
+    "avaliacoes": {},
     "visita": null,
     "createdAt": "2026-04-15T00:00:00.000Z"
   },
@@ -3578,38 +3309,7 @@
     "condChurrasqueira": true,
     "linkAnuncio": "https://www.chavesnamao.com.br/imovel/apartamento-a-venda-3-quartos-com-garagem-sc-florianopolis-capoeiras-116m2-RS750000/id-33745351/",
     "status": "favorito",
-    "avaliacoes": {
-      "estadoGeral": {
-        "nota": 4
-      },
-      "banheiroP": {
-        "nota": 4
-      },
-      "outrosBanheiros": {
-        "nota": 4
-      },
-      "cozinha": {
-        "nota": 4
-      },
-      "quartosArmarios": {
-        "nota": 4
-      },
-      "areaServico": {
-        "nota": 4
-      },
-      "pisoAcabamento": {
-        "nota": 4
-      },
-      "sacada": {
-        "nota": 5
-      },
-      "localizacao": {
-        "nota": 4
-      },
-      "custoBeneficio": {
-        "nota": 4
-      }
-    },
+    "avaliacoes": {},
     "visita": null,
     "createdAt": "2026-04-15T00:00:00.000Z"
   },
@@ -3664,38 +3364,7 @@
     "condChurrasqueira": false,
     "linkAnuncio": "https://www.chavesnamao.com.br/imovel/apartamento-a-venda-3-quartos-com-garagem-sc-florianopolis-coqueiros-138m2-RS750000/id-39848067/",
     "status": "favorito",
-    "avaliacoes": {
-      "estadoGeral": {
-        "nota": 4
-      },
-      "banheiroP": {
-        "nota": 4
-      },
-      "outrosBanheiros": {
-        "nota": 4
-      },
-      "cozinha": {
-        "nota": 3
-      },
-      "areaServico": {
-        "nota": 4
-      },
-      "quartosArmarios": {
-        "nota": 5
-      },
-      "pisoAcabamento": {
-        "nota": 4
-      },
-      "sacada": {
-        "nota": 4
-      },
-      "localizacao": {
-        "nota": 5
-      },
-      "custoBeneficio": {
-        "nota": 4
-      }
-    },
+    "avaliacoes": {},
     "visita": null,
     "createdAt": "2026-04-15T00:00:00.000Z"
   },
@@ -3732,42 +3401,8 @@
     "condSalaoFestas": false,
     "condChurrasqueira": false,
     "linkAnuncio": "https://www.chavesnamao.com.br/imovel/apartamento-a-venda-3-quartos-com-garagem-sc-florianopolis-coqueiros-112m2-RS800000/id-14310684/",
-    "status": "novo",
-    "avaliacoes": {
-      "estadoGeral": {
-        "nota": 4
-      },
-      "banheiroP": {
-        "nota": 3
-      },
-      "outrosBanheiros": {
-        "nota": 3
-      },
-      "cozinha": {
-        "nota": 4
-      },
-      "areaServico": {
-        "nota": 3
-      },
-      "quartosArmarios": {
-        "nota": 3
-      },
-      "pisoAcabamento": {
-        "nota": 4
-      },
-      "sacada": {
-        "nota": 2
-      },
-      "localizacao": {
-        "nota": 5
-      },
-      "elevador": {
-        "nota": 5
-      },
-      "custoBeneficio": {
-        "nota": 4
-      }
-    },
+    "status": "favorito",
+    "avaliacoes": {},
     "visita": null,
     "createdAt": "2026-04-15T00:00:00.000Z"
   }
