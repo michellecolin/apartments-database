@@ -3011,6 +3011,12 @@
       },
       "sacada": {
         "nota": 4
+      },
+      "elevador": {
+        "nota": 5
+      },
+      "pisoAcabamento": {
+        "nota": 5
       }
     },
     "visita": null,
