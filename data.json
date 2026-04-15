@@ -2952,7 +2952,10 @@
     "linkAnuncio": "https://www.chavesnamao.com.br/imovel/apartamento-a-venda-3-quartos-com-garagem-sc-florianopolis-abraao-109m2-RS860000/id-38482936/",
     "status": "favorito",
     "avaliacoes": {},
-    "visita": null,
+    "visita": {
+      "data": "2026-04-18",
+      "hora": "11:00"
+    },
     "createdAt": "2026-04-15T00:00:00.000Z"
   },
   {
