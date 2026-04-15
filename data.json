@@ -3057,6 +3057,9 @@
       },
       "areaServico": {
         "nota": 3
+      },
+      "quartosArmarios": {
+        "nota": 4
       }
     },
     "visita": null,
