@@ -1,102 +1,5 @@
 [
   {
-    "id": "apt_corrego_grande_74183466",
-    "fotos": [
-      "https://cdn.vistahost.com.br/imoveisc841/vista.imobi/fotos/723648/i2vZu_72364869400bd124efb.jpg",
-      "https://cdn.vistahost.com.br/imoveisc841/vista.imobi/fotos/723648/i2vZu_72364869400bd45c28b.jpg",
-      "https://cdn.vistahost.com.br/imoveisc841/vista.imobi/fotos/723648/i2vZu_72364869400bd7dd68b.jpg",
-      "https://cdn.vistahost.com.br/imoveisc841/vista.imobi/fotos/723648/i2vZu_72364869400bdc9d234.jpg",
-      "https://cdn.vistahost.com.br/imoveisc841/vista.imobi/fotos/723648/i2vZu_72364869400bdf906b2.jpg",
-      "https://cdn.vistahost.com.br/imoveisc841/vista.imobi/fotos/723648/i2vZu_72364869400be24c19e.jpg",
-      "https://cdn.vistahost.com.br/imoveisc841/vista.imobi/fotos/723648/i2vZu_72364869400be5a6e48.jpg",
-      "https://cdn.vistahost.com.br/imoveisc841/vista.imobi/fotos/723648/i2vZu_72364869400be91c984.jpg",
-      "https://cdn.vistahost.com.br/imoveisc841/vista.imobi/fotos/723648/i2vZu_72364869400bec4c51d.jpg",
-      "https://cdn.vistahost.com.br/imoveisc841/vista.imobi/fotos/723648/i2vZu_72364869400bef94a9c.jpg",
-      "https://cdn.vistahost.com.br/imoveisc841/vista.imobi/fotos/723648/i2vZu_72364869400bf2a7eb1.jpg",
-      "https://cdn.vistahost.com.br/imoveisc841/vista.imobi/fotos/723648/i2vZu_72364869400bf665159.jpg",
-      "https://cdn.vistahost.com.br/imoveisc841/vista.imobi/fotos/723648/i2vZu_72364869400bf97a70b.jpg",
-      "https://cdn.vistahost.com.br/imoveisc841/vista.imobi/fotos/723648/i2vZu_72364869400bfc7a100.jpg",
-      "https://cdn.vistahost.com.br/imoveisc841/vista.imobi/fotos/723648/i2vZu_72364869400bff74e9a.jpg",
-      "https://cdn.vistahost.com.br/imoveisc841/vista.imobi/fotos/723648/i2vZu_72364869400c0361f61.jpg",
-      "https://cdn.vistahost.com.br/imoveisc841/vista.imobi/fotos/723648/i2vZu_72364869400c06c957c.jpg",
-      "https://cdn.vistahost.com.br/imoveisc841/vista.imobi/fotos/723648/i2vZu_72364869400c0a1c899.jpg",
-      "https://cdn.vistahost.com.br/imoveisc841/vista.imobi/fotos/723648/i2vZu_72364869400c0d7c3ef.jpg",
-      "https://cdn.vistahost.com.br/imoveisc841/vista.imobi/fotos/723648/i2vZu_72364869400c11d9a5c.jpg",
-      "https://cdn.vistahost.com.br/imoveisc841/vista.imobi/fotos/723648/i2vZu_72364869400c14d514b.jpg",
-      "https://cdn.vistahost.com.br/imoveisc841/vista.imobi/fotos/723648/i2vZu_72364869400c181ca10.jpg",
-      "https://cdn.vistahost.com.br/imoveisc841/vista.imobi/fotos/723648/i2vZu_72364869400c1b8e586.jpg",
-      "https://cdn.vistahost.com.br/imoveisc841/vista.imobi/fotos/723648/i2vZu_72364869400c1e9845f.jpg",
-      "https://cdn.vistahost.com.br/imoveisc841/vista.imobi/fotos/723648/i2vZu_72364869400c22771c7.jpg",
-      "https://cdn.vistahost.com.br/imoveisc841/vista.imobi/fotos/723648/i2vZu_72364869400c2630769.jpg",
-      "https://cdn.vistahost.com.br/imoveisc841/vista.imobi/fotos/723648/i2vZu_72364869400c2979f67.jpg",
-      "https://cdn.vistahost.com.br/imoveisc841/vista.imobi/fotos/723648/i2vZu_72364869400c2cbec02.jpg"
-    ],
-    "endereco": "Córrego Grande, Florianópolis",
-    "preco": "820000",
-    "condominio": "670",
-    "iptu": "120",
-    "quartos": "3",
-    "banheiros": "2",
-    "vagas": "1",
-    "area": "106.5",
-    "andar": "",
-    "sacada": true,
-    "elevador": true,
-    "churrasqueiraApt": false,
-    "condPiscina": false,
-    "condSalaoFestas": true,
-    "condChurrasqueira": true,
-    "linkAnuncio": "https://imoveis.novovista.com.br/?v2=a2V5PWM1NjcwMzJkNThlYWMyMjM2NjcwMzExMTMwMTc5MTg2JmNvZD03NDE4MzQ2NiZkPTIzMTU4JmNzPTIzNiZtYXBhPU5hbyZiYWlycm9fY29tZXJjaWFsPVNpbSZsb2dpbj1uYW8mc3RhdHVzPUElMkJWRU5EQSZwdXJwb3NlPSU1QiUyMnZlbmRhJTIyJTVEJmNvZF9lbT04NDE",
-    "status": "rejeitado",
-    "avaliacoes": {
-      "estadoGeral": {
-        "nota": 4,
-        "comentario": "dá pra mudar sem fazer reforma"
-      },
-      "banheiroP": {
-        "nota": 4,
-        "comentario": "nao precisa reformar, mas nao cabe duas pias e nao é suuuper novo"
-      },
-      "outrosBanheiros": {
-        "nota": 4,
-        "comentario": "nao precisa reformar, mas nao cabe duas pias e nao é suuuper novo"
-      },
-      "cozinha": {
-        "nota": 3,
-        "comentario": "Não é integrada, antiga mas da pra usar, azuleijos velhos"
-      },
-      "areaServico": {
-        "nota": 3,
-        "comentario": "antiga mas da pra usar, azuleijos velhos"
-      },
-      "quartosArmarios": {
-        "nota": 3,
-        "comentario": "Casal nao cabe armario, tem moveis mas vamos precisar refazer, mas da pra morar sem precisar reformar"
-      },
-      "pisoAcabamento": {
-        "nota": 4,
-        "comentario": ""
-      },
-      "sacada": {
-        "nota": 3,
-        "comentario": "tamanho ok"
-      },
-      "elevador": {
-        "nota": 5,
-        "comentario": ""
-      },
-      "custoBeneficio": {
-        "nota": 4,
-        "comentario": "120k pra deixar perfeito e reformar tudo. total: 940K\nmas ja da pra ir morar agora localização perfeita "
-      },
-      "localizacao": {
-        "nota": 5,
-        "comentario": "excelente"
-      }
-    },
-    "createdAt": "2026-04-13T00:00:00.000Z"
-  },
-  {
     "id": "apt_trindade_74148252",
     "fotos": [
       "https://cdn.vistahost.com.br/imoveisc841/vista.imobi/fotos/687155/iJ25L4_68715568d3ffee0e173.jpg",
@@ -117,7 +20,7 @@
       "https://cdn.vistahost.com.br/imoveisc841/vista.imobi/fotos/687155/iJ25L4_68715568d400128bf2c.jpg",
       "https://cdn.vistahost.com.br/imoveisc841/vista.imobi/fotos/687155/iJ25L4_68715568d400149dc47.jpg"
     ],
-    "endereco": "Trindade, Florianópolis",
+    "endereco": " Rua Presidente Gama Rosa, 269",
     "preco": "850000",
     "condominio": "550",
     "iptu": "150",
@@ -531,39 +434,39 @@
     "status": "novo",
     "avaliacoes": {
       "estadoGeral": {
-        "nota": 5,
+        "nota": 0,
         "comentario": ""
       },
       "banheiroP": {
-        "nota": 4,
+        "nota": 0,
         "comentario": ""
       },
       "outrosBanheiros": {
-        "nota": 4,
+        "nota": 0,
         "comentario": ""
       },
       "cozinha": {
-        "nota": 5,
+        "nota": 0,
         "comentario": ""
       },
       "areaServico": {
-        "nota": 4,
+        "nota": 0,
         "comentario": ""
       },
       "quartosArmarios": {
-        "nota": 4,
+        "nota": 0,
         "comentario": ""
       },
       "pisoAcabamento": {
-        "nota": 5,
+        "nota": 0,
         "comentario": ""
       },
       "sacada": {
-        "nota": 5,
+        "nota": 0,
         "comentario": ""
       },
       "localizacao": {
-        "nota": 4,
+        "nota": 0,
         "comentario": ""
       },
       "elevador": {
@@ -571,7 +474,7 @@
         "comentario": ""
       },
       "custoBeneficio": {
-        "nota": 4,
+        "nota": 0,
         "comentario": ""
       }
     },
@@ -704,7 +607,7 @@
     "condSalaoFestas": true,
     "condChurrasqueira": true,
     "linkAnuncio": "https://www.chavesnamao.com.br/imovel/cobertura-a-venda-3-quartos-com-garagem-sc-florianopolis-carvoeira-250m2-RS875000/id-23408285/",
-    "status": "novo",
+    "status": "favorito",
     "avaliacoes": {
       "estadoGeral": {
         "nota": 3,
@@ -2635,42 +2538,42 @@
     "condSalaoFestas": false,
     "condChurrasqueira": false,
     "linkAnuncio": "https://sc.olx.com.br/florianopolis-e-regiao/imoveis/apartamento-de-3-dormitorios-a-venda-em-coqueiros-1477153265",
-    "status": "favorito",
+    "status": "novo",
     "avaliacoes": {
       "estadoGeral": {
-        "nota": 4,
+        "nota": 0,
         "comentario": ""
       },
       "banheiroP": {
-        "nota": 4,
+        "nota": 0,
         "comentario": ""
       },
       "outrosBanheiros": {
-        "nota": 3,
+        "nota": 0,
         "comentario": ""
       },
       "cozinha": {
-        "nota": 3,
+        "nota": 0,
         "comentario": ""
       },
       "areaServico": {
-        "nota": 4,
+        "nota": 0,
         "comentario": ""
       },
       "quartosArmarios": {
-        "nota": 3,
+        "nota": 0,
         "comentario": ""
       },
       "pisoAcabamento": {
-        "nota": 4,
+        "nota": 0,
         "comentario": ""
       },
       "sacada": {
-        "nota": 4,
+        "nota": 0,
         "comentario": ""
       },
       "localizacao": {
-        "nota": 4,
+        "nota": 0,
         "comentario": ""
       },
       "elevador": {
@@ -2678,7 +2581,7 @@
         "comentario": ""
       },
       "custoBeneficio": {
-        "nota": 4,
+        "nota": 0,
         "comentario": ""
       }
     },
@@ -2826,41 +2729,7 @@
     "condChurrasqueira": false,
     "linkAnuncio": "https://www.chavesnamao.com.br/imovel/apartamento-a-venda-3-quartos-com-garagem-sc-florianopolis-itaguacu-159m2-RS870000/id-22726622/",
     "status": "favorito",
-    "avaliacoes": {
-      "estadoGeral": {
-        "nota": 4
-      },
-      "banheiroP": {
-        "nota": 4
-      },
-      "outrosBanheiros": {
-        "nota": 4
-      },
-      "cozinha": {
-        "nota": 4
-      },
-      "quartosArmarios": {
-        "nota": 4
-      },
-      "areaServico": {
-        "nota": 4
-      },
-      "pisoAcabamento": {
-        "nota": 5
-      },
-      "sacada": {
-        "nota": 5
-      },
-      "localizacao": {
-        "nota": 4
-      },
-      "elevador": {
-        "nota": 5
-      },
-      "custoBeneficio": {
-        "nota": 4
-      }
-    },
+    "avaliacoes": {},
     "visita": null,
     "createdAt": "2026-04-15T00:00:00.000Z"
   },
@@ -2913,38 +2782,7 @@
     "condChurrasqueira": false,
     "linkAnuncio": "https://www.chavesnamao.com.br/imovel/apartamento-a-venda-3-quartos-com-garagem-sc-florianopolis-capoeiras-110m2-RS895000/id-39602420/",
     "status": "novo",
-    "avaliacoes": {
-      "estadoGeral": {
-        "nota": 5
-      },
-      "banheiroP": {
-        "nota": 4
-      },
-      "outrosBanheiros": {
-        "nota": 4
-      },
-      "cozinha": {
-        "nota": 3
-      },
-      "areaServico": {
-        "nota": 4
-      },
-      "pisoAcabamento": {
-        "nota": 5
-      },
-      "sacada": {
-        "nota": 5
-      },
-      "localizacao": {
-        "nota": 4
-      },
-      "elevador": {
-        "nota": 5
-      },
-      "custoBeneficio": {
-        "nota": 4
-      }
-    },
+    "avaliacoes": {},
     "visita": null,
     "createdAt": "2026-04-15T00:00:00.000Z"
   },
@@ -2999,41 +2837,7 @@
     "condChurrasqueira": false,
     "linkAnuncio": "https://www.chavesnamao.com.br/imovel/apartamento-a-venda-3-quartos-com-garagem-sc-sao-jose-campinas-113m2-RS850000/id-39012354/",
     "status": "novo",
-    "avaliacoes": {
-      "estadoGeral": {
-        "nota": 4
-      },
-      "banheiroP": {
-        "nota": 4
-      },
-      "cozinha": {
-        "nota": 4
-      },
-      "outrosBanheiros": {
-        "nota": 4
-      },
-      "areaServico": {
-        "nota": 4
-      },
-      "quartosArmarios": {
-        "nota": 4
-      },
-      "sacada": {
-        "nota": 5
-      },
-      "pisoAcabamento": {
-        "nota": 4
-      },
-      "localizacao": {
-        "nota": 4
-      },
-      "elevador": {
-        "nota": 5
-      },
-      "custoBeneficio": {
-        "nota": 4
-      }
-    },
+    "avaliacoes": {},
     "visita": null,
     "createdAt": "2026-04-15T00:00:00.000Z"
   },
@@ -3086,41 +2890,7 @@
     "condChurrasqueira": true,
     "linkAnuncio": "https://www.chavesnamao.com.br/imovel/apartamento-a-venda-3-quartos-com-garagem-sc-florianopolis-estreito-105m2-RS790000/id-38736397/",
     "status": "novo",
-    "avaliacoes": {
-      "custoBeneficio": {
-        "nota": 4
-      },
-      "estadoGeral": {
-        "nota": 4
-      },
-      "banheiroP": {
-        "nota": 4
-      },
-      "outrosBanheiros": {
-        "nota": 4
-      },
-      "cozinha": {
-        "nota": 4
-      },
-      "quartosArmarios": {
-        "nota": 3
-      },
-      "areaServico": {
-        "nota": 3
-      },
-      "sacada": {
-        "nota": 4
-      },
-      "elevador": {
-        "nota": 5
-      },
-      "pisoAcabamento": {
-        "nota": 5
-      },
-      "localizacao": {
-        "nota": 4
-      }
-    },
+    "avaliacoes": {},
     "visita": null,
     "createdAt": "2026-04-15T00:00:00.000Z"
   },
@@ -3175,45 +2945,8 @@
     "condChurrasqueira": true,
     "linkAnuncio": "https://www.chavesnamao.com.br/imovel/apartamento-a-venda-3-quartos-com-garagem-sc-florianopolis-abraao-109m2-RS860000/id-38482936/",
     "status": "favorito",
-    "avaliacoes": {
-      "estadoGeral": {
-        "nota": 5
-      },
-      "banheiroP": {
-        "nota": 5
-      },
-      "outrosBanheiros": {
-        "nota": 4
-      },
-      "cozinha": {
-        "nota": 3
-      },
-      "areaServico": {
-        "nota": 3
-      },
-      "quartosArmarios": {
-        "nota": 4
-      },
-      "pisoAcabamento": {
-        "nota": 5
-      },
-      "sacada": {
-        "nota": 3
-      },
-      "localizacao": {
-        "nota": 4
-      },
-      "elevador": {
-        "nota": 5
-      },
-      "custoBeneficio": {
-        "nota": 0
-      }
-    },
-    "visita": {
-      "data": "2026-04-18",
-      "hora": "11:00"
-    },
+    "avaliacoes": {},
+    "visita": null,
     "createdAt": "2026-04-15T00:00:00.000Z"
   },
   {
@@ -3264,41 +2997,7 @@
     "condChurrasqueira": true,
     "linkAnuncio": "https://www.chavesnamao.com.br/imovel/apartamento-a-venda-4-quartos-com-garagem-sc-sao-jose-campinas-141m2-RS799000/id-37945722/",
     "status": "favorito",
-    "avaliacoes": {
-      "outrosBanheiros": {
-        "nota": 3
-      },
-      "banheiroP": {
-        "nota": 3
-      },
-      "estadoGeral": {
-        "nota": 3
-      },
-      "cozinha": {
-        "nota": 3
-      },
-      "quartosArmarios": {
-        "nota": 4
-      },
-      "areaServico": {
-        "nota": 4
-      },
-      "pisoAcabamento": {
-        "nota": 4
-      },
-      "sacada": {
-        "nota": 4
-      },
-      "elevador": {
-        "nota": 5
-      },
-      "localizacao": {
-        "nota": 4
-      },
-      "custoBeneficio": {
-        "nota": 4
-      }
-    },
+    "avaliacoes": {},
     "visita": null,
     "createdAt": "2026-04-15T00:00:00.000Z"
   },
@@ -3353,41 +3052,7 @@
     "condChurrasqueira": true,
     "linkAnuncio": "https://www.chavesnamao.com.br/imovel/apartamento-a-venda-3-quartos-com-garagem-sc-florianopolis-capoeiras-128m2-RS820000/id-36372144/",
     "status": "favorito",
-    "avaliacoes": {
-      "estadoGeral": {
-        "nota": 4
-      },
-      "banheiroP": {
-        "nota": 4
-      },
-      "outrosBanheiros": {
-        "nota": 3
-      },
-      "cozinha": {
-        "nota": 4
-      },
-      "areaServico": {
-        "nota": 4
-      },
-      "quartosArmarios": {
-        "nota": 4
-      },
-      "pisoAcabamento": {
-        "nota": 4
-      },
-      "sacada": {
-        "nota": 4
-      },
-      "localizacao": {
-        "nota": 4
-      },
-      "elevador": {
-        "nota": 5
-      },
-      "custoBeneficio": {
-        "nota": 4
-      }
-    },
+    "avaliacoes": {},
     "visita": null,
     "createdAt": "2026-04-15T00:00:00.000Z"
   },
@@ -3442,41 +3107,7 @@
     "condChurrasqueira": false,
     "linkAnuncio": "https://www.chavesnamao.com.br/imovel/apartamento-a-venda-4-quartos-com-garagem-sc-sao-jose-campinas-113m2-RS786000/id-35349614/",
     "status": "favorito",
-    "avaliacoes": {
-      "estadoGeral": {
-        "nota": 5
-      },
-      "banheiroP": {
-        "nota": 4
-      },
-      "outrosBanheiros": {
-        "nota": 4
-      },
-      "cozinha": {
-        "nota": 4
-      },
-      "areaServico": {
-        "nota": 4
-      },
-      "quartosArmarios": {
-        "nota": 5
-      },
-      "pisoAcabamento": {
-        "nota": 4
-      },
-      "sacada": {
-        "nota": 5
-      },
-      "localizacao": {
-        "nota": 3
-      },
-      "elevador": {
-        "nota": 5
-      },
-      "custoBeneficio": {
-        "nota": 4
-      }
-    },
+    "avaliacoes": {},
     "visita": null,
     "createdAt": "2026-04-15T00:00:00.000Z"
   },
@@ -3529,41 +3160,7 @@
     "condChurrasqueira": false,
     "linkAnuncio": "https://www.chavesnamao.com.br/imovel/apartamento-a-venda-3-quartos-com-garagem-sc-florianopolis-capoeiras-107m2-RS869000/id-34812781/",
     "status": "novo",
-    "avaliacoes": {
-      "estadoGeral": {
-        "nota": 5
-      },
-      "banheiroP": {
-        "nota": 4
-      },
-      "outrosBanheiros": {
-        "nota": 4
-      },
-      "cozinha": {
-        "nota": 4
-      },
-      "areaServico": {
-        "nota": 4
-      },
-      "quartosArmarios": {
-        "nota": 4
-      },
-      "pisoAcabamento": {
-        "nota": 5
-      },
-      "sacada": {
-        "nota": 5
-      },
-      "localizacao": {
-        "nota": 3
-      },
-      "elevador": {
-        "nota": 5
-      },
-      "custoBeneficio": {
-        "nota": 4
-      }
-    },
+    "avaliacoes": {},
     "visita": null,
     "createdAt": "2026-04-15T00:00:00.000Z"
   },
@@ -3615,38 +3212,7 @@
     "condChurrasqueira": true,
     "linkAnuncio": "https://www.chavesnamao.com.br/imovel/apartamento-a-venda-3-quartos-com-garagem-sc-florianopolis-capoeiras-116m2-RS750000/id-33745351/",
     "status": "favorito",
-    "avaliacoes": {
-      "estadoGeral": {
-        "nota": 4
-      },
-      "banheiroP": {
-        "nota": 4
-      },
-      "outrosBanheiros": {
-        "nota": 4
-      },
-      "cozinha": {
-        "nota": 4
-      },
-      "quartosArmarios": {
-        "nota": 4
-      },
-      "areaServico": {
-        "nota": 4
-      },
-      "pisoAcabamento": {
-        "nota": 4
-      },
-      "sacada": {
-        "nota": 5
-      },
-      "localizacao": {
-        "nota": 4
-      },
-      "custoBeneficio": {
-        "nota": 4
-      }
-    },
+    "avaliacoes": {},
     "visita": null,
     "createdAt": "2026-04-15T00:00:00.000Z"
   },
@@ -3701,38 +3267,7 @@
     "condChurrasqueira": false,
     "linkAnuncio": "https://www.chavesnamao.com.br/imovel/apartamento-a-venda-3-quartos-com-garagem-sc-florianopolis-coqueiros-138m2-RS750000/id-39848067/",
     "status": "favorito",
-    "avaliacoes": {
-      "estadoGeral": {
-        "nota": 4
-      },
-      "banheiroP": {
-        "nota": 4
-      },
-      "outrosBanheiros": {
-        "nota": 4
-      },
-      "cozinha": {
-        "nota": 3
-      },
-      "areaServico": {
-        "nota": 4
-      },
-      "quartosArmarios": {
-        "nota": 5
-      },
-      "pisoAcabamento": {
-        "nota": 4
-      },
-      "sacada": {
-        "nota": 4
-      },
-      "localizacao": {
-        "nota": 5
-      },
-      "custoBeneficio": {
-        "nota": 4
-      }
-    },
+    "avaliacoes": {},
     "visita": null,
     "createdAt": "2026-04-15T00:00:00.000Z"
   },
@@ -3769,42 +3304,8 @@
     "condSalaoFestas": false,
     "condChurrasqueira": false,
     "linkAnuncio": "https://www.chavesnamao.com.br/imovel/apartamento-a-venda-3-quartos-com-garagem-sc-florianopolis-coqueiros-112m2-RS800000/id-14310684/",
-    "status": "novo",
-    "avaliacoes": {
-      "estadoGeral": {
-        "nota": 4
-      },
-      "banheiroP": {
-        "nota": 3
-      },
-      "outrosBanheiros": {
-        "nota": 3
-      },
-      "cozinha": {
-        "nota": 4
-      },
-      "areaServico": {
-        "nota": 3
-      },
-      "quartosArmarios": {
-        "nota": 3
-      },
-      "pisoAcabamento": {
-        "nota": 4
-      },
-      "sacada": {
-        "nota": 2
-      },
-      "localizacao": {
-        "nota": 5
-      },
-      "elevador": {
-        "nota": 5
-      },
-      "custoBeneficio": {
-        "nota": 4
-      }
-    },
+    "status": "favorito",
+    "avaliacoes": {},
     "visita": null,
     "createdAt": "2026-04-15T00:00:00.000Z"
   }
