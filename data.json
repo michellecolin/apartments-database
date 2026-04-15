@@ -3426,6 +3426,9 @@
       },
       "sacada": {
         "nota": 2
+      },
+      "localizacao": {
+        "nota": 3
       }
     },
     "visita": null,
