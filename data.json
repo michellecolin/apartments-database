@@ -2934,7 +2934,11 @@
     "condChurrasqueira": false,
     "linkAnuncio": "https://www.chavesnamao.com.br/imovel/apartamento-a-venda-3-quartos-com-garagem-sc-sao-jose-campinas-113m2-RS850000/id-39012354/",
     "status": "novo",
-    "avaliacoes": {},
+    "avaliacoes": {
+      "estadoGeral": {
+        "nota": 5
+      }
+    },
     "visita": null,
     "createdAt": "2026-04-15T00:00:00.000Z"
   },
@@ -2989,7 +2993,7 @@
     "status": "novo",
     "avaliacoes": {
       "custoBeneficio": {
-        "nota": 3
+        "nota": 4
       },
       "estadoGeral": {
         "nota": 4
