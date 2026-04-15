@@ -1778,7 +1778,10 @@
         "comentario": ""
       }
     },
-    "visita": null,
+    "visita": {
+      "data": "2026-04-18",
+      "hora": "11:00"
+    },
     "createdAt": "2026-04-14T16:00:00.000Z"
   },
   {
@@ -3306,10 +3309,7 @@
     "linkAnuncio": "https://www.chavesnamao.com.br/imovel/apartamento-a-venda-3-quartos-com-garagem-sc-florianopolis-coqueiros-112m2-RS800000/id-14310684/",
     "status": "favorito",
     "avaliacoes": {},
-    "visita": {
-      "data": "2026-04-18",
-      "hora": "11:00"
-    },
+    "visita": null,
     "createdAt": "2026-04-15T00:00:00.000Z"
   }
 ]
