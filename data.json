@@ -3272,6 +3272,12 @@
       },
       "areaServico": {
         "nota": 4
+      },
+      "quartosArmarios": {
+        "nota": 4
+      },
+      "pisoAcabamento": {
+        "nota": 5
       }
     },
     "visita": null,
