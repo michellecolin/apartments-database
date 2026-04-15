@@ -3111,7 +3111,10 @@
         "nota": 4
       },
       "areaServico": {
-        "nota": 3
+        "nota": 4
+      },
+      "pisoAcabamento": {
+        "nota": 4
       }
     },
     "visita": null,
