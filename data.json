@@ -3072,6 +3072,9 @@
       },
       "elevador": {
         "nota": 5
+      },
+      "custoBeneficio": {
+        "nota": 0
       }
     },
     "visita": null,
