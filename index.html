@@ -114,6 +114,21 @@
   .checkbox-wrapper input[type="checkbox"] { 
     width: 18px; height: 18px; accent-color: var(--accent); cursor: pointer;
   }
+
+  .visit-badge { position: relative; }
+  .visit-badge .visit-tooltip {
+    visibility: hidden; opacity: 0;
+    position: absolute; bottom: calc(100% + 8px); left: 0;
+    background: #333; color: white; padding: 8px 12px; border-radius: 8px;
+    font-size: 14px; font-weight: 600; white-space: nowrap;
+    box-shadow: 0 4px 12px rgba(0,0,0,0.2); z-index: 10;
+    transition: opacity 0.2s, visibility 0.2s;
+  }
+  .visit-badge .visit-tooltip::after {
+    content: ''; position: absolute; top: 100%; left: 20px;
+    border: 6px solid transparent; border-top-color: #333;
+  }
+  .visit-badge:hover .visit-tooltip { visibility: visible; opacity: 1; }
 </style>
 </head>
 <body>
@@ -1045,6 +1060,17 @@ function ApartmentCard({ apt, onClick, onCompareToggle, isCompareSelected }) {
             padding: '3px 8px', borderRadius: 6, fontSize: 13, fontWeight: 700, fontFamily: 'var(--font-display)',
           }}>
             ★ {media.toFixed(1)}
+          </div>
+        )}
+        {apt.visita?.data && (
+          <div className="visit-badge" style={{
+              position: 'absolute', bottom: 10, left: 10, background: 'rgba(76, 175, 80, 0.95)', color: 'white',
+              padding: '3px 8px', borderRadius: 6, fontSize: 11, fontWeight: 600, display: 'flex', alignItems: 'center', gap: 4,
+            }}>
+            <span className="visit-tooltip">
+              📅 {apt.visita.data.split('-').reverse().join('/')}{apt.visita.hora ? ` às ${apt.visita.hora}` : ''}
+            </span>
+            📅 Visita agendada
           </div>
         )}
         <div style={{ position: 'absolute', bottom: 10, right: 10 }}
