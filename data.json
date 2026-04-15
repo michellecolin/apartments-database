@@ -3388,6 +3388,9 @@
       },
       "sacada": {
         "nota": 4
+      },
+      "localizacao": {
+        "nota": 5
       }
     },
     "visita": null,
