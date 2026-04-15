@@ -2890,7 +2890,10 @@
         "nota": 4
       },
       "cozinha": {
-        "nota": 0
+        "nota": 3
+      },
+      "areaServico": {
+        "nota": 4
       }
     },
     "visita": null,
