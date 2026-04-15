@@ -2841,6 +2841,12 @@
       },
       "quartosArmarios": {
         "nota": 4
+      },
+      "areaServico": {
+        "nota": 4
+      },
+      "pisoAcabamento": {
+        "nota": 4
       }
     },
     "visita": null,
