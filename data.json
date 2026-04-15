@@ -2896,7 +2896,10 @@
         "nota": 4
       },
       "pisoAcabamento": {
-        "nota": 4
+        "nota": 5
+      },
+      "sacada": {
+        "nota": 5
       }
     },
     "visita": null,
