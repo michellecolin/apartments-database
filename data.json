@@ -3257,7 +3257,11 @@
     "condChurrasqueira": false,
     "linkAnuncio": "https://www.chavesnamao.com.br/imovel/apartamento-a-venda-3-quartos-com-garagem-sc-florianopolis-capoeiras-107m2-RS869000/id-34812781/",
     "status": "novo",
-    "avaliacoes": {},
+    "avaliacoes": {
+      "estadoGeral": {
+        "nota": 5
+      }
+    },
     "visita": null,
     "createdAt": "2026-04-15T00:00:00.000Z"
   },
