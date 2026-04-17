@@ -431,7 +431,7 @@
     "condSalaoFestas": false,
     "condChurrasqueira": false,
     "linkAnuncio": "https://www.chavesnamao.com.br/imovel/cobertura-a-venda-3-quartos-com-garagem-sc-florianopolis-campeche-220m2-RS850000/id-36752278/?relatedAds=true",
-    "status": "rejeitado",
+    "status": "favorito",
     "avaliacoes": {
       "estadoGeral": {
         "nota": 0,
@@ -1839,7 +1839,7 @@
     "condSalaoFestas": false,
     "condChurrasqueira": false,
     "linkAnuncio": "https://www.imovelweb.com.br/propriedades/imoveis-em-carvoeira-3028304098.html",
-    "status": "rejeitado",
+    "status": "favorito",
     "avaliacoes": {
       "estadoGeral": {
         "nota": 0,
@@ -2367,7 +2367,7 @@
     "condSalaoFestas": false,
     "condChurrasqueira": false,
     "linkAnuncio": "https://sc.olx.com.br/florianopolis-e-regiao/imoveis/apartamento-com-3-dormitorios-no-itaguacu-1481388761",
-    "status": "favorito",
+    "status": "rejeitado",
     "avaliacoes": {
       "estadoGeral": {
         "nota": 0,
@@ -2588,10 +2588,7 @@
         "comentario": ""
       }
     },
-    "visita": {
-      "data": "2026-04-18",
-      "hora": "15:00"
-    },
+    "visita": null,
     "createdAt": "2026-04-14T16:00:00.000Z"
   },
   {
