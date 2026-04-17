@@ -2952,7 +2952,10 @@
     "linkAnuncio": "https://www.chavesnamao.com.br/imovel/apartamento-a-venda-3-quartos-com-garagem-sc-florianopolis-abraao-109m2-RS860000/id-38482936/",
     "status": "favorito",
     "avaliacoes": {},
-    "visita": null,
+    "visita": {
+      "data": "2026-04-18",
+      "hora": "11:00"
+    },
     "createdAt": "2026-04-15T00:00:00.000Z"
   },
   {
@@ -3320,57 +3323,5 @@
       "hora": "11:00"
     },
     "createdAt": "2026-04-15T00:00:00.000Z"
-  },
-  {
-    "id": "casa_campeche_960",
-    "fotos": [
-      "https://cdn.vistahost.com.br/cli37810/vista.imobi/fotos/1424/iO364682S81661_142466e1cd893f338.jpg",
-      "https://cdn.vistahost.com.br/cli37810/vista.imobi/fotos/1424/iMqc2_142466e48fdd99219.jpg",
-      "https://cdn.vistahost.com.br/cli37810/vista.imobi/fotos/1424/iO364682S81661_142466e1cd71b85c5.jpg",
-      "https://cdn.vistahost.com.br/cli37810/vista.imobi/fotos/1424/iO364682S81661_142466e1cd7db18aa.jpg",
-      "https://cdn.vistahost.com.br/cli37810/vista.imobi/fotos/1424/iO364682S81661_142466e1cd985e3b7.jpg",
-      "https://cdn.vistahost.com.br/cli37810/vista.imobi/fotos/1424/iO364682S81661_142466e1cda56cc24.jpg",
-      "https://cdn.vistahost.com.br/cli37810/vista.imobi/fotos/1424/iO364682S81661_142466e1cdb04052a.jpg",
-      "https://cdn.vistahost.com.br/cli37810/vista.imobi/fotos/1424/iO364682S81661_142466e1cdb9e0a7a.jpg",
-      "https://cdn.vistahost.com.br/cli37810/vista.imobi/fotos/1424/iO364682S81661_142466e1cdc378803.jpg",
-      "https://cdn.vistahost.com.br/cli37810/vista.imobi/fotos/1424/iO364682S81661_142466e1cdcf5566b.jpg",
-      "https://cdn.vistahost.com.br/cli37810/vista.imobi/fotos/1424/iO364682S81661_142466e1cdda31e9d.jpg",
-      "https://cdn.vistahost.com.br/cli37810/vista.imobi/fotos/1424/iO364682S81661_142466e1cde439973.jpg",
-      "https://cdn.vistahost.com.br/cli37810/vista.imobi/fotos/1424/iO364682S81661_142466e1ce32b0af6.jpg",
-      "https://cdn.vistahost.com.br/cli37810/vista.imobi/fotos/1424/iO364682S81661_142466e1ce3d2d5dd.jpg",
-      "https://cdn.vistahost.com.br/cli37810/vista.imobi/fotos/1424/iO364682S81661_142466e1ce45a2e39.jpg",
-      "https://cdn.vistahost.com.br/cli37810/vista.imobi/fotos/1424/iO364682S81661_142466e1ce4df064b.jpg",
-      "https://cdn.vistahost.com.br/cli37810/vista.imobi/fotos/1424/iO364682S81661_142466e1ce568652d.jpg",
-      "https://cdn.vistahost.com.br/cli37810/vista.imobi/fotos/1424/iO364682S81661_142466e1ce602f09b.jpg",
-      "https://cdn.vistahost.com.br/cli37810/vista.imobi/fotos/1424/iO364682S81661_142466e1ce6848a82.jpg",
-      "https://cdn.vistahost.com.br/cli37810/vista.imobi/fotos/1424/iO364682S81661_142466e1ce6f8876a.jpg",
-      "https://cdn.vistahost.com.br/cli37810/vista.imobi/fotos/1424/iO364682S81661_142466e1ce77cdc4f.jpg",
-      "https://cdn.vistahost.com.br/cli37810/vista.imobi/fotos/1424/iO364682S81661_142466e1ce805298e.jpg",
-      "https://cdn.vistahost.com.br/cli37810/vista.imobi/fotos/1424/iO364682S81661_142466e1ce8b7abae.jpg",
-      "https://cdn.vistahost.com.br/cli37810/vista.imobi/fotos/1424/iO364682S81661_142466e1ce9379e4c.jpg",
-      "https://cdn.vistahost.com.br/cli37810/vista.imobi/fotos/1424/iO364682S81661_142466e1ce9b0b6e0.jpg",
-      "https://cdn.vistahost.com.br/cli37810/vista.imobi/fotos/1424/iO364682S81661_142466e1cea31a205.jpg",
-      "https://cdn.vistahost.com.br/cli37810/vista.imobi/fotos/1424/iO364682S81661_142466e1ceaa82ac3.jpg"
-    ],
-    "endereco": "Campeche, Florianópolis",
-    "preco": 1190000,
-    "condominio": 0,
-    "iptu": 1000,
-    "quartos": 3,
-    "banheiros": 3,
-    "vagas": 2,
-    "area": 145,
-    "andar": null,
-    "sacada": true,
-    "elevador": false,
-    "churrasqueiraApt": true,
-    "condPiscina": false,
-    "condSalaoFestas": false,
-    "condChurrasqueira": false,
-    "linkAnuncio": "https://imoveis.novovista.com.br/?v2=a2V5PTMyNTdhOWJjOTkxNmJjOWMwM2NjN2MwY2FiYzg1ZDIxJmNvZD05NjAmZD00NCZjcz0xJm1hcGE9TmFvJmJhaXJyb19jb21lcmNpYWw9U2ltJmxvZ2luPW5hbyZzdGF0dXM9VmVuZGEmcHVycG9zZT0lNUIlMjJ2ZW5kYSUyMiU1RCZjb2RfZW09Mzc4MTAmYz0xMTczNg",
-    "status": "novo",
-    "avaliacoes": {},
-    "visita": null,
-    "createdAt": "2026-04-17T00:00:00.000Z"
   }
 ]
