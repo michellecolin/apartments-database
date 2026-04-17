@@ -222,9 +222,11 @@ const fmtNum = (v) => {
 };
 
 // ============================================================
-// GitHub API
+// GitHub API (with save queue to prevent race conditions)
 // ============================================================
 let fileSha = null;
+let _saveQueue = Promise.resolve();
+let _latestData = null;
 
 async function loadFromGitHub() {
   try {
@@ -244,7 +246,7 @@ async function loadFromGitHub() {
   }
 }
 
-async function saveToGitHub(data) {
+async function _doSaveToGitHub(data) {
   const token = getToken();
   if (!token) return 'no_token';
   try {
@@ -286,6 +288,19 @@ async function saveToGitHub(data) {
     console.error('Erro ao salvar no GitHub:', e);
     return false;
   }
+}
+
+// Queued save: serializes writes and always saves the latest data
+function saveToGitHub(data) {
+  _latestData = data;
+  _saveQueue = _saveQueue.then(async () => {
+    // Always save the most recent version of data, not stale closures
+    const dataToSave = _latestData;
+    _latestData = null;
+    if (!dataToSave) return true; // another queued save already handled it
+    return await _doSaveToGitHub(dataToSave);
+  });
+  return _saveQueue;
 }
 
 // ============================================================
@@ -1211,8 +1226,13 @@ function App() {
     });
   }, []);
 
+  // Ref to always have the latest apartments state (avoids stale closures)
+  const apartmentsRef = React.useRef(apartments);
+  React.useEffect(() => { apartmentsRef.current = apartments; }, [apartments]);
+
   const persist = async (newData) => {
     setApartments(newData);
+    apartmentsRef.current = newData;
     setSaving(true);
     const result = await saveToGitHub(newData);
     setSaving(false);
@@ -1261,9 +1281,11 @@ function App() {
       return { ...a, avaliacoes: { ...a.avaliacoes, [catKey]: { ...a.avaliacoes[catKey], comentario } } };
     });
     setApartments(next);
+    apartmentsRef.current = next;
   };
 
-  const saveComments = () => persist(apartments);
+  // Uses ref to always persist the latest state, not a stale closure
+  const saveComments = () => persist(apartmentsRef.current);
 
   const handleVisitChange = (id, visita) => {
     const next = apartments.map(a => a.id === id ? { ...a, visita } : a);
