@@ -2588,7 +2588,10 @@
         "comentario": ""
       }
     },
-    "visita": null,
+    "visita": {
+      "data": "2026-04-18",
+      "hora": "15:00"
+    },
     "createdAt": "2026-04-14T16:00:00.000Z"
   },
   {
